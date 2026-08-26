@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-08-26T12:08:21.569-04:00",
+  "generated_at": "2026-08-26T13:12:54.627-04:00",
   "run_type": "intraday",
   "bot_version": "2.8",
   "timezone": "America/New_York",
   "quote": {
     "symbol": "TSLA",
-    "last": 344.165,
-    "mark": 344.165,
-    "bid": 344.11,
-    "ask": 344.22,
+    "last": 344.96,
+    "mark": 344.96,
+    "bid": 344.93,
+    "ask": 344.99,
     "previous_close": 350.25,
     "mark_stale": false,
-    "quote_time": "2026-08-26T12:08:23.128-04:00",
+    "quote_time": "2026-08-26T13:12:55.324-04:00",
     "mark_source": "live"
   },
   "vix": {
     "symbol": "$VIX",
-    "last": 15.57,
+    "last": 15.55,
     "mark": null,
     "bid": null,
     "ask": null,
@@ -25,18 +25,18 @@
     "quote_time": null
   },
   "expected_move": {
-    "spot": 344.165,
-    "vix": 15.57,
+    "spot": 344.96,
+    "vix": 15.55,
     "atm_straddle": null,
     "atm_straddle_near_term": null,
     "vix_implied": {
       "source": "vix",
-      "one_day": 3.3756,
-      "one_day_pct": 0.9808,
-      "five_day": 7.5481,
-      "five_day_pct": 2.1932,
-      "twenty_one_day": 15.4691,
-      "twenty_one_day_pct": 4.4947
+      "one_day": 3.3791,
+      "one_day_pct": 0.9796,
+      "five_day": 7.5559,
+      "five_day_pct": 2.1904,
+      "twenty_one_day": 15.4849,
+      "twenty_one_day_pct": 4.4889
     }
   },
   "recent_sessions": null,
