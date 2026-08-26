@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-08-26T04:29:31.155-04:00",
+  "run_type": "premarket",
+  "bot_version": "2.8",
+  "timezone": "America/New_York",
+  "quote": {
+    "symbol": "TSLA",
+    "last": 350.01,
+    "mark": 350.2,
+    "bid": 350.0,
+    "ask": 350.2,
+    "previous_close": 350.25,
+    "mark_stale": false,
+    "quote_time": "2026-08-26T04:29:28.989-04:00",
+    "mark_source": "prior_close"
+  },
+  "vix": {
+    "symbol": "$VIX",
+    "last": 15.68,
+    "mark": null,
+    "bid": null,
+    "ask": null,
+    "previous_close": 15.45,
+    "mark_stale": false,
+    "quote_time": null
+  },
+  "expected_move": {
+    "spot": 350.01,
+    "vix": 15.68,
+    "atm_straddle": {
+      "source": "atm_straddle",
+      "expiry": "2026-08-26",
+      "dte": 0,
+      "atm_strike": 350.0,
+      "call_mark": 3.25,
+      "put_mark": 3.03,
+      "straddle": 6.28,
+      "pct": 1.79
+    },
+    "atm_straddle_near_term": {
+      "source": "atm_straddle",
+      "expiry": "2026-09-02",
+      "dte": 7,
+      "atm_strike": 350.0,
+      "call_mark": 8.45,
+      "put_mark": 7.88,
+      "straddle": 16.33,
+      "pct": 4.67,
+      "lower": 333.68,
+      "upper": 366.34,
+      "atm_iv": 39.0
+    },
+    "vix_implied": {
+      "source": "vix",
+      "one_day": 3.4572,
+      "one_day_pct": 0.9877,
+      "five_day": 7.7306,
+      "five_day_pct": 2.2087,
+      "twenty_one_day": 15.8429,
+      "twenty_one_day_pct": 4.5264
+    }
+  },
+  "recent_sessions": [
+    {
+      "date": "2026-08-19",
+      "decisions": 20,
+      "legs": 152,
+      "contracts": 2494,
+      "ping_pong_legs": 6,
+      "ping_pong_decisions": 6,
+      "cycles_legs": 33,
+      "cycles_decisions": 3,
+      "contracts_opened_0_1_dte": 1030
+    },
+    {
+      "date": "2026-08-20",
+      "decisions": 7,
+      "legs": 57,
+      "contracts": 568,
+      "ping_pong_legs": 0,
+      "ping_pong_decisions": 0,
+      "cycles_legs": 13,
+      "cycles_decisions": 1,
+      "contracts_opened_0_1_dte": 344
+    },
+    {
+      "date": "2026-08-21",
+      "decisions": 35,
+      "legs": 284,
+      "contracts": 5300,
+      "ping_pong_legs": 17,
+      "ping_pong_decisions": 12,
+      "cycles_legs": 27,
+      "cycles_decisions": 5,
+      "contracts_opened_0_1_dte": 2020
+    },
+    {
+      "date": "2026-08-24",
+      "decisions": 24,
+      "legs": 142,
+      "contracts": 2366,
+      "ping_pong_legs": 13,
+      "ping_pong_decisions": 7,
+      "cycles_legs": 21,
+      "cycles_decisions": 5,
+      "contracts_opened_0_1_dte": 850
+    },
+    {
+      "date": "2026-08-25",
+      "decisions": 3,
+      "legs": 28,
+      "contracts": 380,
+      "ping_pong_legs": 3,
+      "ping_pong_decisions": 0,
+      "cycles_legs": 6,
+      "cycles_decisions": 0,
+      "contracts_opened_0_1_dte": 50
+    }
+  ],
+  "realized_vol_30d": 58.93,
+  "prior_session": {
+    "date": "2026-08-25",
+    "open": 349.58,
+    "high": 357.0,
+    "low": 349.2003,
+    "close": 350.25,
+    "move_pct": 0.37,
+    "range_pct": 2.23,
+    "gap_pct": 0.18
+  },
+  "range_5d_avg_pct": 3.79,
+  "momentum": {
+    "m5": 3.97,
+    "m10": 5.24,
+    "m50": -13.82,
+    "m100": -8.13,
+    "m200": -24.2,
+    "up_count": 2
+  }
+}
