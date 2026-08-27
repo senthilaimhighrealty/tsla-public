@@ -1,11 +1,17 @@
 {
-  "next_slot": 2,
+  "next_slot": 3,
   "used": [
     {
       "slot": "test_001.json",
       "date": "2026-08-27",
       "change": "v4.1 publish derived",
       "source": "activity_1630.json rebuilt from 2026-08-26 close"
+    },
+    {
+      "slot": "test_002.json",
+      "date": "2026-08-27",
+      "change": "v5.0 09:58 replay from 2026-08-26",
+      "source": "replay_0958_20260826.py from 0429 book + 1015/1605 txs + tsla_1min.csv"
     }
   ]
 }
