@@ -1,6 +1,6 @@
 {
   "session_date": "2026-08-27",
-  "next_slot": 10,
+  "next_slot": 11,
   "used": [
     {
       "slot": "snap_01.json",
@@ -62,6 +62,13 @@
       "slot": "snap_09.json",
       "time": "15:30",
       "spot": 354.78,
+      "positions": 68,
+      "working": 1
+    },
+    {
+      "slot": "snap_10.json",
+      "time": "15:32",
+      "spot": 355.092,
       "positions": 68,
       "working": 1
     }
