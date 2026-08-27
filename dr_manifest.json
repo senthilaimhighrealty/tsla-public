@@ -1,10 +1,11 @@
 {
   "session_date": "2026-08-27",
-  "generated_at": "2026-08-27T16:42:17.972019-04:00",
+  "generated_at": "2026-08-27T17:15:58.566599-04:00",
   "files": {
     "market.json": {
       "next_slot": 1,
-      "last_written": 5,
+      "last_slot": 5,
+      "last_written": "16:40",
       "slots_used_today": [
         1,
         2,
@@ -15,7 +16,8 @@
     },
     "activity.json": {
       "next_slot": 1,
-      "last_written": 5,
+      "last_slot": 5,
+      "last_written": "16:41",
       "slots_used_today": [
         1,
         2,
@@ -26,7 +28,8 @@
     },
     "snap_manifest.json": {
       "next_slot": 3,
-      "last_written": 2,
+      "last_slot": 2,
+      "last_written": "17:15",
       "slots_used_today": [
         1,
         2,
@@ -37,28 +40,40 @@
     },
     "test_manifest.json": {
       "next_slot": 2,
-      "last_written": 1,
+      "last_slot": 1,
+      "last_written": "17:15",
       "slots_used_today": [
         1
       ]
     },
     "backfill_60d_decisions.json": {
       "next_slot": 2,
-      "last_written": 1,
+      "last_slot": 1,
+      "last_written": "20:32",
       "slots_used_today": [
         1
       ]
     },
     "backfill_60d_bars_2026-07.json": {
       "next_slot": 2,
-      "last_written": 1,
+      "last_slot": 1,
+      "last_written": "20:32",
       "slots_used_today": [
         1
       ]
     },
     "backfill_60d_bars_2026-08.json": {
       "next_slot": 2,
-      "last_written": 1,
+      "last_slot": 1,
+      "last_written": "20:32",
+      "slots_used_today": [
+        1
+      ]
+    },
+    "tsla_1min.csv": {
+      "next_slot": 2,
+      "last_slot": 1,
+      "last_written": "17:15",
       "slots_used_today": [
         1
       ]
