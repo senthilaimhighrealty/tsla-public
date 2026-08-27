@@ -1,0 +1,47 @@
+{
+  "next_slot": 8,
+  "used": [
+    {
+      "slot": "test_001.json",
+      "date": "2026-08-27",
+      "change": "v4.1 publish derived",
+      "source": "activity_1630.json rebuilt from 2026-08-26 close"
+    },
+    {
+      "slot": "test_002.json",
+      "date": "2026-08-27",
+      "change": "v5.0 09:58 replay from 2026-08-26",
+      "source": "replay_0958_20260826.py from 0429 book + 1015/1605 txs + tsla_1min.csv"
+    },
+    {
+      "slot": "test_003.json",
+      "date": "2026-08-27",
+      "change": "byte-copy settled activity.json (BUG 003 unread slot; GET-only, counters unchanged)",
+      "source": "/workspace/tsla_bot_data/activity.json generated_at 2026-08-27T16:41:37-04:00"
+    },
+    {
+      "slot": "test_004.json",
+      "date": "2026-08-27",
+      "change": "byte-copy settled market.json (BUG 003 unread slot; GET-only, counters unchanged)",
+      "source": "/workspace/tsla_bot_data/intraday/market.json"
+    },
+    {
+      "slot": "test_005.json",
+      "date": "2026-08-27",
+      "change": "JSON extract last 30 rows of tsla_1min.csv (not whole CSV; no walks)",
+      "source": "/workspace/tsla_bot_data/tsla_1min.csv last 30 rows session_date 2026-08-27"
+    },
+    {
+      "slot": "test_006.json",
+      "date": "2026-08-27",
+      "change": "cycles investigation walks+definitions+answers+60d+conclusion (GET-only, counters unchanged)",
+      "source": "decisions.py cycles_from_legs/cycles_from_decisions on internal/latest.json 16:40 ET + backfill_60d_decisions.json + activity.json 08-27"
+    },
+    {
+      "slot": "test_007.json",
+      "date": "2026-08-27",
+      "change": "BUG 004 settled rebuild: H1 1500/warn 1000, up_momenta>=3, unify expected_loss=balance_line per_leg_expected_loss, risk_curve_all not null when n_zero=0, fill day_pnl_track.tsla from minute_bars",
+      "source": "internal/latest.json 2026-08-27T16:40:54.523-04:00 via activity.py frozen generated_at 2026-08-27T16:41:37-04:00; GET-only; counters/day_pnl/SOD/minute_bars unchanged"
+    }
+  ]
+}
