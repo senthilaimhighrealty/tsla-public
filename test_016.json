@@ -1,0 +1,52 @@
+{
+  "kind": "schedule_extract",
+  "job": "Schwab intraday hourly",
+  "cron": "0 10-15 * * 1-5",
+  "pipeline": "test",
+  "session_date": "2026-08-27",
+  "run_type": "intraday",
+  "generated_at": "2026-08-27T15:08:52.922-04:00",
+  "run_time_label": "1508",
+  "minutes_into_session": 338,
+  "quote": {
+    "symbol": "TSLA",
+    "last": 354.96,
+    "mark": 354.96,
+    "bid": 354.92,
+    "ask": 355.0,
+    "previous_close": 345.82,
+    "open": 346.155,
+    "high": 355.74,
+    "low": 345.45,
+    "mark_stale": false,
+    "quote_time": "2026-08-27T15:08:53.514-04:00"
+  },
+  "vix": {
+    "symbol": "$VIX",
+    "last": 14.61,
+    "previous_close": 15.21,
+    "mark_stale": false
+  },
+  "counters": {
+    "as_of": "2026-08-27T15:08:52.922-04:00",
+    "decisions": 20,
+    "legs": 119,
+    "fills": 119,
+    "contracts_traded": 1360,
+    "contracts_opened": 790,
+    "contracts_closed": 570,
+    "contracts_opened_0_1_dte": 570,
+    "ping_pong_legs": 3,
+    "ping_pong_decisions": 3,
+    "cycles_legs": 27,
+    "cycles_decisions": 1,
+    "orders_placed": 29,
+    "orders_cancelled": 0,
+    "orders_rejected": 1,
+    "distinct_expiries_touched": 4,
+    "first_decision_time": "2026-08-27T10:19:55.000-04:00",
+    "last_decision_time": "2026-08-27T14:55:20.000-04:00"
+  },
+  "prod_url_hint": "activity_1500.json clock slot (hourly on the hour); live activity.json overwritten",
+  "dr_family": "activity.json"
+}
