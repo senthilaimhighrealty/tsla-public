@@ -1,0 +1,53 @@
+{
+  "kind": "schedule_extract",
+  "job": "Activity 10-min refresh",
+  "cron": "*/10 9-16 * * 1-5",
+  "pipeline": "test",
+  "session_date": "2026-08-27",
+  "generated_at": "2026-08-27T16:41:37-04:00",
+  "session_status": "closed",
+  "minutes_into_session": 390,
+  "minute_bars_n": 390,
+  "counters": {
+    "decisions": 25,
+    "legs": 137,
+    "fills": 137,
+    "contracts_traded": 1614,
+    "contracts_opened": 838,
+    "contracts_closed": 776,
+    "contracts_opened_0_1_dte": 570,
+    "ping_pong_legs": 5,
+    "ping_pong_decisions": 5,
+    "cycles_legs": 32,
+    "cycles_decisions": 3,
+    "distinct_expiries_touched": 5,
+    "first_decision_time": "2026-08-27T10:19:55.000-04:00",
+    "last_decision_time": "2026-08-27T15:51:55.000-04:00",
+    "replaces_per_fill": 0.3
+  },
+  "quote_last": null,
+  "session": {
+    "date": "2026-08-27",
+    "open": 346.155,
+    "high": 355.74,
+    "low": 345.45,
+    "last": 354.6143,
+    "previous_close": 345.82,
+    "gap_pct": 0.1,
+    "range_pct_from_open": 2.97,
+    "high_low_source": "session_cumulative",
+    "first_15min_high": 350.75,
+    "first_15min_low": 345.45,
+    "first_15min_range_pct": 1.53,
+    "minutes_of_bars": 390
+  },
+  "gate": {
+    "verdict": "YELLOW",
+    "families_firing": 2,
+    "families_max": 4,
+    "gate_signal_set_version": "v6_eight",
+    "hard_rules_breached": 1
+  },
+  "prod_url_hint": "activity.json plus clock slot activity_HHMM.json",
+  "dr_family": "activity.json"
+}
