@@ -1,5 +1,5 @@
 {
-  "next_slot": 8,
+  "next_slot": 9,
   "used": [
     {
       "slot": "test_001.json",
@@ -42,6 +42,12 @@
       "date": "2026-08-27",
       "change": "BUG 004 settled rebuild: H1 1500/warn 1000, up_momenta>=3, unify expected_loss=balance_line per_leg_expected_loss, risk_curve_all not null when n_zero=0, fill day_pnl_track.tsla from minute_bars",
       "source": "internal/latest.json 2026-08-27T16:40:54.523-04:00 via activity.py frozen generated_at 2026-08-27T16:41:37-04:00; GET-only; counters/day_pnl/SOD/minute_bars unchanged"
+    },
+    {
+      "slot": "test_008.json",
+      "date": "2026-08-27",
+      "change": "BUG 004 expected_loss unify: totals from per_leg_expected_loss same as balance_line/shorts; iv_source equal; side-by-side per-leg table. Gate stays on test_007 (not overwritten).",
+      "source": "internal/latest.json settled 16:40 via activity.py frozen 16:41:37; GET-only"
     }
   ]
 }
