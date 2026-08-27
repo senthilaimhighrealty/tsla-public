@@ -1,6 +1,6 @@
 {
   "session_date": "2026-08-27",
-  "generated_at": "2026-08-27T14:18:42.494001-04:00",
+  "generated_at": "2026-08-27T14:20:12.643085-04:00",
   "files": {
     "market.json": {
       "next_slot": 2,
@@ -24,6 +24,27 @@
       ]
     },
     "test_manifest.json": {
+      "next_slot": 2,
+      "last_written": 1,
+      "slots_used_today": [
+        1
+      ]
+    },
+    "backfill_60d_decisions.json": {
+      "next_slot": 2,
+      "last_written": 1,
+      "slots_used_today": [
+        1
+      ]
+    },
+    "backfill_60d_bars_2026-07.json": {
+      "next_slot": 2,
+      "last_written": 1,
+      "slots_used_today": [
+        1
+      ]
+    },
+    "backfill_60d_bars_2026-08.json": {
       "next_slot": 2,
       "last_written": 1,
       "slots_used_today": [
