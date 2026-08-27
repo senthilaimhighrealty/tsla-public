@@ -1,0 +1,524 @@
+{
+  "generated_at": "2026-08-27T13:34:47.964-04:00",
+  "session_date": "2026-08-27",
+  "snapshot_time": "13:34",
+  "slot": "snap_02.json",
+  "source": "schwab api",
+  "trigger": "s",
+  "block": "=SNAP 2026-08-27 13:34 API\nTSLA 354.21 +2.43% PREV 345.82\nAV 849174 BP 73074 CASH 891939 PL +4897 +0.58%\n=POS\n1 P 335 -140 0.085\n1 P 325 +100 0.035\n1 P 320 +40 0.025\n1 C 380 +20 0.055\n1 C 365 -20 0.655\n4 P 330 -40 0.2\n4 P 300 +40 0.06\n4 C 390 +40 0.11\n4 C 370 -40 0.89\n6 P 300 -20 0.09\n6 P 290 +20 0.075\n6 C 395 +40 0.29\n6 C 380 -40 0.875\n8 P 280 -30 0.09\n8 P 250 +30 0.045\n8 C 450 +30 0.09\n8 C 420 -30 0.195\n13 P 320 -30 1.005\n13 P 290 +30 0.2\n13 C 430 +30 0.25\n13 C 410 -30 0.535\n15 P 310 -20 0.74\n15 P 280 +20 0.185\n15 C 430 +30 0.38\n15 C 400 -30 1.245\n22 P 250 -2 0.185\n22 P 150 +2 0.03\n22 C 480 +2 0.3\n22 C 400 -2 2.425\n85 P 250 -2 2.11\n85 P 150 +2 0.315\n85 C 800 +2 0.425\n85 C 700 -2 0.655\n113 P 300 -2 11.25\n113 P 260 +2 4.2\n113 C 670 +2 1.31\n113 C 600 -2 2.11\n141 P 250 -2 4.5\n141 P 100 +2 0.265\n141 C 600 +2 3.175\n141 C 500 -2 7.875\n204 P 250 -1 8.15\n204 P 100 +1 0.465\n204 C 850 +1 1.965\n204 C 700 -1 3.825\n294 P 300 -2 28.125\n294 P 200 +2 5.375\n294 C 800 +2 5.575\n294 C 700 -2 8.375\n386 P 300 -2 34.8\n386 P 200 +2 8.025\n386 C 800 +2 9.775\n386 C 700 -2 13.975\n477 P 300 -1 40.675\n477 P 100 +1 1.45\n477 C 900 +1 10.925\n477 C 700 -1 20.2\n512 P 250 -1 24.025\n512 P 50 +1 0.39\n512 C 900 +1 12.425\n512 C 700 -1 22.5\n659 C 900 +1 20.5\n659 C 700 -1 33.725\n841 P 150 -1 9.775\n841 P 50 +1 0.8\n841 C 850 +1 33.925\n841 C 750 -1 41.775\nSTK +1 354.21\n=ORDERS\nW 1201 B 375C/370C 40 0.25\nF 1019 S 335P/310P 20 0.26\nF 1020 B 280P/310P 20 0.03\nF 1026 S 335P/330P 20 0.11\nF 1027 S 335P/320P 40 0.16\nF 1112 B 400C/380C 20 0.06\nF 1114 B 310P/325P 40 0.03\nF 1115 S 335P/325P 60 0.14\nF 1118 B 410C/395C 40 0.19\nF 1245 S 330P/320P 40 0.15\nF 1252 B 290P/310P 20 0.08\nF 1253 S 325P/310P 20 0.31\nF 1300 B 300P/325P 20 0.36\n=COUNTS\nplaced 13 filled 12 working 1 cancelled 0 replaced 0 rejected 0\nfill_rate 92.3 replaces_per_fill 0.0\n=END",
+  "live": {
+    "as_of": "2026-08-27T13:34:47.964-04:00",
+    "tsla": {
+      "last": 354.2099,
+      "bid": 354.11,
+      "ask": 354.21,
+      "previous_close": 345.82,
+      "move_pct": 2.43,
+      "day_high": 355.62,
+      "day_low": 345.45,
+      "volume": 18910855
+    },
+    "vix": {
+      "last": 14.65,
+      "previous_close": 15.21
+    }
+  },
+  "chain_marks": {
+    "as_of": "2026-08-27T13:34:52.990-04:00",
+    "strikes": [
+      {
+        "expiry": "2026-08-28",
+        "dte": 1,
+        "side": "P",
+        "strike": 320,
+        "bid": 0.02,
+        "ask": 0.03,
+        "mark": 0.03,
+        "iv": 73.0,
+        "volume": 1200,
+        "oi": 3781
+      },
+      {
+        "expiry": "2026-08-28",
+        "dte": 1,
+        "side": "P",
+        "strike": 325,
+        "bid": 0.03,
+        "ask": 0.04,
+        "mark": 0.04,
+        "iv": 65.6,
+        "volume": 1574,
+        "oi": 3350
+      },
+      {
+        "expiry": "2026-08-28",
+        "dte": 1,
+        "side": "P",
+        "strike": 335,
+        "bid": 0.08,
+        "ask": 0.09,
+        "mark": 0.09,
+        "iv": 51.1,
+        "volume": 7861,
+        "oi": 4417
+      },
+      {
+        "expiry": "2026-08-28",
+        "dte": 1,
+        "side": "C",
+        "strike": 365,
+        "bid": 0.65,
+        "ask": 0.66,
+        "mark": 0.66,
+        "iv": 49.1,
+        "volume": 38471,
+        "oi": 17249
+      },
+      {
+        "expiry": "2026-08-28",
+        "dte": 1,
+        "side": "C",
+        "strike": 380,
+        "bid": 0.05,
+        "ask": 0.06,
+        "mark": 0.06,
+        "iv": 57.3,
+        "volume": 13763,
+        "oi": 22532
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 4,
+        "side": "P",
+        "strike": 300,
+        "bid": 0.05,
+        "ask": 0.07,
+        "mark": 0.06,
+        "iv": 65.1,
+        "volume": 94,
+        "oi": 423
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 4,
+        "side": "P",
+        "strike": 330,
+        "bid": 0.19,
+        "ask": 0.21,
+        "mark": 0.2,
+        "iv": 37.5,
+        "volume": 781,
+        "oi": 1111
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 4,
+        "side": "C",
+        "strike": 370,
+        "bid": 0.87,
+        "ask": 0.91,
+        "mark": 0.89,
+        "iv": 36.2,
+        "volume": 3988,
+        "oi": 3490
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 4,
+        "side": "C",
+        "strike": 375,
+        "bid": 0.47,
+        "ask": 0.5,
+        "mark": 0.49,
+        "iv": 37.3,
+        "volume": 1167,
+        "oi": 978
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 4,
+        "side": "C",
+        "strike": 390,
+        "bid": 0.1,
+        "ask": 0.12,
+        "mark": 0.11,
+        "iv": 43.2,
+        "volume": 253,
+        "oi": 1016
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 6,
+        "side": "P",
+        "strike": 290,
+        "bid": 0.05,
+        "ask": 0.1,
+        "mark": 0.08,
+        "iv": 64.7,
+        "volume": 20,
+        "oi": 47
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 6,
+        "side": "P",
+        "strike": 300,
+        "bid": 0.08,
+        "ask": 0.1,
+        "mark": 0.09,
+        "iv": 56.2,
+        "volume": 43,
+        "oi": 214
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 6,
+        "side": "C",
+        "strike": 380,
+        "bid": 0.86,
+        "ask": 0.89,
+        "mark": 0.88,
+        "iv": 41.5,
+        "volume": 856,
+        "oi": 672
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 6,
+        "side": "C",
+        "strike": 395,
+        "bid": 0.28,
+        "ask": 0.3,
+        "mark": 0.29,
+        "iv": 45.9,
+        "volume": 60,
+        "oi": 163
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 8,
+        "side": "P",
+        "strike": 250,
+        "bid": 0.04,
+        "ask": 0.05,
+        "mark": 0.05,
+        "iv": 86.6,
+        "volume": 4,
+        "oi": 562
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 8,
+        "side": "P",
+        "strike": 280,
+        "bid": 0.08,
+        "ask": 0.1,
+        "mark": 0.09,
+        "iv": 66.5,
+        "volume": 322,
+        "oi": 3686
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 8,
+        "side": "C",
+        "strike": 420,
+        "bid": 0.19,
+        "ask": 0.2,
+        "mark": 0.2,
+        "iv": 54.1,
+        "volume": 359,
+        "oi": 1084
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 8,
+        "side": "C",
+        "strike": 450,
+        "bid": 0.08,
+        "ask": 0.1,
+        "mark": 0.09,
+        "iv": 65.3,
+        "volume": 68,
+        "oi": 741
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 13,
+        "side": "P",
+        "strike": 290,
+        "bid": 0.18,
+        "ask": 0.22,
+        "mark": 0.2,
+        "iv": 50.5,
+        "volume": 15,
+        "oi": 51
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 13,
+        "side": "P",
+        "strike": 320,
+        "bid": 0.96,
+        "ask": 1.05,
+        "mark": 1.0,
+        "iv": 39.5,
+        "volume": 26,
+        "oi": 45
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 13,
+        "side": "C",
+        "strike": 410,
+        "bid": 0.5,
+        "ask": 0.57,
+        "mark": 0.53,
+        "iv": 44.3,
+        "volume": 18,
+        "oi": 69
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 13,
+        "side": "C",
+        "strike": 430,
+        "bid": 0.23,
+        "ask": 0.27,
+        "mark": 0.25,
+        "iv": 49.1,
+        "volume": 9,
+        "oi": 63
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 15,
+        "side": "P",
+        "strike": 280,
+        "bid": 0.17,
+        "ask": 0.2,
+        "mark": 0.19,
+        "iv": 53.5,
+        "volume": 1010,
+        "oi": 1247
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 15,
+        "side": "P",
+        "strike": 310,
+        "bid": 0.73,
+        "ask": 0.75,
+        "mark": 0.74,
+        "iv": 42.3,
+        "volume": 200,
+        "oi": 789
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 15,
+        "side": "C",
+        "strike": 400,
+        "bid": 1.22,
+        "ask": 1.27,
+        "mark": 1.25,
+        "iv": 43.0,
+        "volume": 991,
+        "oi": 6563
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 15,
+        "side": "C",
+        "strike": 430,
+        "bid": 0.37,
+        "ask": 0.39,
+        "mark": 0.38,
+        "iv": 48.9,
+        "volume": 9,
+        "oi": 996
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 22,
+        "side": "P",
+        "strike": 150,
+        "bid": 0.02,
+        "ask": 0.04,
+        "mark": 0.03,
+        "iv": 118.4,
+        "volume": 3,
+        "oi": 4086
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 22,
+        "side": "P",
+        "strike": 250,
+        "bid": 0.17,
+        "ask": 0.2,
+        "mark": 0.19,
+        "iv": 62.6,
+        "volume": 629,
+        "oi": 9473
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 22,
+        "side": "C",
+        "strike": 400,
+        "bid": 2.4,
+        "ask": 2.45,
+        "mark": 2.42,
+        "iv": 42.6,
+        "volume": 5780,
+        "oi": 24948
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 22,
+        "side": "C",
+        "strike": 480,
+        "bid": 0.29,
+        "ask": 0.31,
+        "mark": 0.3,
+        "iv": 56.6,
+        "volume": 40,
+        "oi": 5846
+      }
+    ]
+  },
+  "term_structure": [
+    {
+      "expiry": "2026-08-28",
+      "dte": 1,
+      "atm_iv": 46.1
+    },
+    {
+      "expiry": "2026-08-31",
+      "dte": 4,
+      "atm_iv": 34.2
+    },
+    {
+      "expiry": "2026-09-02",
+      "dte": 6,
+      "atm_iv": 38.5
+    },
+    {
+      "expiry": "2026-09-04",
+      "dte": 8,
+      "atm_iv": 41.5
+    },
+    {
+      "expiry": "2026-09-09",
+      "dte": 13,
+      "atm_iv": 38.8
+    },
+    {
+      "expiry": "2026-09-11",
+      "dte": 15,
+      "atm_iv": 39.7
+    },
+    {
+      "expiry": "2026-09-18",
+      "dte": 22,
+      "atm_iv": 38.5
+    },
+    {
+      "expiry": "2026-09-25",
+      "dte": 29,
+      "atm_iv": 38.5
+    },
+    {
+      "expiry": "2026-10-02",
+      "dte": 36,
+      "atm_iv": 39.1
+    },
+    {
+      "expiry": "2026-10-09",
+      "dte": 43,
+      "atm_iv": 39.1
+    }
+  ],
+  "next_earnings": null,
+  "market_holidays_next_30d": [
+    "2026-09-07"
+  ],
+  "warnings": [
+    "next_earnings unknown (no date on file)",
+    "Schwab current-initial PL=4896.92",
+    "trimmed chain_marks ladders for size (426 -> 30)"
+  ],
+  "checks": {
+    "option_position_lines": 67,
+    "api_option_positions": 67,
+    "stock_line_present": true,
+    "api_stock_positions": 1,
+    "block_lines": 90,
+    "orders_omitted": 0,
+    "non_tsla_excluded": 0,
+    "order_lines": 13,
+    "orders_placed": 13,
+    "working": 1,
+    "signs_balance": true,
+    "chain_strikes": 30,
+    "held_strikes_covered": true,
+    "working_strikes_covered": true,
+    "elapsed_seconds": 4.568
+  },
+  "pl_reconciliation": {
+    "session_open_account_value": 844277.43,
+    "av": 849174,
+    "pl": 4897,
+    "schwab_current_minus_initial": 4896.92
+  },
+  "qty_source": "longQuantity - shortQuantity (collector quantity is already signed; used when raw long/short absent)",
+  "mark_formula": "marketValue / (signed qty * 100), 3 decimals, not averagePrice",
+  "ocr_fallback_selected": false,
+  "api_timings": {
+    "linked_accounts": 0.415,
+    "account": 0.248,
+    "orders": 0.407,
+    "quotes": 0.19,
+    "transactions": 0.443,
+    "option_chains": 3.28
+  },
+  "latest_fallback_calls": [],
+  "dropped_cx": false,
+  "overwrite": false,
+  "helpers_dir": "/tmp/snap_helpers_173447_1325683",
+  "asset_types_seen": {
+    "OPTION": 67,
+    "EQUITY": 1
+  },
+  "dte_659": [
+    {
+      "expiry": "2028-06-16",
+      "dte": 659,
+      "side": "C",
+      "strike": 900.0,
+      "qty": 1.0,
+      "symbol": "TSLA  280616C00900000",
+      "assetType": "OPTION"
+    },
+    {
+      "expiry": "2028-06-16",
+      "dte": 659,
+      "side": "C",
+      "strike": 700.0,
+      "qty": -1.0,
+      "symbol": "TSLA  280616C00700000",
+      "assetType": "OPTION"
+    }
+  ],
+  "parsed_block_dte_659": [
+    "659 C 900 +1 20.5",
+    "659 C 700 -1 33.725"
+  ],
+  "parsed_block_dte_15": [
+    "15 P 310 -20 0.74",
+    "15 P 280 +20 0.185",
+    "15 C 430 +30 0.38",
+    "15 C 400 -30 1.245"
+  ]
+}
