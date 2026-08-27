@@ -1,0 +1,59 @@
+{
+  "kind": "schedule_extract",
+  "job": "Schwab intraday premarket",
+  "cron": "0 7 * * 1-5",
+  "pipeline": "test",
+  "session_date": "2026-08-27",
+  "run_type": "premarket",
+  "generated_at": "2026-08-27T07:08:50.187-04:00",
+  "run_time_label": "0708",
+  "market_hours": {
+    "date": "2026-08-27",
+    "equity_open": true,
+    "session_start": "09:30",
+    "session_end": "16:00"
+  },
+  "quote": {
+    "symbol": "TSLA",
+    "last": 347.255,
+    "mark": 347.12,
+    "bid": 347.12,
+    "ask": 347.39,
+    "previous_close": 345.82,
+    "open": 345.27,
+    "high": 351.93,
+    "low": 342.53,
+    "mark_stale": false,
+    "quote_time": "2026-08-27T07:08:48.814-04:00"
+  },
+  "vix": {
+    "symbol": "$VIX",
+    "last": 14.92,
+    "previous_close": 15.21,
+    "mark_stale": false
+  },
+  "counters": {
+    "as_of": "2026-08-27T07:08:50.187-04:00",
+    "decisions": 0,
+    "legs": 0,
+    "fills": 0,
+    "contracts_traded": 0,
+    "contracts_opened": 0,
+    "contracts_closed": 0,
+    "contracts_opened_0_1_dte": 0,
+    "ping_pong_legs": 0,
+    "ping_pong_decisions": 0,
+    "cycles_legs": 0,
+    "cycles_decisions": 0,
+    "orders_placed": 0,
+    "orders_cancelled": 0,
+    "orders_rejected": 0,
+    "distinct_expiries_touched": 0,
+    "first_decision_time": null,
+    "last_decision_time": null
+  },
+  "price_history_rows": 250,
+  "chain_contracts": 1058,
+  "prod_url_hint": "activity_2026-08-27_0700.json (dated stamp) \u2014 live market.json was overwritten later",
+  "dr_family": "market.json / activity.json"
+}
