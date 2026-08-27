@@ -1,6 +1,6 @@
 {
   "session_date": "2026-08-27",
-  "generated_at": "2026-08-27T17:33:14.972052-04:00",
+  "generated_at": "2026-08-27T17:33:27.068612-04:00",
   "files": {
     "market.json": {
       "next_slot": 1,
@@ -39,11 +39,12 @@
       ]
     },
     "test_manifest.json": {
-      "next_slot": 2,
-      "last_slot": 1,
-      "last_written": "17:15",
+      "next_slot": 3,
+      "last_slot": 2,
+      "last_written": "17:33",
       "slots_used_today": [
-        1
+        1,
+        2
       ]
     },
     "backfill_60d_decisions.json": {
