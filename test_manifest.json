@@ -1,0 +1,11 @@
+{
+  "next_slot": 2,
+  "used": [
+    {
+      "slot": "test_001.json",
+      "date": "2026-08-27",
+      "change": "v4.1 publish derived",
+      "source": "activity_1630.json rebuilt from 2026-08-26 close"
+    }
+  ]
+}
