@@ -23,6 +23,18 @@
       "time": "12:42",
       "spot": 352.89,
       "positions": 30
+    },
+    {
+      "slot": "snaptest_02",
+      "time": "14:17",
+      "spot": 353.35,
+      "source": "market.json"
+    },
+    {
+      "slot": "snaptest_03",
+      "time": "14:17",
+      "spot": 353.35,
+      "source": "activity.json"
     }
   ]
 }
