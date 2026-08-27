@@ -1,0 +1,103 @@
+{
+  "kind": "schedule_extract",
+  "job": "Schwab close and settled",
+  "cron": "0,30 16 * * 1-5",
+  "pipeline": "test",
+  "session_date": "2026-08-27",
+  "close": {
+    "run_type": "close",
+    "generated_at": "2026-08-27T16:03:39.276-04:00",
+    "run_time_label": "1603",
+    "quote": {
+      "symbol": "TSLA",
+      "last": 354.33,
+      "mark": 354.35,
+      "bid": 354.31,
+      "ask": 354.35,
+      "previous_close": 345.82,
+      "open": 346.155,
+      "high": 355.74,
+      "low": 345.45,
+      "mark_stale": false,
+      "quote_time": "2026-08-27T16:03:32.723-04:00"
+    },
+    "vix": {
+      "symbol": "$VIX",
+      "last": 14.54,
+      "previous_close": 15.21,
+      "mark_stale": false
+    },
+    "counters": {
+      "as_of": "2026-08-27T16:03:39.276-04:00",
+      "decisions": 25,
+      "legs": 137,
+      "fills": 137,
+      "contracts_traded": 1614,
+      "contracts_opened": 838,
+      "contracts_closed": 776,
+      "contracts_opened_0_1_dte": 570,
+      "ping_pong_legs": 5,
+      "ping_pong_decisions": 5,
+      "cycles_legs": 32,
+      "cycles_decisions": 3,
+      "orders_placed": 36,
+      "orders_cancelled": 0,
+      "orders_rejected": 1,
+      "distinct_expiries_touched": 5,
+      "first_decision_time": "2026-08-27T10:19:55.000-04:00",
+      "last_decision_time": "2026-08-27T15:51:55.000-04:00"
+    },
+    "price_history_rows": 250,
+    "chain_contracts": 1058
+  },
+  "settled": {
+    "run_type": "settled",
+    "generated_at": "2026-08-27T16:40:54.523-04:00",
+    "run_time_label": "1640",
+    "quote": {
+      "symbol": "TSLA",
+      "last": 354.6143,
+      "mark": 354.65,
+      "bid": 354.55,
+      "ask": 354.65,
+      "previous_close": 345.82,
+      "open": 346.155,
+      "high": 355.74,
+      "low": 345.45,
+      "mark_stale": false,
+      "quote_time": "2026-08-27T16:40:50.462-04:00"
+    },
+    "vix": {
+      "symbol": "$VIX",
+      "last": 14.51,
+      "previous_close": 15.21,
+      "mark_stale": false
+    },
+    "counters": {
+      "as_of": "2026-08-27T16:40:54.523-04:00",
+      "decisions": 25,
+      "legs": 137,
+      "fills": 137,
+      "contracts_traded": 1614,
+      "contracts_opened": 838,
+      "contracts_closed": 776,
+      "contracts_opened_0_1_dte": 570,
+      "ping_pong_legs": 5,
+      "ping_pong_decisions": 5,
+      "cycles_legs": 32,
+      "cycles_decisions": 3,
+      "orders_placed": 36,
+      "orders_cancelled": 0,
+      "orders_rejected": 1,
+      "distinct_expiries_touched": 5,
+      "first_decision_time": "2026-08-27T10:19:55.000-04:00",
+      "last_decision_time": "2026-08-27T15:51:55.000-04:00"
+    },
+    "chain_contracts": 0
+  },
+  "public_activity_generated_at": "2026-08-27T16:41:37-04:00",
+  "public_gate_verdict": "YELLOW",
+  "public_families_firing": 2,
+  "prod_url_hint": "activity.json and activity_1630.json",
+  "dr_family": "activity.json and market.json"
+}
