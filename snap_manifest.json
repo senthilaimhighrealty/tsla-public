@@ -1,0 +1,13 @@
+{
+  "session_date": "2026-08-27",
+  "next_slot": 1,
+  "used": [],
+  "test_used": [
+    {
+      "slot": "snaptest_01",
+      "time": "12:42",
+      "spot": 352.89,
+      "positions": 30
+    }
+  ]
+}
