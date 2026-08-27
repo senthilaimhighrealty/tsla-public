@@ -1,0 +1,50 @@
+{
+  "kind": "schedule_extract",
+  "job": "Shared morning market snapshot",
+  "cron": "38 7 * * 1-5",
+  "pipeline": "test",
+  "session_date": "2026-08-27",
+  "note": "7:38 job READS market.json and sends compact numbers. File is overwrite-in-place; current copy is settled 16:40.",
+  "generated_at": "2026-08-27T16:40:54.523-04:00",
+  "run_type": "settled",
+  "quote": {
+    "symbol": "TSLA",
+    "last": 354.6143,
+    "mark": 354.65,
+    "bid": 354.55,
+    "ask": 354.65,
+    "previous_close": 345.82,
+    "mark_stale": false,
+    "quote_time": "2026-08-27T16:40:50.462-04:00",
+    "mark_source": "prior_close"
+  },
+  "vix": {
+    "symbol": "$VIX",
+    "last": 14.51,
+    "mark": null,
+    "bid": null,
+    "ask": null,
+    "previous_close": 15.21,
+    "mark_stale": false,
+    "quote_time": null
+  },
+  "expected_move": {
+    "spot": 354.6143,
+    "vix": 14.51,
+    "atm_straddle": null,
+    "atm_straddle_near_term": null,
+    "vix_implied": {
+      "source": "vix",
+      "one_day": 3.2413,
+      "one_day_pct": 0.914,
+      "five_day": 7.2478,
+      "five_day_pct": 2.0439,
+      "twenty_one_day": 14.8536,
+      "twenty_one_day_pct": 4.1887
+    }
+  },
+  "realized_vol_30d": null,
+  "momentum": null,
+  "prod_url_hint": "market.json",
+  "dr_family": "market.json"
+}
