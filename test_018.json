@@ -1,0 +1,86 @@
+{
+  "kind": "on_demand_coaching_fixture",
+  "job": "on-demand snap",
+  "trigger_key": "d",
+  "pipeline": "test",
+  "slot": "snap_017.json",
+  "session_date": "2026-08-27",
+  "snapshot_time": "16:18",
+  "generated_at": "2026-08-27T16:18:37.223-04:00",
+  "trigger": "s",
+  "source": "schwab api",
+  "live": {
+    "as_of": "2026-08-27T16:18:37.223-04:00",
+    "tsla": {
+      "last": 354.4536,
+      "bid": 354.35,
+      "ask": 354.45,
+      "previous_close": 345.82,
+      "move_pct": 2.5,
+      "day_high": 355.74,
+      "day_low": 345.45,
+      "volume": 29924634
+    },
+    "vix": {
+      "last": 14.51,
+      "previous_close": 15.21
+    },
+    "stale": true
+  },
+  "checks": {
+    "working": 0,
+    "api_option_positions": 68,
+    "api_stock_positions": 1,
+    "orders_placed": 36,
+    "elapsed_seconds": 4.664
+  },
+  "derived": {
+    "underlying_price": 354.45,
+    "balance_line": {
+      "spot": 354.45,
+      "balance_spot": 357.79,
+      "distance": 3.34,
+      "distance_pct": 0.94,
+      "put_expected_loss": 42812,
+      "call_expected_loss": 21985,
+      "imbalance": 20827,
+      "heavier_side": "PUT",
+      "dollars_per_point": 6234,
+      "in_flat_zone": true
+    },
+    "peak": {
+      "spot": 355.68,
+      "pnl": 185,
+      "distance": 1.23,
+      "distance_pct": 0.35,
+      "peak_at_boundary": false
+    },
+    "flat_zone": {
+      "lo": 351.73,
+      "hi": 359.78,
+      "threshold": 2000,
+      "clamped": false
+    },
+    "balance_peak_divergence": {
+      "gap": 2.11,
+      "gap_pct": 0.6,
+      "flag": "LOPSIDED"
+    },
+    "theta": {
+      "one_day_flat": 5090,
+      "to_next_expiry": 2341,
+      "next_expiry": "2026-08-28",
+      "next_expiry_dte": 1
+    },
+    "shorts_summary": {
+      "count": 14,
+      "red": 0,
+      "amber": 4,
+      "total_risk": 959000,
+      "total_expected_loss": 64797,
+      "nearest_distance_pct": 2.98
+    },
+    "scope": "0 <= dte <= 45"
+  },
+  "pl_dollars": 7488
+}
