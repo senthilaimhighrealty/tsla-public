@@ -1,0 +1,3080 @@
+{
+  "slot": "test_006.json",
+  "date": "2026-08-27",
+  "kind": "cycles_investigation",
+  "investigation_only": true,
+  "counters_changed": "none",
+  "get_only": true,
+  "order_limit": 0,
+  "source": {
+    "payload": "/workspace/tsla_bot_data/internal/latest.json",
+    "payload_generated_at": "2026-08-27T16:40:54.523-04:00",
+    "note": "No schwab_2026-08-27_1640.json on disk; internal/latest.json generated_at 2026-08-27T16:40:54.523-04:00 is the 16:40 ET settled snapshot. activity.json generated_at 2026-08-27T16:41:37-04:00 rebuilt from that payload via activity.py + decisions.py.",
+    "activity_generated_at": "2026-08-27T16:41:37-04:00",
+    "n_day_option_legs": 137,
+    "n_grouped_decisions": 25,
+    "rebuilt_counters_match_published": {
+      "cycles_legs": 32,
+      "cycles_decisions": 3,
+      "legs": 137,
+      "decisions": 25
+    }
+  },
+  "code_of_record": {
+    "file": "/workspace/tsla_bot_data/decisions.py",
+    "cycles_from_decisions_lines": "291-304",
+    "cycles_from_decisions_verbatim": "def cycles_from_decisions(decisions: list) -> int:\n    # Skip BOTH-effect (rolls). Worked examples: Aug 25 = 0, Aug 24 = 5.\n    # Treating BOTH as CLOSING would count the Aug 25 roll as a cycle.\n    cycles = 0\n    prev = None\n    for d in decisions:\n        pe = str(d.get(\"effect\") or \"\").upper()\n        if pe == \"BOTH\":\n            continue\n        if pe == \"CLOSING\" and prev == \"OPENING\":\n            cycles += 1\n        if pe in (\"OPENING\", \"CLOSING\"):\n            prev = pe\n    return cycles\n",
+    "cycles_from_legs_lines": "307-329",
+    "cycles_from_legs_verbatim": "def cycles_from_legs(legs: list) -> int:\n    \"\"\"Walk option legs in time order. Read ONLY position_effect.\n\n    Count a cycle each time an OPENING is followed later by a CLOSING.\n    Sort by (time, activity_id); activity_id breaks same-millisecond ties.\n    do NOT reference put_call anywhere in this function.\n    \"\"\"\n    def _sort_key(lg):\n        aid = lg.get(\"activity_id\")\n        try:\n            aid_n = int(aid) if aid is not None else 0\n        except (TypeError, ValueError):\n            aid_n = 0\n        return (str(lg.get(\"time\") or \"\"), aid_n)\n\n    state = None\n    count = 0\n    for lg in sorted(legs or [], key=_sort_key):\n        effect = \"C\" if lg.get(\"position_effect\") == \"CLOSING\" else \"O\"\n        if state == \"O\" and effect == \"C\":\n            count += 1\n        state = effect\n    return count\n",
+    "public_activity_json_uses": "decisions.py via activity.py counters_from_decisions (cycles_from_legs / cycles_from_decisions)",
+    "schwab_intraday_count_cycles": {
+      "file": "/workspace/tsla_bot_data/schwab_intraday.py",
+      "lines": "873-883",
+      "different": true,
+      "used_by_public_activity_json": false,
+      "verbatim": "def count_cycles(txs: list) -> int:\n    unmatched = 0\n    cycles = 0\n    for t in txs:\n        pe = str(t.get(\"position_effect\") or \"\").upper()\n        if pe == \"OPENING\":\n            unmatched += 1\n        elif pe == \"CLOSING\" and unmatched > 0:\n            cycles += 1\n            unmatched -= 1\n    return cycles\n",
+      "difference": "unmatched-stack (OPENING ++, CLOSING pairs and --) vs decisions.py 2-state O\u2192C overwrite. activity.json does not call this."
+    }
+  },
+  "stated_vs_code": {
+    "stated_cycles_legs": "walk legs time order, read only position_effect, count OPENING followed later by CLOSING, never put_call",
+    "code_cycles_legs": "MATCH with mapping detail: anything not exactly position_effect==\"CLOSING\" is treated as OPENING (BOTH/None \u2192 O). Sort is (time, activity_id). 2-state overwrite, not unmatched stack.",
+    "match_cycles_legs": true,
+    "stated_cycles_decisions": "walk decisions, treat effect BOTH as CLOSING",
+    "code_cycles_decisions": "DIVERGE: BOTH is skipped (continue); prev unchanged. Source comment: \"Skip BOTH-effect (rolls). Treating BOTH as CLOSING would count the Aug 25 roll as a cycle.\"",
+    "match_cycles_decisions": false,
+    "public_activity_json_uses": "decisions.py (activity.py: counters_from_decisions \u2192 cycles_from_legs / cycles_from_decisions). NOT schwab_intraday.count_cycles."
+  },
+  "answers": {
+    "same_strike_or_any_strike": {
+      "answer": "any strike",
+      "detail": "cycles_from_legs reads ONLY position_effect; strike is never consulted. An OPENING 350P followed by a CLOSING 360C still increments."
+    },
+    "same_expiry": {
+      "answer": "any expiry",
+      "detail": "expiry is not read. Open 0DTE then close 1DTE still increments."
+    },
+    "per_leg_or_per_contract": {
+      "answer": "per leg",
+      "detail": "quantity is unused. A 40-lot CLOSING after OPENING-mapped state counts +1, same as a 1-lot."
+    },
+    "multi_leg_fills_one_roll": {
+      "answer": "yes",
+      "detail": "group_decisions 60s-clusters a roll as one decision with effect BOTH \u2192 0 (skipped) on cycles_decisions. The same cluster legs are walked individually; alternating O/C fragments each add to cycles_legs. One roll can add many to cycles_legs and 0 (BOTH skipped, not treated as CLOSING) to cycles_decisions. A non-BOTH multi-leg open then later multi-leg close adds 1 to cycles_decisions and typically 1 on the first C after O plus extras if O/C interleave, to cycles_legs."
+    },
+    "effect_BOTH_at_leg_level": {
+      "answer": "opening (mapped to O)",
+      "detail": "cycles_from_legs: effect = \"C\" if position_effect == \"CLOSING\" else \"O\". BOTH/missing/OPENING all map to O. Observed 2026-08-27 leg position_effect values: {'OPENING': 76, 'CLOSING': 61}; BOTH at leg level count=0. At DECISION level, BOTH is skipped (not opening, not closing)."
+    }
+  },
+  "leg_walk": [
+    {
+      "seq": 1,
+      "time": "2026-08-27T10:19:55.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 2,
+      "time": "2026-08-27T10:19:55.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 3,
+      "time": "2026-08-27T10:19:55.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 4,
+      "time": "2026-08-27T10:19:55.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 5,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #1: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 6,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 7,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 4.0,
+      "counted": true,
+      "why": "increment cycles_legs #2: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 8,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 4.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 9,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 8.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 10,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 6.0,
+      "counted": true,
+      "why": "increment cycles_legs #3: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 11,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 12,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 13,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 8.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 14,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #4: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 15,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 16,
+      "time": "2026-08-27T10:26:46.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #5: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 17,
+      "time": "2026-08-27T10:26:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 18,
+      "time": "2026-08-27T10:28:48.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 40.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 19,
+      "time": "2026-08-27T10:28:48.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 40.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 20,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 380.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 21,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 400.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 10.0,
+      "counted": true,
+      "why": "increment cycles_legs #6: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 22,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 380.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 23,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 400.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 10.0,
+      "counted": true,
+      "why": "increment cycles_legs #7: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 24,
+      "time": "2026-08-27T11:14:48.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 40.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 25,
+      "time": "2026-08-27T11:14:48.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #8: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 26,
+      "time": "2026-08-27T11:17:14.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 27,
+      "time": "2026-08-27T11:17:14.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 28,
+      "time": "2026-08-27T11:18:54.000-04:00",
+      "strike": 395.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "OPENING",
+      "quantity": 40.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 29,
+      "time": "2026-08-27T11:18:54.000-04:00",
+      "strike": 410.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #9: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 30,
+      "time": "2026-08-27T11:20:28.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 31,
+      "time": "2026-08-27T11:20:28.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 10.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 32,
+      "time": "2026-08-27T11:22:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 7.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 33,
+      "time": "2026-08-27T11:22:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 34,
+      "time": "2026-08-27T11:22:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 35,
+      "time": "2026-08-27T11:22:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 15.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 36,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 37,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 38,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 39,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 40,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 41,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 42,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 43,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 44,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 45,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 46,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 4.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 47,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 48,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 49,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 50,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 51,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 52,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 4.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 53,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 54,
+      "time": "2026-08-27T11:24:34.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 55,
+      "time": "2026-08-27T11:24:38.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 4.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 56,
+      "time": "2026-08-27T11:24:38.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 57,
+      "time": "2026-08-27T11:24:38.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 58,
+      "time": "2026-08-27T11:24:38.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 59,
+      "time": "2026-08-27T12:47:14.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 60,
+      "time": "2026-08-27T12:47:14.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #10: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 61,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 62,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #11: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 63,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 64,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #12: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 65,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 66,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": true,
+      "why": "increment cycles_legs #13: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 67,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 68,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 69,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #14: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 70,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 71,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #15: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 72,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 73,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #16: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 74,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 75,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #17: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 76,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 77,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #18: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 78,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 79,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #19: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 80,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 4.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 81,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 82,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 6.0,
+      "counted": true,
+      "why": "increment cycles_legs #20: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 83,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 84,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #21: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 85,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 7.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 86,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 7.0,
+      "counted": true,
+      "why": "increment cycles_legs #22: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 87,
+      "time": "2026-08-27T12:53:15.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 88,
+      "time": "2026-08-27T12:53:15.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #23: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 89,
+      "time": "2026-08-27T12:53:40.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 90,
+      "time": "2026-08-27T12:53:40.000-04:00",
+      "strike": 290.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 91,
+      "time": "2026-08-27T13:00:12.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 92,
+      "time": "2026-08-27T13:00:12.000-04:00",
+      "strike": 300.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 93,
+      "time": "2026-08-27T14:35:41.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-09-11",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 94,
+      "time": "2026-08-27T14:35:41.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-11",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #24: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 95,
+      "time": "2026-08-27T14:37:53.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-09-11",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 96,
+      "time": "2026-08-27T14:37:53.000-04:00",
+      "strike": 300.0,
+      "side": "PUT",
+      "expiry": "2026-09-11",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 97,
+      "time": "2026-08-27T14:45:08.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #25: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 98,
+      "time": "2026-08-27T14:45:08.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 99,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 53.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 100,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 7.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 101,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 6.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 102,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 103,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 104,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 55.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 105,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 106,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 107,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 108,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 109,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 110,
+      "time": "2026-08-27T14:49:54.000-04:00",
+      "strike": 342.5,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 30.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 111,
+      "time": "2026-08-27T14:49:54.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 30.0,
+      "counted": true,
+      "why": "increment cycles_legs #26: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 112,
+      "time": "2026-08-27T14:51:12.000-04:00",
+      "strike": 342.5,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 100.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 113,
+      "time": "2026-08-27T14:51:12.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "OPENING",
+      "quantity": 100.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 114,
+      "time": "2026-08-27T14:55:20.000-04:00",
+      "strike": 300.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 11.0,
+      "counted": true,
+      "why": "increment cycles_legs #27: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 115,
+      "time": "2026-08-27T14:55:20.000-04:00",
+      "strike": 290.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 11.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 116,
+      "time": "2026-08-27T14:55:21.000-04:00",
+      "strike": 300.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 9.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 117,
+      "time": "2026-08-27T14:55:21.000-04:00",
+      "strike": 290.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 9.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 118,
+      "time": "2026-08-27T14:56:03.000-04:00",
+      "strike": 305.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 119,
+      "time": "2026-08-27T14:56:03.000-04:00",
+      "strike": 325.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "OPENING",
+      "quantity": 20.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 120,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "strike": 380.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": true,
+      "why": "increment cycles_legs #28: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 121,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "strike": 395.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 122,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "strike": 380.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 123,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "strike": 395.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 124,
+      "time": "2026-08-27T15:27:18.000-04:00",
+      "strike": 370.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 12.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 125,
+      "time": "2026-08-27T15:27:18.000-04:00",
+      "strike": 375.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 12.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 126,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 370.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 15.0,
+      "counted": true,
+      "why": "increment cycles_legs #29: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 127,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 375.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 15.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 128,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 370.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 13.0,
+      "counted": true,
+      "why": "increment cycles_legs #30: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 129,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 375.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "OPENING",
+      "quantity": 13.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 130,
+      "time": "2026-08-27T15:45:42.000-04:00",
+      "strike": 440.0,
+      "side": "CALL",
+      "expiry": "2026-09-18",
+      "position_effect": "OPENING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 131,
+      "time": "2026-08-27T15:45:42.000-04:00",
+      "strike": 480.0,
+      "side": "CALL",
+      "expiry": "2026-09-18",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": true,
+      "why": "increment cycles_legs #31: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 132,
+      "time": "2026-08-27T15:46:05.000-04:00",
+      "strike": 150.0,
+      "side": "PUT",
+      "expiry": "2026-09-18",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 133,
+      "time": "2026-08-27T15:46:05.000-04:00",
+      "strike": 250.0,
+      "side": "PUT",
+      "expiry": "2026-09-18",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    },
+    {
+      "seq": 134,
+      "time": "2026-08-27T15:47:07.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-18",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 135,
+      "time": "2026-08-27T15:47:07.000-04:00",
+      "strike": 290.0,
+      "side": "PUT",
+      "expiry": "2026-09-18",
+      "position_effect": "OPENING",
+      "quantity": 3.0,
+      "counted": false,
+      "why": "OPENING-mapped (anything not CLOSING \u2192 O, including missing/BOTH); pe='OPENING'; sets state O; no increment"
+    },
+    {
+      "seq": 136,
+      "time": "2026-08-27T15:51:55.000-04:00",
+      "strike": 342.5,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 70.0,
+      "counted": true,
+      "why": "increment cycles_legs #32: prior state O (OPENING-mapped), this CLOSING"
+    },
+    {
+      "seq": 137,
+      "time": "2026-08-27T15:51:55.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 70.0,
+      "counted": false,
+      "why": "CLOSING but prior state='C' (need O); no increment"
+    }
+  ],
+  "counted_legs_32": [
+    {
+      "seq": 5,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #1: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 1,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 7,
+      "time": "2026-08-27T10:20:21.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 4.0,
+      "counted": true,
+      "why": "increment cycles_legs #2: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 1,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 10,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 6.0,
+      "counted": true,
+      "why": "increment cycles_legs #3: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 1,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 14,
+      "time": "2026-08-27T10:20:22.000-04:00",
+      "strike": 280.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #4: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 1,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 16,
+      "time": "2026-08-27T10:26:46.000-04:00",
+      "strike": 330.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #5: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 2,
+      "same_decision_as_prior_O": false,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 21,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 400.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 10.0,
+      "counted": true,
+      "why": "increment cycles_legs #6: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 4,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 23,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "strike": 400.0,
+      "side": "CALL",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 10.0,
+      "counted": true,
+      "why": "increment cycles_legs #7: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 4,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 25,
+      "time": "2026-08-27T11:14:48.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #8: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 5,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 29,
+      "time": "2026-08-27T11:18:54.000-04:00",
+      "strike": 410.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #9: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 7,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 60,
+      "time": "2026-08-27T12:47:14.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #10: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 62,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #11: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 64,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #12: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 66,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": true,
+      "why": "increment cycles_legs #13: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 69,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #14: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 71,
+      "time": "2026-08-27T12:47:15.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #15: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 73,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #16: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 75,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #17: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 77,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #18: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 79,
+      "time": "2026-08-27T12:47:16.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 3.0,
+      "counted": true,
+      "why": "increment cycles_legs #19: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 82,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 6.0,
+      "counted": true,
+      "why": "increment cycles_legs #20: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 84,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 1.0,
+      "counted": true,
+      "why": "increment cycles_legs #21: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 86,
+      "time": "2026-08-27T12:47:17.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 7.0,
+      "counted": true,
+      "why": "increment cycles_legs #22: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 11,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 88,
+      "time": "2026-08-27T12:53:15.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #23: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 12,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 94,
+      "time": "2026-08-27T14:35:41.000-04:00",
+      "strike": 310.0,
+      "side": "PUT",
+      "expiry": "2026-09-11",
+      "position_effect": "CLOSING",
+      "quantity": 20.0,
+      "counted": true,
+      "why": "increment cycles_legs #24: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 14,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 97,
+      "time": "2026-08-27T14:45:08.000-04:00",
+      "strike": 320.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 40.0,
+      "counted": true,
+      "why": "increment cycles_legs #25: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 16,
+      "same_decision_as_prior_O": false,
+      "closing_decision_effect": "CLOSING"
+    },
+    {
+      "seq": 111,
+      "time": "2026-08-27T14:49:54.000-04:00",
+      "strike": 335.0,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 30.0,
+      "counted": true,
+      "why": "increment cycles_legs #26: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 18,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 114,
+      "time": "2026-08-27T14:55:20.000-04:00",
+      "strike": 300.0,
+      "side": "PUT",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 11.0,
+      "counted": true,
+      "why": "increment cycles_legs #27: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 20,
+      "same_decision_as_prior_O": false,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 120,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "strike": 380.0,
+      "side": "CALL",
+      "expiry": "2026-09-02",
+      "position_effect": "CLOSING",
+      "quantity": 5.0,
+      "counted": true,
+      "why": "increment cycles_legs #28: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 21,
+      "same_decision_as_prior_O": false,
+      "closing_decision_effect": "CLOSING"
+    },
+    {
+      "seq": 126,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 370.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 15.0,
+      "counted": true,
+      "why": "increment cycles_legs #29: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 22,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 128,
+      "time": "2026-08-27T15:27:23.000-04:00",
+      "strike": 370.0,
+      "side": "CALL",
+      "expiry": "2026-08-31",
+      "position_effect": "CLOSING",
+      "quantity": 13.0,
+      "counted": true,
+      "why": "increment cycles_legs #30: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 22,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 131,
+      "time": "2026-08-27T15:45:42.000-04:00",
+      "strike": 480.0,
+      "side": "CALL",
+      "expiry": "2026-09-18",
+      "position_effect": "CLOSING",
+      "quantity": 2.0,
+      "counted": true,
+      "why": "increment cycles_legs #31: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 23,
+      "same_decision_as_prior_O": true,
+      "closing_decision_effect": "BOTH"
+    },
+    {
+      "seq": 136,
+      "time": "2026-08-27T15:51:55.000-04:00",
+      "strike": 342.5,
+      "side": "PUT",
+      "expiry": "2026-08-28",
+      "position_effect": "CLOSING",
+      "quantity": 70.0,
+      "counted": true,
+      "why": "increment cycles_legs #32: prior state O (OPENING-mapped), this CLOSING",
+      "decision_n": 25,
+      "same_decision_as_prior_O": false,
+      "closing_decision_effect": "CLOSING"
+    }
+  ],
+  "decision_walk": [
+    {
+      "n": 1,
+      "time": "2026-08-27T10:19:55.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 15,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 2,
+      "time": "2026-08-27T10:26:46.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 3,
+      "time": "2026-08-27T10:28:48.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 4,
+      "time": "2026-08-27T11:12:46.000-04:00",
+      "effect": "BOTH",
+      "side": "CALL",
+      "structure": "ROLL",
+      "legs": 4,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 5,
+      "time": "2026-08-27T11:14:48.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 6,
+      "time": "2026-08-27T11:17:14.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 7,
+      "time": "2026-08-27T11:18:54.000-04:00",
+      "effect": "BOTH",
+      "side": "CALL",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 8,
+      "time": "2026-08-27T11:20:28.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 9,
+      "time": "2026-08-27T11:22:33.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 4,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 10,
+      "time": "2026-08-27T11:24:33.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 23,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 11,
+      "time": "2026-08-27T12:47:14.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 28,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 12,
+      "time": "2026-08-27T12:53:15.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 4,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 13,
+      "time": "2026-08-27T13:00:12.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 14,
+      "time": "2026-08-27T14:35:41.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 15,
+      "time": "2026-08-27T14:37:53.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 16,
+      "time": "2026-08-27T14:45:08.000-04:00",
+      "effect": "CLOSING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": true,
+      "why": "increment cycles_decisions #1: CLOSING after prev OPENING"
+    },
+    {
+      "n": 17,
+      "time": "2026-08-27T14:48:46.000-04:00",
+      "effect": "CLOSING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 11,
+      "counted": false,
+      "why": "CLOSING but prev='CLOSING' (need OPENING); no increment"
+    },
+    {
+      "n": 18,
+      "time": "2026-08-27T14:49:54.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 2,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 19,
+      "time": "2026-08-27T14:51:12.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 20,
+      "time": "2026-08-27T14:55:20.000-04:00",
+      "effect": "BOTH",
+      "side": "PUT",
+      "structure": "ROLL",
+      "legs": 6,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 21,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "effect": "CLOSING",
+      "side": "CALL",
+      "structure": "VERTICAL",
+      "legs": 4,
+      "counted": true,
+      "why": "increment cycles_decisions #2: CLOSING after prev OPENING"
+    },
+    {
+      "n": 22,
+      "time": "2026-08-27T15:27:18.000-04:00",
+      "effect": "BOTH",
+      "side": "CALL",
+      "structure": "ROLL",
+      "legs": 6,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 23,
+      "time": "2026-08-27T15:45:42.000-04:00",
+      "effect": "BOTH",
+      "side": "BOTH",
+      "structure": "ROLL",
+      "legs": 4,
+      "counted": false,
+      "why": "SKIP BOTH (rolls); cycles_from_decisions continue; does NOT treat as CLOSING"
+    },
+    {
+      "n": 24,
+      "time": "2026-08-27T15:47:07.000-04:00",
+      "effect": "OPENING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": false,
+      "why": "OPENING; sets prev=OPENING; no increment"
+    },
+    {
+      "n": 25,
+      "time": "2026-08-27T15:51:55.000-04:00",
+      "effect": "CLOSING",
+      "side": "PUT",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": true,
+      "why": "increment cycles_decisions #3: CLOSING after prev OPENING"
+    }
+  ],
+  "counted_decisions_3": [
+    {
+      "n": 16,
+      "time": "2026-08-27T14:45:08.000-04:00",
+      "effect": "CLOSING",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": true,
+      "why": "increment cycles_decisions #1: CLOSING after prev OPENING",
+      "prev_before": "OPENING"
+    },
+    {
+      "n": 21,
+      "time": "2026-08-27T15:24:12.000-04:00",
+      "effect": "CLOSING",
+      "structure": "VERTICAL",
+      "legs": 4,
+      "counted": true,
+      "why": "increment cycles_decisions #2: CLOSING after prev OPENING",
+      "prev_before": "OPENING"
+    },
+    {
+      "n": 25,
+      "time": "2026-08-27T15:51:55.000-04:00",
+      "effect": "CLOSING",
+      "structure": "VERTICAL",
+      "legs": 2,
+      "counted": true,
+      "why": "increment cycles_decisions #3: CLOSING after prev OPENING",
+      "prev_before": "OPENING"
+    }
+  ],
+  "fragmentation": {
+    "same_decision_as_prior_O_increments": 27,
+    "cross_decision_increments": 5,
+    "inside_BOTH_increments": 29,
+    "inside_ROLL_increments": 29,
+    "max_increments_attributed_to_one_decision": 13,
+    "rolls_with_leg_cycle_increments": [
+      {
+        "n": 1,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 15,
+        "mapped_seq": "OOOOCOCCOCCCOCO",
+        "increments_while_walking_this_cluster": 4,
+        "O_to_C_inside_cluster_sequence": 4,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 2,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "CO",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 4,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCOC",
+        "increments_while_walking_this_cluster": 2,
+        "O_to_C_inside_cluster_sequence": 2,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 5,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 7,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 11,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 28,
+        "mapped_seq": "OCOCOCOCCOCOCOCOCOCOCOOCOCOC",
+        "increments_while_walking_this_cluster": 13,
+        "O_to_C_inside_cluster_sequence": 13,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 12,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCCC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 14,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 18,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 20,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 6,
+        "mapped_seq": "CCCCOO",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 22,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 6,
+        "mapped_seq": "COCOCO",
+        "increments_while_walking_this_cluster": 2,
+        "O_to_C_inside_cluster_sequence": 2,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 23,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCCC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      }
+    ],
+    "per_decision": [
+      {
+        "n": 1,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 15,
+        "mapped_seq": "OOOOCOCCOCCCOCO",
+        "increments_while_walking_this_cluster": 4,
+        "O_to_C_inside_cluster_sequence": 4,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 2,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "CO",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 3,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 4,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCOC",
+        "increments_while_walking_this_cluster": 2,
+        "O_to_C_inside_cluster_sequence": 2,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 5,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 6,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 7,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 8,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 9,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 4,
+        "mapped_seq": "OOOO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 10,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 23,
+        "mapped_seq": "OOOOOOOOOOOOOOOOOOOOOOO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 11,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 28,
+        "mapped_seq": "OCOCOCOCCOCOCOCOCOCOCOOCOCOC",
+        "increments_while_walking_this_cluster": 13,
+        "O_to_C_inside_cluster_sequence": 13,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 12,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCCC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 13,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "CO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 14,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 15,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 16,
+        "effect": "CLOSING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "CC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": true
+      },
+      {
+        "n": 17,
+        "effect": "CLOSING",
+        "structure": "VERTICAL",
+        "n_legs": 11,
+        "mapped_seq": "CCCCCCCCCCC",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 18,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 2,
+        "mapped_seq": "OC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 19,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 20,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 6,
+        "mapped_seq": "CCCCOO",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 21,
+        "effect": "CLOSING",
+        "structure": "VERTICAL",
+        "n_legs": 4,
+        "mapped_seq": "CCCC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": true
+      },
+      {
+        "n": 22,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 6,
+        "mapped_seq": "COCOCO",
+        "increments_while_walking_this_cluster": 2,
+        "O_to_C_inside_cluster_sequence": 2,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 23,
+        "effect": "BOTH",
+        "structure": "ROLL",
+        "n_legs": 4,
+        "mapped_seq": "OCCC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 1,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 24,
+        "effect": "OPENING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "OO",
+        "increments_while_walking_this_cluster": 0,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": false
+      },
+      {
+        "n": 25,
+        "effect": "CLOSING",
+        "structure": "VERTICAL",
+        "n_legs": 2,
+        "mapped_seq": "CC",
+        "increments_while_walking_this_cluster": 1,
+        "O_to_C_inside_cluster_sequence": 0,
+        "cycles_decisions_counted": true
+      }
+    ],
+    "leg_position_effect_values": {
+      "OPENING": 76,
+      "CLOSING": 61
+    },
+    "both_at_leg_level_count": 0
+  },
+  "distribution_60d": {
+    "n_sessions": 43,
+    "window": {
+      "first": "2026-06-29",
+      "last": "2026-08-27"
+    },
+    "cycles_legs": {
+      "median": 10,
+      "range": {
+        "min": 0,
+        "max": 66
+      },
+      "mean": 14.953
+    },
+    "cycles_decisions": {
+      "median": 2,
+      "range": {
+        "min": 0,
+        "max": 6
+      },
+      "mean": 2.233
+    },
+    "sessions_cycles_decisions_0_but_cycles_legs_ne_0": [
+      "2026-07-07",
+      "2026-07-09",
+      "2026-07-14",
+      "2026-07-28",
+      "2026-08-06",
+      "2026-08-13",
+      "2026-08-25"
+    ],
+    "sessions_decisions_0_but_legs_ne_0": [],
+    "corr_cycles_legs_legs": {
+      "name": "corr(cycles_legs, legs)",
+      "corr": 0.773611,
+      "n": 43
+    },
+    "corr_cycles_decisions_decisions": {
+      "name": "corr(cycles_decisions, decisions)",
+      "corr": 0.880519,
+      "n": 43
+    },
+    "include_08_26": {
+      "date": "2026-08-26",
+      "cycles_legs": 34,
+      "cycles_decisions": 4,
+      "legs": 248,
+      "decisions": 50
+    },
+    "include_08_27": {
+      "date": "2026-08-27",
+      "cycles_legs": 32,
+      "cycles_decisions": 3,
+      "legs": 137,
+      "decisions": 25,
+      "source": "activity.json settled (backfill_60d_decisions ends 2026-08-26)"
+    },
+    "cycles_legs_over_cycles_decisions_median_skip_div0": 5.2,
+    "n_ratio_skip_div0": 34,
+    "per_session": [
+      {
+        "date": "2026-06-29",
+        "cycles_legs": 27,
+        "cycles_decisions": 6,
+        "legs": 264,
+        "decisions": 44
+      },
+      {
+        "date": "2026-06-30",
+        "cycles_legs": 4,
+        "cycles_decisions": 1,
+        "legs": 101,
+        "decisions": 8
+      },
+      {
+        "date": "2026-07-01",
+        "cycles_legs": 7,
+        "cycles_decisions": 1,
+        "legs": 97,
+        "decisions": 11
+      },
+      {
+        "date": "2026-07-02",
+        "cycles_legs": 11,
+        "cycles_decisions": 4,
+        "legs": 230,
+        "decisions": 31
+      },
+      {
+        "date": "2026-07-06",
+        "cycles_legs": 1,
+        "cycles_decisions": 1,
+        "legs": 16,
+        "decisions": 5
+      },
+      {
+        "date": "2026-07-07",
+        "cycles_legs": 6,
+        "cycles_decisions": 0,
+        "legs": 135,
+        "decisions": 7
+      },
+      {
+        "date": "2026-07-08",
+        "cycles_legs": 11,
+        "cycles_decisions": 4,
+        "legs": 143,
+        "decisions": 29
+      },
+      {
+        "date": "2026-07-09",
+        "cycles_legs": 9,
+        "cycles_decisions": 0,
+        "legs": 34,
+        "decisions": 6
+      },
+      {
+        "date": "2026-07-10",
+        "cycles_legs": 22,
+        "cycles_decisions": 2,
+        "legs": 86,
+        "decisions": 17
+      },
+      {
+        "date": "2026-07-13",
+        "cycles_legs": 9,
+        "cycles_decisions": 3,
+        "legs": 112,
+        "decisions": 22
+      },
+      {
+        "date": "2026-07-14",
+        "cycles_legs": 1,
+        "cycles_decisions": 0,
+        "legs": 27,
+        "decisions": 4
+      },
+      {
+        "date": "2026-07-15",
+        "cycles_legs": 22,
+        "cycles_decisions": 6,
+        "legs": 205,
+        "decisions": 41
+      },
+      {
+        "date": "2026-07-16",
+        "cycles_legs": 7,
+        "cycles_decisions": 1,
+        "legs": 44,
+        "decisions": 11
+      },
+      {
+        "date": "2026-07-17",
+        "cycles_legs": 18,
+        "cycles_decisions": 3,
+        "legs": 145,
+        "decisions": 32
+      },
+      {
+        "date": "2026-07-20",
+        "cycles_legs": 26,
+        "cycles_decisions": 3,
+        "legs": 364,
+        "decisions": 21
+      },
+      {
+        "date": "2026-07-21",
+        "cycles_legs": 0,
+        "cycles_decisions": 0,
+        "legs": 2,
+        "decisions": 1
+      },
+      {
+        "date": "2026-07-22",
+        "cycles_legs": 0,
+        "cycles_decisions": 0,
+        "legs": 24,
+        "decisions": 3
+      },
+      {
+        "date": "2026-07-23",
+        "cycles_legs": 22,
+        "cycles_decisions": 4,
+        "legs": 214,
+        "decisions": 32
+      },
+      {
+        "date": "2026-07-24",
+        "cycles_legs": 36,
+        "cycles_decisions": 3,
+        "legs": 266,
+        "decisions": 34
+      },
+      {
+        "date": "2026-07-27",
+        "cycles_legs": 5,
+        "cycles_decisions": 1,
+        "legs": 55,
+        "decisions": 10
+      },
+      {
+        "date": "2026-07-28",
+        "cycles_legs": 4,
+        "cycles_decisions": 0,
+        "legs": 23,
+        "decisions": 3
+      },
+      {
+        "date": "2026-07-29",
+        "cycles_legs": 29,
+        "cycles_decisions": 5,
+        "legs": 251,
+        "decisions": 34
+      },
+      {
+        "date": "2026-07-30",
+        "cycles_legs": 9,
+        "cycles_decisions": 1,
+        "legs": 84,
+        "decisions": 7
+      },
+      {
+        "date": "2026-07-31",
+        "cycles_legs": 39,
+        "cycles_decisions": 5,
+        "legs": 228,
+        "decisions": 28
+      },
+      {
+        "date": "2026-08-03",
+        "cycles_legs": 10,
+        "cycles_decisions": 4,
+        "legs": 119,
+        "decisions": 17
+      },
+      {
+        "date": "2026-08-04",
+        "cycles_legs": 5,
+        "cycles_decisions": 1,
+        "legs": 36,
+        "decisions": 5
+      },
+      {
+        "date": "2026-08-05",
+        "cycles_legs": 4,
+        "cycles_decisions": 1,
+        "legs": 139,
+        "decisions": 14
+      },
+      {
+        "date": "2026-08-06",
+        "cycles_legs": 10,
+        "cycles_decisions": 0,
+        "legs": 42,
+        "decisions": 8
+      },
+      {
+        "date": "2026-08-07",
+        "cycles_legs": 15,
+        "cycles_decisions": 3,
+        "legs": 200,
+        "decisions": 24
+      },
+      {
+        "date": "2026-08-10",
+        "cycles_legs": 4,
+        "cycles_decisions": 1,
+        "legs": 72,
+        "decisions": 22
+      },
+      {
+        "date": "2026-08-11",
+        "cycles_legs": 2,
+        "cycles_decisions": 2,
+        "legs": 35,
+        "decisions": 5
+      },
+      {
+        "date": "2026-08-12",
+        "cycles_legs": 18,
+        "cycles_decisions": 2,
+        "legs": 81,
+        "decisions": 23
+      },
+      {
+        "date": "2026-08-13",
+        "cycles_legs": 13,
+        "cycles_decisions": 0,
+        "legs": 48,
+        "decisions": 8
+      },
+      {
+        "date": "2026-08-14",
+        "cycles_legs": 66,
+        "cycles_decisions": 4,
+        "legs": 295,
+        "decisions": 42
+      },
+      {
+        "date": "2026-08-17",
+        "cycles_legs": 3,
+        "cycles_decisions": 2,
+        "legs": 52,
+        "decisions": 16
+      },
+      {
+        "date": "2026-08-18",
+        "cycles_legs": 2,
+        "cycles_decisions": 1,
+        "legs": 30,
+        "decisions": 6
+      },
+      {
+        "date": "2026-08-19",
+        "cycles_legs": 33,
+        "cycles_decisions": 3,
+        "legs": 152,
+        "decisions": 20
+      },
+      {
+        "date": "2026-08-20",
+        "cycles_legs": 13,
+        "cycles_decisions": 1,
+        "legs": 57,
+        "decisions": 7
+      },
+      {
+        "date": "2026-08-21",
+        "cycles_legs": 27,
+        "cycles_decisions": 5,
+        "legs": 284,
+        "decisions": 35
+      },
+      {
+        "date": "2026-08-24",
+        "cycles_legs": 21,
+        "cycles_decisions": 5,
+        "legs": 142,
+        "decisions": 24
+      },
+      {
+        "date": "2026-08-25",
+        "cycles_legs": 6,
+        "cycles_decisions": 0,
+        "legs": 28,
+        "decisions": 3
+      },
+      {
+        "date": "2026-08-26",
+        "cycles_legs": 34,
+        "cycles_decisions": 4,
+        "legs": 248,
+        "decisions": 50
+      },
+      {
+        "date": "2026-08-27",
+        "cycles_legs": 32,
+        "cycles_decisions": 3,
+        "legs": 137,
+        "decisions": 25,
+        "source": "activity.json settled (backfill_60d_decisions ends 2026-08-26)"
+      }
+    ]
+  },
+  "conclusion": {
+    "choice": 2,
+    "label": "leg walk counts fragmentation the decision walk does not",
+    "not": 1,
+    "not_label": "genuine churn",
+    "evidence": [
+      "Published/reconstructed 2026-08-27: cycles_legs=32 vs cycles_decisions=3 on the same 137 legs / 25 decisions (13 BOTH/ROLL, 8 OPENING, 4 CLOSING).",
+      "cycles_from_decisions SKIPS all 13 BOTH-effect decisions (rolls); stated definition said treat BOTH as CLOSING \u2014 code diverges (skip, not close).",
+      "cycles_from_legs is a 2-state machine on position_effect only: anything not CLOSING maps to O, then O\u2192C increments. No strike, expiry, put_call, or quantity. One 20-lot fill counts the same as size-1.",
+      "Of 32 cycles_legs increments: same_decision_as_prior_O=27, cross_decision=5, inside_BOTH_cluster=29, inside_ROLL=29.",
+      "A single ROLL/BOTH decision can contribute many O\u2192C toggles to cycles_legs (max increments attributed while walking one decision=13) while contributing 0 to cycles_decisions (BOTH skipped).",
+      "60d: cycles_legs median 10 range {'min': 0, 'max': 66}; cycles_decisions median 2 range {'min': 0, 'max': 6}. Persistent legs>>decisions gap is the grain of the walk, not a one-day 32-roundtrip churn.",
+      "schwab_intraday.count_cycles is a different unmatched-stack function and is NOT what public activity.json uses."
+    ],
+    "finding_only": true,
+    "no_code_change_recommended": true
+  }
+}
