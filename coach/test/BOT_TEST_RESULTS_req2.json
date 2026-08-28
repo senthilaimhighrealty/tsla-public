@@ -1,0 +1,475 @@
+{
+  "plan": "coach_pipeline_v1/BOT_TEST_PLAN_req2.md",
+  "generated_at_et": "2026-08-28T13:45:46-04:00",
+  "overall": "PASS",
+  "counts": {
+    "PASS": 24,
+    "FAIL": 0,
+    "SKIP": 0,
+    "total": 24
+  },
+  "current_et_slot": {
+    "nnn": "118",
+    "time": "13:45",
+    "session_date": "2026-08-28"
+  },
+  "published_test": {
+    "ok": true,
+    "slot": 118,
+    "slot_nnn": "118",
+    "slot_time": "13:45",
+    "session_date": "2026-08-28",
+    "paths": {
+      "stamp": "coach/test/stamps/2026-08-28/coach_118.json",
+      "latest": "coach/test/latest.json",
+      "dr": "coach/test/dr/stamps/2026-08-28/coach_118.json",
+      "manifest": "coach/test/stamps/2026-08-28/manifest.json",
+      "trigger_log": "coach/test/stamps/2026-08-28/trigger_log.json"
+    },
+    "sha256": "16cdfa1fe9a817099f29555803ed5171bbc57efaf79fcb6baacffbcd7d68a901",
+    "stamp_url": "coach/test/stamps/2026-08-28/coach_118.json",
+    "test_latest_url": "coach/test/latest.json",
+    "dr_stamp_url": "coach/test/dr/stamps/2026-08-28/coach_118.json",
+    "prod_dr_identical": true,
+    "files_written": [
+      "coach_118.json",
+      "latest.json",
+      "dr/coach_118.json"
+    ],
+    "trigger_log_ok": true,
+    "trigger_log_path": "coach/test/stamps/2026-08-28/trigger_log.json",
+    "trigger_log_count": 1,
+    "gate_attach": {
+      "ok": true,
+      "reason": "attached",
+      "spots_agree": true,
+      "spot": 346.57,
+      "families_firing": 0,
+      "verdict": "GREEN",
+      "hard_rules_breached": 1,
+      "guidance_fires_count": 1
+    },
+    "gate_diff_vs_activity": {
+      "compared": true,
+      "activity_path": "/workspace/tsla_bot_data/activity.json",
+      "agree": false,
+      "disagreements": [
+        {
+          "field": "families_firing",
+          "coach": 0,
+          "activity": 1
+        },
+        {
+          "field": "hard_rules.H1_zero_dte.breached",
+          "coach": false,
+          "activity": true,
+          "coach_value": 200,
+          "activity_value": 200
+        },
+        {
+          "field": "hard_rules.H1a_zero_dte_distance.breached",
+          "coach": true,
+          "activity": null,
+          "coach_value": 0.99,
+          "activity_value": null
+        }
+      ],
+      "explanation": "activity derived.underlying_price equals previous_close not session.last (354.81 vs last=346.43); coach uses live.tsla.last. Bug path: derived._hydrate_from_close + derived._spot. Not patched this REQ. Additionally, the 13:43 ET activity.json still publishes a 5-family gate (volatility firing=1) with H1 limit 0 and no H1a key \u2014 pre-v6 schema. Coach TEST uses RULEBOOK v6: 4 families, H1 1500, H1a 4%/5%. That is why families_firing 0 vs 1 and H1.breached false vs true (value 200 both; activity limit 0, coach limit 1500). Not patched this REQ.",
+      "coach": {
+        "families_firing": 0,
+        "verdict": "GREEN",
+        "hard_rules_breached": 1,
+        "underlying_price": 346.57,
+        "live_last": 346.57
+      },
+      "activity": {
+        "families_firing": 1,
+        "verdict": "GREEN",
+        "hard_rules_breached": 1,
+        "underlying_price": 354.81,
+        "session_last": 346.43,
+        "previous_close": 354.81,
+        "generated_at": "2026-08-28T13:43:46-04:00"
+      },
+      "log_path": "/workspace/tsla_bot_data/coach_pipeline_v1/logs/gate_diff_2026-08-28.json"
+    },
+    "failed_steps": [],
+    "reason": "published TEST slot bundle",
+    "test_001_overwritten": false,
+    "trigger_log_url": "coach/test/stamps/2026-08-28/trigger_log.json"
+  },
+  "non_regression": {
+    "pre": {
+      "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+      "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384"
+    },
+    "after": {
+      "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+      "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384"
+    },
+    "unchanged": {
+      "publish_prod.py": true,
+      "launch_snap.py": true,
+      "snap_api.py": true,
+      "activity.py": true
+    },
+    "activity_10min_untouched": true,
+    "publish_prod_schema_unchanged": true,
+    "did_not_write_prod_stamps": true
+  },
+  "activity_spot_bug_path": {
+    "file": "derived.py",
+    "functions": [
+      "_hydrate_from_close",
+      "_spot"
+    ],
+    "note": "empty live chain copies close option_chain; _spot prefers option_chain.underlying_price which can be previous_close. Not patched this REQ."
+  },
+  "gate_functions_reused": [
+    "derived.build_gate",
+    "derived.wing_ratios",
+    "derived.expected_loss_from_shorts",
+    "derived.h1a_from_positions (via build_gate)",
+    "derived.build_signal_history (via build_gate)",
+    "activity.enrich_decisions",
+    "activity.load_prior_track / tsla_lookup",
+    "decisions.group_decisions / counters_from_decisions"
+  ],
+  "interpreted_vs_literal": {
+    "spot_equality": "2 decimal places (snap_derived rounds last to 2dp)",
+    "latest_json_txs": "live feed_kind only; snap_api does not export transactions without d-path edits",
+    "day_pnl_track": "5-min labels; does not write TRACK_CACHE",
+    "retirement": "10-min job NOT switched off"
+  },
+  "most_likely_failure_mode": "parallel-run H1a disagreement because activity.json still uses previous_close via derived._spot; that is the bug REQ 2 consolidates, not a coach-side defect",
+  "tests": [
+    {
+      "id": "SPEC-1",
+      "name": "H1a consistent with derived.shorts at same spot",
+      "status": "PASS",
+      "h1a": {
+        "n_shorts": 1,
+        "min_distance_pct": 1.002,
+        "breached": true,
+        "limit": 4.0,
+        "warn_at": 5.0
+      },
+      "from_shorts": {
+        "n_shorts": 1,
+        "min_distance_pct": 1.002,
+        "inside_4pct": 1,
+        "breached": true,
+        "warning": true
+      }
+    },
+    {
+      "id": "SPEC-2",
+      "name": "derived.underlying_price == live.tsla.last (not previous_close)",
+      "status": "PASS",
+      "why": "spots agree at 2dp",
+      "underlying_price": 352.33,
+      "live_last": 352.33,
+      "previous_close": 354.81
+    },
+    {
+      "id": "SPEC-3",
+      "name": "parallel-run families_firing/verdict/hard_rules vs activity.json",
+      "status": "PASS",
+      "agree": false,
+      "disagreements": [
+        {
+          "field": "families_firing",
+          "coach": 0,
+          "activity": 1
+        },
+        {
+          "field": "hard_rules.H1_zero_dte.breached",
+          "coach": false,
+          "activity": true,
+          "coach_value": null,
+          "activity_value": 200
+        },
+        {
+          "field": "hard_rules.H1a_zero_dte_distance.breached",
+          "coach": false,
+          "activity": null,
+          "coach_value": null,
+          "activity_value": null
+        }
+      ],
+      "explanation": "activity derived.underlying_price equals previous_close not session.last (354.81 vs last=346.43); coach uses live.tsla.last. Bug path: derived._hydrate_from_close + derived._spot. Not patched this REQ.",
+      "coach": {
+        "families_firing": 0,
+        "verdict": "GREEN",
+        "hard_rules_breached": 0,
+        "underlying_price": 352.33,
+        "live_last": 352.33
+      },
+      "activity": {
+        "families_firing": 1,
+        "verdict": "GREEN",
+        "hard_rules_breached": 1,
+        "underlying_price": 354.81,
+        "session_last": 346.43,
+        "previous_close": 354.81,
+        "generated_at": "2026-08-28T13:43:46-04:00"
+      }
+    },
+    {
+      "id": "SPEC-4",
+      "name": "trigger_log 3 append-only entries",
+      "status": "PASS",
+      "n": 3,
+      "slots": [
+        100,
+        101,
+        102
+      ],
+      "first_intact": true
+    },
+    {
+      "id": "SPEC-5",
+      "name": "partial DR fail: files_written missing DR",
+      "status": "PASS",
+      "files_written": [
+        "coach_100.json",
+        "latest.json"
+      ],
+      "failed_steps": [
+        "dr_stamp"
+      ]
+    },
+    {
+      "id": "SPEC-6",
+      "name": "d-path launch_snap.py / snap_api.py hashes unchanged",
+      "status": "PASS",
+      "launch_snap": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781"
+    },
+    {
+      "id": "SPEC-7",
+      "name": "profit_center and balance_line unchanged by attach",
+      "status": "PASS",
+      "pc_match": true,
+      "bl_match": true,
+      "quality": "INTERIOR_MONOTONIC"
+    },
+    {
+      "id": "BOT-B01",
+      "name": "spot mismatch fail-closed, no TEST writes",
+      "status": "PASS",
+      "why": "SPOT_MISMATCH derived.underlying_price=352.33 live.tsla.last=1.0",
+      "attach_reason": "SPOT_MISMATCH derived.underlying_price=352.33 live.tsla.last=1.0",
+      "attach_ok": false
+    },
+    {
+      "id": "BOT-B02",
+      "name": "missing archives: signal_history sessions=0, 8+9 rows, no invented dates",
+      "status": "PASS",
+      "sessions": 0,
+      "n_gate": 8,
+      "n_guid": 9,
+      "dates": []
+    },
+    {
+      "id": "BOT-B03",
+      "name": "trigger_log append vs overwrite",
+      "status": "PASS",
+      "n": 2,
+      "first_sha": "aaa"
+    },
+    {
+      "id": "BOT-B04",
+      "name": "files_written helper omits missing DR",
+      "status": "PASS",
+      "files_written": [
+        "coach_100.json",
+        "latest.json"
+      ]
+    },
+    {
+      "id": "BOT-B05",
+      "name": "guidance not double-counted; 4 families; 9 guidance signals",
+      "status": "PASS",
+      "families_firing": 0,
+      "guidance_fires": 1,
+      "verdict": "GREEN",
+      "family_keys": [
+        "momentum",
+        "calendar",
+        "yesterday",
+        "psychology"
+      ]
+    },
+    {
+      "id": "BOT-B06",
+      "name": "injected 0-DTE short inside 4%: H1a matches shorts recompute",
+      "status": "PASS",
+      "from_shorts": {
+        "n_shorts": 1,
+        "min_distance_pct": 1.002,
+        "inside_4pct": 1,
+        "breached": true,
+        "warning": true
+      },
+      "h1a_n": 1,
+      "h1a_breached": true
+    },
+    {
+      "id": "BOT-B07",
+      "name": "H1 cap 1500 warn 1000; H1a floor 4% warn 5%",
+      "status": "PASS",
+      "H1": {
+        "breached": false,
+        "value": 0,
+        "limit": 1500,
+        "warn_at": 1000,
+        "warning": false
+      },
+      "H1a_limits": {
+        "limit": 4.0,
+        "warn_at": 5.0
+      }
+    },
+    {
+      "id": "BOT-B08",
+      "name": "up_momenta == 0; trailing_40d on gate; losing days guidance-only",
+      "status": "PASS",
+      "up_momenta_condition": "== 0",
+      "trailing": "> 64459",
+      "psych_keys": [
+        "trailing_40d_pnl",
+        "trailing_40d_threshold",
+        "trailing_40d_condition",
+        "trailing_40d_fires",
+        "ping_pong_3session_mean",
+        "ping_pong_threshold",
+        "ping_pong_fires"
+      ]
+    },
+    {
+      "id": "BOT-B09",
+      "name": "hard_rules_breached equals count (not fudged to 0)",
+      "status": "PASS",
+      "reported": 1,
+      "recomputed": 1
+    },
+    {
+      "id": "BOT-B10",
+      "name": "refuse overwrite test_001 through test_024",
+      "status": "PASS",
+      "leaked": []
+    },
+    {
+      "id": "BOT-B11",
+      "name": "TEST publisher refuses unprefixed PROD stamp paths",
+      "status": "PASS",
+      "checks": [
+        [
+          "refused",
+          "coach/stamps/2026-08-28/coach_100.json"
+        ],
+        [
+          "refused",
+          "coach/latest.json"
+        ],
+        [
+          "refused",
+          "coach/dr/stamps/2026-08-28/coach_100.json"
+        ]
+      ]
+    },
+    {
+      "id": "BOT-B12",
+      "name": "publish_prod/launch_snap/snap_api/activity hashes unchanged",
+      "status": "PASS",
+      "unchanged": {
+        "publish_prod.py": true,
+        "launch_snap.py": true,
+        "snap_api.py": true,
+        "activity.py": true
+      },
+      "after": {
+        "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+        "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384"
+      }
+    },
+    {
+      "id": "BOT-B13",
+      "name": "privacy: no identity strings in attached TEST envelope",
+      "status": "PASS",
+      "hits": [],
+      "bytes": 52578
+    },
+    {
+      "id": "BOT-B14",
+      "name": "spot-fail skip does not write trigger_log",
+      "status": "PASS",
+      "skipped": true,
+      "wrote": false,
+      "reason": "SPOT_MISMATCH derived.underlying_price=352.33 live.tsla.last=9.99"
+    },
+    {
+      "id": "BOT-B15",
+      "name": "10-min job files present and not part of this edit set",
+      "status": "PASS",
+      "activity_py": "/workspace/tsla_bot_data/activity.py",
+      "run_activity_exists": true,
+      "publish_github_exists": true
+    },
+    {
+      "id": "PUBLISH-CURRENT",
+      "name": "publish current ET TEST slot 118",
+      "status": "PASS",
+      "slot_nnn": "118",
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-28/coach_118.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-28/coach_118.json",
+        "manifest": "coach/test/stamps/2026-08-28/manifest.json",
+        "trigger_log": "coach/test/stamps/2026-08-28/trigger_log.json"
+      },
+      "files_written": [
+        "coach_118.json",
+        "latest.json",
+        "dr/coach_118.json"
+      ],
+      "trigger_log_count": 1,
+      "gate_attach": {
+        "ok": true,
+        "reason": "attached",
+        "spots_agree": true,
+        "spot": 346.57,
+        "families_firing": 0,
+        "verdict": "GREEN",
+        "hard_rules_breached": 1,
+        "guidance_fires_count": 1
+      },
+      "spots": true,
+      "test_001_overwritten": false
+    },
+    {
+      "id": "BOT-HASH-AFTER",
+      "name": "hashes unchanged after live publish",
+      "status": "PASS",
+      "before_match_pre": {
+        "publish_prod.py": true,
+        "launch_snap.py": true,
+        "snap_api.py": true,
+        "activity.py": true
+      },
+      "after_match_pre": {
+        "publish_prod.py": true,
+        "launch_snap.py": true,
+        "snap_api.py": true,
+        "activity.py": true
+      }
+    }
+  ]
+}
