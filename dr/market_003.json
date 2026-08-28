@@ -1,140 +1,47 @@
 {
-  "generated_at": "2026-08-27T16:03:39.276-04:00",
-  "run_type": "close",
+  "generated_at": "2026-08-28T10:05:40.574-04:00",
+  "run_type": "intraday",
   "bot_version": "2.8",
   "timezone": "America/New_York",
   "quote": {
     "symbol": "TSLA",
-    "last": 354.33,
-    "mark": 354.35,
-    "bid": 354.31,
-    "ask": 354.35,
-    "previous_close": 345.82,
+    "last": 353.1212,
+    "mark": 353.1212,
+    "bid": 353.05,
+    "ask": 353.14,
+    "previous_close": 354.81,
     "mark_stale": false,
-    "quote_time": "2026-08-27T16:03:32.723-04:00",
-    "mark_source": "prior_close"
+    "quote_time": "2026-08-28T10:05:41.645-04:00",
+    "mark_source": "live"
   },
   "vix": {
     "symbol": "$VIX",
-    "last": 14.54,
+    "last": 14.55,
     "mark": null,
     "bid": null,
     "ask": null,
-    "previous_close": 15.21,
+    "previous_close": 14.51,
     "mark_stale": false,
     "quote_time": null
   },
   "expected_move": {
-    "spot": 354.33,
-    "vix": 14.54,
-    "atm_straddle": {
-      "source": "atm_straddle",
-      "expiry": "2026-08-28",
-      "dte": 1,
-      "atm_strike": 355.0,
-      "call_mark": 3.05,
-      "put_mark": 3.28,
-      "straddle": 6.33,
-      "pct": 1.79
-    },
-    "atm_straddle_near_term": {
-      "source": "atm_straddle",
-      "expiry": "2026-09-04",
-      "dte": 8,
-      "atm_strike": 355.0,
-      "call_mark": 8.4,
-      "put_mark": 8.32,
-      "straddle": 16.72,
-      "pct": 4.72,
-      "lower": 337.61,
-      "upper": 371.05,
-      "atm_iv": 39.2
-    },
+    "spot": 353.1212,
+    "vix": 14.55,
+    "atm_straddle": null,
+    "atm_straddle_near_term": null,
     "vix_implied": {
       "source": "vix",
-      "one_day": 3.2454,
-      "one_day_pct": 0.9159,
-      "five_day": 7.257,
-      "five_day_pct": 2.0481,
-      "twenty_one_day": 14.8724,
-      "twenty_one_day_pct": 4.1973
+      "one_day": 3.2366,
+      "one_day_pct": 0.9166,
+      "five_day": 7.2372,
+      "five_day_pct": 2.0495,
+      "twenty_one_day": 14.8319,
+      "twenty_one_day_pct": 4.2002
     }
   },
-  "recent_sessions": [
-    {
-      "date": "2026-08-21",
-      "decisions": 35,
-      "legs": 284,
-      "contracts": 5300,
-      "ping_pong_legs": 17,
-      "ping_pong_decisions": 12,
-      "cycles_legs": 27,
-      "cycles_decisions": 5,
-      "contracts_opened_0_1_dte": 2020
-    },
-    {
-      "date": "2026-08-24",
-      "decisions": 24,
-      "legs": 142,
-      "contracts": 2366,
-      "ping_pong_legs": 13,
-      "ping_pong_decisions": 7,
-      "cycles_legs": 21,
-      "cycles_decisions": 5,
-      "contracts_opened_0_1_dte": 850
-    },
-    {
-      "date": "2026-08-25",
-      "decisions": 3,
-      "legs": 28,
-      "contracts": 380,
-      "ping_pong_legs": 3,
-      "ping_pong_decisions": 0,
-      "cycles_legs": 6,
-      "cycles_decisions": 0,
-      "contracts_opened_0_1_dte": 50
-    },
-    {
-      "date": "2026-08-26",
-      "decisions": 50,
-      "legs": 248,
-      "contracts": 6951,
-      "ping_pong_legs": 21,
-      "ping_pong_decisions": 17,
-      "cycles_legs": 34,
-      "cycles_decisions": 4,
-      "contracts_opened_0_1_dte": 3400
-    },
-    {
-      "date": "2026-08-27",
-      "decisions": 25,
-      "legs": 137,
-      "contracts": 1614,
-      "ping_pong_legs": 5,
-      "ping_pong_decisions": 5,
-      "cycles_legs": 32,
-      "cycles_decisions": 3,
-      "contracts_opened_0_1_dte": 570
-    }
-  ],
-  "realized_vol_30d": 58.98,
-  "prior_session": {
-    "date": "2026-08-26",
-    "open": 345.27,
-    "high": 351.93,
-    "low": 342.53,
-    "close": 345.82,
-    "move_pct": -1.26,
-    "range_pct": 2.72,
-    "gap_pct": -1.42
-  },
-  "range_5d_avg_pct": 3.42,
-  "momentum": {
-    "m5": -1.51,
-    "m10": 5.59,
-    "m50": -15.89,
-    "m100": -4.1,
-    "m200": -22.45,
-    "up_count": 1
-  }
+  "recent_sessions": null,
+  "realized_vol_30d": null,
+  "prior_session": null,
+  "range_5d_avg_pct": null,
+  "momentum": null
 }
