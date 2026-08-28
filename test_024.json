@@ -1,0 +1,837 @@
+{
+  "kind": "req3_naked_leg_materiality_test",
+  "pipeline": "test",
+  "req": "req3",
+  "slot": "test_024.json",
+  "generated_at": "2026-08-28T13:17:11.078559-04:00",
+  "overall": "PASS",
+  "pass": 29,
+  "fail": 0,
+  "warn": 0,
+  "test_count": 29,
+  "helper_path": "/workspace/tsla_bot_data/naked_leg_materiality.py",
+  "helper_sha256": "7e6124fbec5c1588fc258411913d1705626bea458cdad9fcb24a2ba541f2c131",
+  "materiality_threshold_usd": 250,
+  "wired_into_live_d_path": false,
+  "coach_prod_publisher_changed": false,
+  "activity_10min_job_changed": false,
+  "snap_036_notional_45_case": "PASS",
+  "snap_036": {
+    "path": "/workspace/tsla_bot_data/snap/snap_036.json",
+    "snapshot_time": "10:45",
+    "session_date": "2026-08-28",
+    "stored_signs_balance": false,
+    "stored_naked_warning": true,
+    "new_helper_signs_balance": true,
+    "case_30x_0dte_325P_mark_0.015_notional_usd": 45.0,
+    "case_pass": true,
+    "sha256": "a1b350d774fdfdffa8047ce07784250c019fd6e705c581d937bdd6fb99d7914a",
+    "sha256_unchanged": true
+  },
+  "live_d_path_unchanged": {
+    "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+    "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+    "snap_api.signs_balance_source_untouched": true,
+    "hashes_match_pre_edit": true,
+    "pre_edit": {
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781"
+    }
+  },
+  "test_table": [
+    {
+      "id": "A01",
+      "name": "30 x 0 DTE 325P long mark 0.015 ($45) \u2192 no warning",
+      "status": "PASS"
+    },
+    {
+      "id": "A02",
+      "name": "naked short any size, no matching long \u2192 warning fires",
+      "status": "PASS"
+    },
+    {
+      "id": "A03",
+      "name": "orphaned long exactly $250 \u2192 warning fires (>=)",
+      "status": "PASS"
+    },
+    {
+      "id": "A04",
+      "name": "50 x long put mark 10.00 ($50,000) \u2192 warning fires",
+      "status": "PASS"
+    },
+    {
+      "id": "A05",
+      "name": "recompute unmodified snap_036.json with NEW helper; live path + file hash unchanged",
+      "status": "PASS"
+    },
+    {
+      "id": "B01",
+      "name": "qty 0 does not unbalance (existing or 0 skip)",
+      "status": "PASS"
+    },
+    {
+      "id": "B02",
+      "name": "qty None treated as 0 (existing `or 0`)",
+      "status": "PASS"
+    },
+    {
+      "id": "B03",
+      "name": "orphaned long mark missing/None \u2192 fail-closed warning",
+      "status": "PASS"
+    },
+    {
+      "id": "B04",
+      "name": "orphaned long mark=None \u2192 fail-closed warning",
+      "status": "PASS"
+    },
+    {
+      "id": "B05",
+      "name": "multi-leg dust sums over $250 but each under \u2192 no warning (aggregate OOS)",
+      "status": "PASS"
+    },
+    {
+      "id": "B06",
+      "name": "matching opposite qty at same (dte, side) different strikes \u2192 balanced",
+      "status": "PASS"
+    },
+    {
+      "id": "B07",
+      "name": "different DTE same side does NOT pair (existing key is dte, not expiry-only)",
+      "status": "PASS"
+    },
+    {
+      "id": "B08",
+      "name": "same DTE put vs call does NOT pair (existing key includes side)",
+      "status": "PASS"
+    },
+    {
+      "id": "B09",
+      "name": "orphaned long $249.99 (rounded cents) suppressed",
+      "status": "PASS"
+    },
+    {
+      "id": "B10",
+      "name": "naked short qty -1 mark 0.001 (tiny notional) still flags",
+      "status": "PASS"
+    },
+    {
+      "id": "B11",
+      "name": "apply_materiality=False on snap_036 matches live stored False",
+      "status": "PASS"
+    },
+    {
+      "id": "B12",
+      "name": "quantity/cp aliases accepted (spec names vs live held names)",
+      "status": "PASS"
+    },
+    {
+      "id": "B13",
+      "name": "suppressed long logs quiet INFO including notional (not a warning)",
+      "status": "PASS"
+    },
+    {
+      "id": "B14",
+      "name": "empty legs \u2192 signs_balance true (all() on empty nets)",
+      "status": "PASS"
+    },
+    {
+      "id": "B15",
+      "name": "same (dte,side) partial short cover leftover dust long \u2192 no warning",
+      "status": "PASS"
+    },
+    {
+      "id": "B16",
+      "name": "net short bucket (partial long cover) \u2192 always flag",
+      "status": "PASS"
+    },
+    {
+      "id": "B17",
+      "name": "evaluate does not mutate input legs",
+      "status": "PASS"
+    },
+    {
+      "id": "B18",
+      "name": "no cache/reuse \u2014 second read of snap_036 matches first",
+      "status": "PASS"
+    },
+    {
+      "id": "B19",
+      "name": "rounding: 30*0.015*100 IEEE raw vs cents-round 45.00",
+      "status": "PASS"
+    },
+    {
+      "id": "B20",
+      "name": "live snap_api.py and launch_snap.py do not import helper",
+      "status": "PASS"
+    },
+    {
+      "id": "B21",
+      "name": "later stored signs_balance=false snaps are the same $45 0 DTE 325P dust long",
+      "status": "PASS"
+    },
+    {
+      "id": "B22",
+      "name": "materiality_threshold_usd is 250 (final, confirmed)",
+      "status": "PASS"
+    },
+    {
+      "id": "B23",
+      "name": "cents rounding of 249.995 (banker's round probe)",
+      "status": "PASS"
+    },
+    {
+      "id": "B24",
+      "name": "cp=PUT normalizes to P for pairing",
+      "status": "PASS"
+    }
+  ],
+  "later_snaps_signs_balance_false": [
+    {
+      "slot": "snap_035.json",
+      "snapshot_time": "10:43",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_036.json",
+      "snapshot_time": "10:45",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_037.json",
+      "snapshot_time": "10:57",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_038.json",
+      "snapshot_time": "11:11",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_039.json",
+      "snapshot_time": "11:27",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_040.json",
+      "snapshot_time": "12:02",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_041.json",
+      "snapshot_time": "12:12",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_042.json",
+      "snapshot_time": "12:16",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_043.json",
+      "snapshot_time": "12:20",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    },
+    {
+      "slot": "snap_044.json",
+      "snapshot_time": "12:31",
+      "stored_signs_balance": false,
+      "legacy_helper_signs_balance": false,
+      "new_helper_signs_balance": true,
+      "dust_longs": [
+        {
+          "dte": 0,
+          "side": "P",
+          "strike": 325.0,
+          "qty": 30.0,
+          "mark": 0.015,
+          "notional_usd": 45.0
+        }
+      ],
+      "naked_shorts": [],
+      "material_longs": [],
+      "from_dust_long_only": true
+    }
+  ],
+  "interpreted_vs_literal": [
+    "Pairing follows existing (dte, side) net-qty, not the REQ prose 'strike-pair structure'. Literal to code.",
+    "Per-leg materiality uses full long qty in a net-long bucket, not residual unmatched qty after greedy matching.",
+    "Mark missing on an orphaned long fail-closes to a warning (spec formula needs mark).",
+    "Notional uses abs(mark) and rounds to 2 decimals before the 250 compare (IEEE 0.015).",
+    "apply_materiality opt-in lives only on the helper; live snap_api.signs_balance was not given that flag.",
+    "Aggregate dust-total explicitly out of scope; B05 documents the gap."
+  ],
+  "most_likely_failure_mode": "IEEE-754 of 0.015 making 30*0.015*100 slightly below 45, or later wiring the helper into snap_api.signs_balance without adding mark onto `held` (held currently has no mark, so fail-closed would re-noise every dust long).",
+  "tests": [
+    {
+      "id": "A01",
+      "name": "30 x 0 DTE 325P long mark 0.015 ($45) \u2192 no warning",
+      "status": "PASS",
+      "expected": "no warning; dust log notional 45",
+      "actual": {
+        "signs_balance": true,
+        "warning": null,
+        "dust_longs": [
+          {
+            "dte": 0,
+            "side": "P",
+            "strike": 325.0,
+            "qty": 30.0,
+            "mark": 0.015,
+            "notional_usd": 45.0
+          }
+        ],
+        "notional_usd": 45.0,
+        "ieee_raw_30_x_0.015_x_100": 44.99999999999999
+      },
+      "notes": ""
+    },
+    {
+      "id": "A02",
+      "name": "naked short any size, no matching long \u2192 warning fires",
+      "status": "PASS",
+      "expected": "warning fires (unchanged vs live)",
+      "actual": {
+        "signs_balance": false,
+        "warning": "signs_balance false (naked leg present)",
+        "naked_shorts": [
+          {
+            "dte": 0,
+            "side": "C",
+            "strike": 400,
+            "qty": -10.0,
+            "mark": 0.01,
+            "notional_usd": 10.0
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "A03",
+      "name": "orphaned long exactly $250 \u2192 warning fires (>=)",
+      "status": "PASS",
+      "expected": ">= 250 flags",
+      "actual": {
+        "notional": 250.0,
+        "signs_balance": false,
+        "material_longs": [
+          {
+            "dte": 0,
+            "side": "P",
+            "strike": 300,
+            "qty": 1.0,
+            "mark": 2.5,
+            "notional_usd": 250.0
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "A04",
+      "name": "50 x long put mark 10.00 ($50,000) \u2192 warning fires",
+      "status": "PASS",
+      "expected": "warning fires",
+      "actual": {
+        "notional": 50000.0,
+        "signs_balance": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "A05",
+      "name": "recompute unmodified snap_036.json with NEW helper; live path + file hash unchanged",
+      "status": "PASS",
+      "expected": "new helper True; on-disk snap_036 hash identical; live d-path files unchanged; stored check still false",
+      "actual": {
+        "new_helper_signs_balance": true,
+        "legacy_helper_signs_balance": false,
+        "stored_checks_signs_balance": false,
+        "stored_naked_warning_present": true,
+        "snap_036_sha256": "a1b350d774fdfdffa8047ce07784250c019fd6e705c581d937bdd6fb99d7914a",
+        "snap_036_sha256_pre": "a1b350d774fdfdffa8047ce07784250c019fd6e705c581d937bdd6fb99d7914a",
+        "snap_036_bytes_unchanged": true,
+        "live_hashes": {
+          "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+          "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+          "snap_derived.py": "74b7ad0c0a81d0a6d055d58c28ebb52efd0457ea86e73b8d028454dbc03bde68",
+          "derived.py": "cabb686fc7a0918138950c28883b885cf13b055878a7ef3765857bf49ff54f73",
+          "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+          "coach_pipeline_v1/publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+          "snap/snap_036.json": "a1b350d774fdfdffa8047ce07784250c019fd6e705c581d937bdd6fb99d7914a"
+        },
+        "live_fn_untouched": true,
+        "launch_untouched": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "B01",
+      "name": "qty 0 does not unbalance (existing or 0 skip)",
+      "status": "PASS",
+      "expected": "signs_balance true",
+      "actual": {
+        "result": true,
+        "unbalanced": []
+      },
+      "notes": ""
+    },
+    {
+      "id": "B02",
+      "name": "qty None treated as 0 (existing `or 0`)",
+      "status": "PASS",
+      "expected": "true",
+      "actual": true,
+      "notes": ""
+    },
+    {
+      "id": "B03",
+      "name": "orphaned long mark missing/None \u2192 fail-closed warning",
+      "status": "PASS",
+      "expected": "flag (cannot prove dust)",
+      "actual": {
+        "signs_balance": false,
+        "mark_missing_longs": [
+          {
+            "dte": 0,
+            "side": "P",
+            "strike": 325,
+            "qty": 30.0,
+            "mark": null,
+            "notional_usd": null,
+            "reason": "mark_missing_fail_closed"
+          }
+        ]
+      },
+      "notes": "",
+      "interpretation": "fail-closed when mark missing; spec formula needs mark"
+    },
+    {
+      "id": "B04",
+      "name": "orphaned long mark=None \u2192 fail-closed warning",
+      "status": "PASS",
+      "expected": "flag",
+      "actual": false,
+      "notes": ""
+    },
+    {
+      "id": "B05",
+      "name": "multi-leg dust sums over $250 but each under \u2192 no warning (aggregate OOS)",
+      "status": "PASS",
+      "expected": "no warning; 3 dust logs; no aggregate check",
+      "actual": {
+        "signs_balance": true,
+        "dust_n": 3,
+        "dust_sum": 445.0
+      },
+      "notes": ""
+    },
+    {
+      "id": "B06",
+      "name": "matching opposite qty at same (dte, side) different strikes \u2192 balanced",
+      "status": "PASS",
+      "expected": "true (existing net-qty pairing, not strike-pair)",
+      "actual": {
+        "signs_balance": true,
+        "unbalanced": []
+      },
+      "notes": ""
+    },
+    {
+      "id": "B07",
+      "name": "different DTE same side does NOT pair (existing key is dte, not expiry-only)",
+      "status": "PASS",
+      "expected": "both buckets unmatched",
+      "actual": {
+        "signs_balance": false,
+        "unbalanced": [
+          {
+            "dte": 0,
+            "side": "P",
+            "net_qty": 30.0,
+            "kind": "net_long",
+            "n_legs": 1
+          },
+          {
+            "dte": 3,
+            "side": "P",
+            "net_qty": -30.0,
+            "kind": "net_short",
+            "n_legs": 1
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "B08",
+      "name": "same DTE put vs call does NOT pair (existing key includes side)",
+      "status": "PASS",
+      "expected": "false",
+      "actual": [
+        {
+          "dte": 0,
+          "side": "P",
+          "net_qty": 30.0,
+          "kind": "net_long",
+          "n_legs": 1
+        },
+        {
+          "dte": 0,
+          "side": "C",
+          "net_qty": -30.0,
+          "kind": "net_short",
+          "n_legs": 1
+        }
+      ],
+      "notes": ""
+    },
+    {
+      "id": "B09",
+      "name": "orphaned long $249.99 (rounded cents) suppressed",
+      "status": "PASS",
+      "expected": "suppress < 250",
+      "actual": {
+        "notional": 249.99,
+        "signs_balance": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "B10",
+      "name": "naked short qty -1 mark 0.001 (tiny notional) still flags",
+      "status": "PASS",
+      "expected": "always flag shorts",
+      "actual": {
+        "notional": 0.1,
+        "signs_balance": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "B11",
+      "name": "apply_materiality=False on snap_036 matches live stored False",
+      "status": "PASS",
+      "expected": "false (opt-in old behavior on helper only; live snap_api untouched)",
+      "actual": {
+        "signs_balance": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "B12",
+      "name": "quantity/cp aliases accepted (spec names vs live held names)",
+      "status": "PASS",
+      "expected": "true, dust",
+      "actual": {
+        "signs_balance": true,
+        "dust": [
+          {
+            "dte": 0,
+            "side": "P",
+            "strike": 325,
+            "qty": 30.0,
+            "mark": 0.015,
+            "notional_usd": 45.0
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "B13",
+      "name": "suppressed long logs quiet INFO including notional (not a warning)",
+      "status": "PASS",
+      "expected": "INFO with notional",
+      "actual": {
+        "info_lines_sample": [
+          "dust orphaned long suppressed (not a warning): dte=0 side=P strike=325.0 qty=30.0 mark=0.015 notional_usd=45.0 threshold=250.0",
+          "dust orphaned long suppressed (not a warning): dte=0 side=P strike=325 qty=30.0 mark=0.015 notional_usd=45.0 threshold=250.0",
+          "dust orphaned long suppressed (not a warning): dte=3 side=P strike=200 qty=10.0 mark=0.2 notional_usd=200.0 threshold=250.0"
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "B14",
+      "name": "empty legs \u2192 signs_balance true (all() on empty nets)",
+      "status": "PASS",
+      "expected": "true",
+      "actual": true,
+      "notes": ""
+    },
+    {
+      "id": "B15",
+      "name": "same (dte,side) partial short cover leftover dust long \u2192 no warning",
+      "status": "PASS",
+      "expected": "net long 20, dust suppress",
+      "actual": {
+        "unbalanced": [
+          {
+            "dte": 0,
+            "side": "P",
+            "net_qty": 20.0,
+            "kind": "net_long",
+            "n_legs": 2
+          }
+        ],
+        "dust": [
+          {
+            "dte": 0,
+            "side": "P",
+            "strike": 325,
+            "qty": 30.0,
+            "mark": 0.015,
+            "notional_usd": 45.0
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "B16",
+      "name": "net short bucket (partial long cover) \u2192 always flag",
+      "status": "PASS",
+      "expected": "flag",
+      "actual": {
+        "unbalanced": [
+          {
+            "dte": 0,
+            "side": "C",
+            "net_qty": -30.0,
+            "kind": "net_short",
+            "n_legs": 2
+          }
+        ]
+      },
+      "notes": ""
+    },
+    {
+      "id": "B17",
+      "name": "evaluate does not mutate input legs",
+      "status": "PASS",
+      "expected": "unchanged",
+      "actual": true,
+      "notes": ""
+    },
+    {
+      "id": "B18",
+      "name": "no cache/reuse \u2014 second read of snap_036 matches first",
+      "status": "PASS",
+      "expected": "pure function, re-read file each time",
+      "actual": true,
+      "notes": ""
+    },
+    {
+      "id": "B19",
+      "name": "rounding: 30*0.015*100 IEEE raw vs cents-round 45.00",
+      "status": "PASS",
+      "expected": "rounded notional 45.00 even if IEEE raw is 44.999...",
+      "actual": {
+        "ieee_raw": 44.99999999999999,
+        "rounded": 45.0
+      },
+      "notes": "",
+      "interpretation": "round to 2 decimals before < / >= 250 compare"
+    },
+    {
+      "id": "B20",
+      "name": "live snap_api.py and launch_snap.py do not import helper",
+      "status": "PASS",
+      "expected": "not wired",
+      "actual": {
+        "snap_api_imports_helper": false,
+        "launch_imports_helper": false
+      },
+      "notes": ""
+    },
+    {
+      "id": "B21",
+      "name": "later stored signs_balance=false snaps are the same $45 0 DTE 325P dust long",
+      "status": "PASS",
+      "expected": "informational: all false snaps 035+ are dust longs; new helper would be true",
+      "actual": {
+        "n": 10,
+        "slots": [
+          "snap_035.json",
+          "snap_036.json",
+          "snap_037.json",
+          "snap_038.json",
+          "snap_039.json",
+          "snap_040.json",
+          "snap_041.json",
+          "snap_042.json",
+          "snap_043.json",
+          "snap_044.json"
+        ],
+        "all_from_dust_long_only": true
+      },
+      "notes": ""
+    },
+    {
+      "id": "B22",
+      "name": "materiality_threshold_usd is 250 (final, confirmed)",
+      "status": "PASS",
+      "expected": 250,
+      "actual": 250.0,
+      "notes": ""
+    },
+    {
+      "id": "B23",
+      "name": "cents rounding of 249.995 (banker's round probe)",
+      "status": "PASS",
+      "expected": "document Python round-half-even",
+      "actual": {
+        "notional_usd(1, 2.49995)": 250.0,
+        "python_round_249.995_2": 250.0
+      },
+      "notes": "observational rounding branch; not a spec fail"
+    },
+    {
+      "id": "B24",
+      "name": "cp=PUT normalizes to P for pairing",
+      "status": "PASS",
+      "expected": "P",
+      "actual": "P",
+      "notes": ""
+    }
+  ],
+  "bot_test_plan_file": "BOT_TEST_PLAN_req3.md",
+  "prod_touched": false,
+  "overwrite_test_001_through_test_023": false
+}
