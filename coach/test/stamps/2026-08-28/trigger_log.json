@@ -18,5 +18,15 @@
       "latest.json",
       "dr/coach_119.json"
     ]
+  },
+  {
+    "slot": 126,
+    "generated_at": "2026-08-28T14:25:27-04:00",
+    "payload_sha256": "e2b8bf730305382138c59d28298f8c2353e4d28ff5e9a38cbffa76e7b58c72c7",
+    "files_written": [
+      "coach_126.json",
+      "latest.json",
+      "dr/coach_126.json"
+    ]
   }
 ]
