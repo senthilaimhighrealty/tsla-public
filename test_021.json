@@ -1,0 +1,355 @@
+{
+  "kind": "profit_center_v2_test_fixture",
+  "pipeline": "test",
+  "implementation_version": "profit_center_v2_2026-08-28",
+  "requirement": "REQUIREMENT_profit_center_v2.md",
+  "source_slot": "snap_032.json",
+  "session_date": "2026-08-28",
+  "snapshot_time": "09:50",
+  "source_generated_at": "2026-08-28T09:50:45.765-04:00",
+  "generated_at": "2026-08-28T10:14:48.527609-04:00",
+  "prod_touched": false,
+  "dr_touched": false,
+  "old_balance_logic_changed": false,
+  "old_risk_curve_changed": false,
+  "on_demand_trigger_d_changed": false,
+  "live": {
+    "as_of": "2026-08-28T09:50:45.765-04:00",
+    "tsla": {
+      "last": 355.49,
+      "bid": 355.44,
+      "ask": 355.54,
+      "previous_close": 354.81,
+      "move_pct": 0.19
+    },
+    "vix": {
+      "last": 14.58,
+      "previous_close": 14.51
+    }
+  },
+  "book_legs": [
+    {
+      "dte": 0,
+      "cp": "P",
+      "strike": 342.5,
+      "quantity": -30.0,
+      "iv": 0.725
+    },
+    {
+      "dte": 0,
+      "cp": "P",
+      "strike": 325.0,
+      "quantity": 30.0,
+      "iv": 1.26
+    },
+    {
+      "dte": 3,
+      "cp": "P",
+      "strike": 340.0,
+      "quantity": -40.0,
+      "iv": 0.32899999999999996
+    },
+    {
+      "dte": 3,
+      "cp": "P",
+      "strike": 300.0,
+      "quantity": 40.0,
+      "iv": 0.6409999999999999
+    },
+    {
+      "dte": 3,
+      "cp": "C",
+      "strike": 390.0,
+      "quantity": 80.0,
+      "iv": 0.444
+    },
+    {
+      "dte": 3,
+      "cp": "C",
+      "strike": 375.0,
+      "quantity": -80.0,
+      "iv": 0.35700000000000004
+    },
+    {
+      "dte": 5,
+      "cp": "P",
+      "strike": 335.0,
+      "quantity": -20.0,
+      "iv": 0.382
+    },
+    {
+      "dte": 5,
+      "cp": "P",
+      "strike": 325.0,
+      "quantity": -20.0,
+      "iv": 0.41700000000000004
+    },
+    {
+      "dte": 5,
+      "cp": "P",
+      "strike": 315.0,
+      "quantity": 20.0,
+      "iv": 0.47700000000000004
+    },
+    {
+      "dte": 5,
+      "cp": "P",
+      "strike": 305.0,
+      "quantity": 20.0,
+      "iv": 0.5820000000000001
+    },
+    {
+      "dte": 5,
+      "cp": "C",
+      "strike": 395.0,
+      "quantity": 30.0,
+      "iv": 0.46
+    },
+    {
+      "dte": 5,
+      "cp": "C",
+      "strike": 380.0,
+      "quantity": -30.0,
+      "iv": 0.40399999999999997
+    },
+    {
+      "dte": 7,
+      "cp": "P",
+      "strike": 280.0,
+      "quantity": -30.0,
+      "iv": 0.701
+    },
+    {
+      "dte": 7,
+      "cp": "P",
+      "strike": 250.0,
+      "quantity": 30.0,
+      "iv": 0.9109999999999999
+    },
+    {
+      "dte": 7,
+      "cp": "C",
+      "strike": 450.0,
+      "quantity": 30.0,
+      "iv": 0.672
+    },
+    {
+      "dte": 7,
+      "cp": "C",
+      "strike": 420.0,
+      "quantity": -30.0,
+      "iv": 0.5539999999999999
+    },
+    {
+      "dte": 12,
+      "cp": "P",
+      "strike": 320.0,
+      "quantity": -30.0,
+      "iv": 0.392
+    },
+    {
+      "dte": 12,
+      "cp": "P",
+      "strike": 290.0,
+      "quantity": 30.0,
+      "iv": 0.51
+    },
+    {
+      "dte": 12,
+      "cp": "C",
+      "strike": 430.0,
+      "quantity": 30.0,
+      "iv": 0.494
+    },
+    {
+      "dte": 12,
+      "cp": "C",
+      "strike": 410.0,
+      "quantity": -30.0,
+      "iv": 0.436
+    },
+    {
+      "dte": 14,
+      "cp": "P",
+      "strike": 325.0,
+      "quantity": -40.0,
+      "iv": 0.391
+    },
+    {
+      "dte": 14,
+      "cp": "P",
+      "strike": 300.0,
+      "quantity": 20.0,
+      "iv": 0.455
+    },
+    {
+      "dte": 14,
+      "cp": "P",
+      "strike": 280.0,
+      "quantity": 20.0,
+      "iv": 0.546
+    },
+    {
+      "dte": 14,
+      "cp": "C",
+      "strike": 430.0,
+      "quantity": 30.0,
+      "iv": 0.488
+    },
+    {
+      "dte": 14,
+      "cp": "C",
+      "strike": 400.0,
+      "quantity": -30.0,
+      "iv": 0.42
+    },
+    {
+      "dte": 21,
+      "cp": "P",
+      "strike": 310.0,
+      "quantity": -3.0,
+      "iv": 0.413
+    },
+    {
+      "dte": 21,
+      "cp": "P",
+      "strike": 290.0,
+      "quantity": 3.0,
+      "iv": 0.462
+    },
+    {
+      "dte": 21,
+      "cp": "C",
+      "strike": 440.0,
+      "quantity": 2.0,
+      "iv": 0.479
+    },
+    {
+      "dte": 21,
+      "cp": "C",
+      "strike": 400.0,
+      "quantity": -2.0,
+      "iv": 0.41700000000000004
+    }
+  ],
+  "derived": {
+    "underlying_price": 355.49,
+    "balance_line": {
+      "spot": 355.49,
+      "balance_spot": 359.2,
+      "distance": 3.71,
+      "distance_pct": 1.04,
+      "put_expected_loss": 42426,
+      "call_expected_loss": 19502,
+      "imbalance": 22924,
+      "heavier_side": "PUT",
+      "dollars_per_point": 6173,
+      "in_flat_zone": true
+    },
+    "risk_curve": {
+      "method": "mark_to_market_reprice",
+      "points": [
+        {
+          "move_pct": -8,
+          "spot": 327.05,
+          "pnl": -150775
+        },
+        {
+          "move_pct": -5,
+          "spot": 337.72,
+          "pnl": -54829
+        },
+        {
+          "move_pct": -3,
+          "spot": 344.83,
+          "pnl": -14745
+        },
+        {
+          "move_pct": -2,
+          "spot": 348.38,
+          "pnl": -6962
+        },
+        {
+          "move_pct": -1,
+          "spot": 351.94,
+          "pnl": -2146
+        },
+        {
+          "move_pct": 0,
+          "spot": 355.49,
+          "pnl": 0
+        },
+        {
+          "move_pct": 1,
+          "spot": 359.04,
+          "pnl": -382
+        },
+        {
+          "move_pct": 2,
+          "spot": 362.6,
+          "pnl": -3335
+        },
+        {
+          "move_pct": 3,
+          "spot": 366.15,
+          "pnl": -9034
+        },
+        {
+          "move_pct": 5,
+          "spot": 373.26,
+          "pnl": -29265
+        },
+        {
+          "move_pct": 8,
+          "spot": 383.93,
+          "pnl": -78686
+        }
+      ],
+      "topline": {
+        "pct_2": -7000,
+        "pct_3": -15000,
+        "pct_5": -55000
+      }
+    },
+    "peak": {
+      "spot": 356.71,
+      "pnl": 152,
+      "distance": 1.22,
+      "distance_pct": 0.34,
+      "peak_at_boundary": false
+    },
+    "profit_center": {
+      "price": 356.73,
+      "pnl_at_center": 152,
+      "distance_from_spot": 1.24,
+      "distance_from_spot_pct": 0.35,
+      "search_lo": 302.17,
+      "search_hi": 408.81,
+      "search_expanded": false,
+      "search_hit_boundary": false,
+      "toward_center_monotonic": true,
+      "local_peaks_found": 1,
+      "second_best_peak": null,
+      "grid_stable": true,
+      "quality": "INTERIOR_MONOTONIC",
+      "reliable_for_directional_coaching": true,
+      "method": "mark_to_market_reprice_argmax",
+      "note": "Different from balance_spot. balance_spot equalizes put/call expected loss on shorts only; profit_center maximizes modeled full-book mark-to-market P&L."
+    }
+  },
+  "display": {
+    "line1": "SPOT 355.49 \u00b7 PROFIT CENTER 356.73 \u00b7 +1.24",
+    "line2": "EL BALANCE 359.20 \u00b7 PUT-heavy $22,924"
+  },
+  "test_metadata": {
+    "bot_test_plan": "BOT_TEST_PLAN_profit_center.md",
+    "bot_test_results": "BOT_TEST_RESULTS_profit_center.json",
+    "profit_center_runtime_ms": 12.654,
+    "runtime_pass_threshold_ms": 500.0,
+    "frozen_derived_sha256": "8893cd08b23f4eda8c2b81faea5fe7bb5ac87c6eba98d62915fe42b5eed9e847",
+    "frozen_snap_derived_sha256": "cc3855a46fc1ddde31484f646d147d2d32921f9443ba3da751092aaf5171ced1",
+    "profit_center_py_sha256": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916",
+    "n_book_legs": 29,
+    "method": "mark_to_market_reprice_argmax"
+  }
+}
