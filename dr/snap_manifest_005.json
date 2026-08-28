@@ -141,6 +141,48 @@
       "spot": 354.125,
       "positions": 66,
       "working": 0
+    },
+    {
+      "slot": "snap_038.json",
+      "time": "11:11",
+      "spot": 353.8341,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_039.json",
+      "time": "11:27",
+      "spot": 352.33,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_040.json",
+      "time": "12:02",
+      "spot": 347.86,
+      "positions": 66,
+      "working": 1
+    },
+    {
+      "slot": "snap_041.json",
+      "time": "12:12",
+      "spot": 348.48,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_042.json",
+      "time": "12:16",
+      "spot": 347.74,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_043.json",
+      "time": "12:20",
+      "spot": 347.6901,
+      "positions": 66,
+      "working": 0
     }
   ],
   "test_used": [
