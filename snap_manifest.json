@@ -162,6 +162,13 @@
       "spot": 347.86,
       "positions": 66,
       "working": 1
+    },
+    {
+      "slot": "snap_041.json",
+      "time": "12:12",
+      "spot": 348.48,
+      "positions": 66,
+      "working": 0
     }
   ],
   "test_used": [
