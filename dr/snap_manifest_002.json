@@ -120,6 +120,41 @@
       "spot": 352.9,
       "positions": 67,
       "working": 1
+    },
+    {
+      "slot": "snap_035.json",
+      "time": "10:43",
+      "spot": 352.27,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_036.json",
+      "time": "10:45",
+      "spot": 352.18,
+      "positions": 66,
+      "working": 1
+    },
+    {
+      "slot": "snap_037.json",
+      "time": "10:57",
+      "spot": 354.125,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_038.json",
+      "time": "11:11",
+      "spot": 353.8341,
+      "positions": 66,
+      "working": 0
+    },
+    {
+      "slot": "snap_039.json",
+      "time": "11:27",
+      "spot": 352.33,
+      "positions": 66,
+      "working": 0
     }
   ],
   "test_used": [
