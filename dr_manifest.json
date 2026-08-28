@@ -1,6 +1,6 @@
 {
   "session_date": "2026-08-28",
-  "generated_at": "2026-08-28T12:12:24.092819-04:00",
+  "generated_at": "2026-08-28T12:16:28.698239-04:00",
   "files": {
     "market.json": {
       "next_slot": 5,
@@ -26,9 +26,9 @@
       ]
     },
     "snap_manifest.json": {
-      "next_slot": 4,
-      "last_slot": 3,
-      "last_written": "12:02",
+      "next_slot": 5,
+      "last_slot": 4,
+      "last_written": "12:16",
       "slots_used_today": [
         1,
         2,
