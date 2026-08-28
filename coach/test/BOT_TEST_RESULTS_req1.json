@@ -1,0 +1,453 @@
+{
+  "plan": "coach_pipeline_v1/BOT_TEST_PLAN_req1.md",
+  "generated_at_et": "2026-08-28T13:21:04-04:00",
+  "overall": "PASS",
+  "counts": {
+    "PASS": 32,
+    "FAIL": 0,
+    "SKIP": 0,
+    "total": 32
+  },
+  "slot_math_confirmation": {
+    "04:00": "001",
+    "12:15": "100",
+    "19:55": "192",
+    "formula": "floor((minutes_since_04:00_ET)/5)+1",
+    "floor_not_round": true
+  },
+  "current_et_slot": {
+    "nnn": "113",
+    "time": "13:20",
+    "session_date": "2026-08-28"
+  },
+  "published_test": {
+    "ok": true,
+    "slot": "113",
+    "source": "live",
+    "paths": {
+      "stamp": "coach/test/stamps/2026-08-28/coach_113.json",
+      "latest": "coach/test/latest.json",
+      "dr": "coach/test/dr/stamps/2026-08-28/coach_113.json",
+      "manifest": "coach/test/stamps/2026-08-28/manifest.json"
+    },
+    "prod_dr_identical": true,
+    "sha256": "deedcd171463ea96c1565f633fea710ac05106dca0b3e2b28aa790ba10c61e57"
+  },
+  "non_regression": {
+    "pre": {
+      "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+      "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+      "snap_044.json": "0b841731de574d83140e90f9586ef46738d356e8ba91e973150a5b8165015719"
+    },
+    "after": {
+      "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+      "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+      "snap_044.json": "0b841731de574d83140e90f9586ef46738d356e8ba91e973150a5b8165015719"
+    },
+    "unchanged": {
+      "publish_prod.py": true,
+      "launch_snap.py": true,
+      "snap_api.py": true,
+      "activity.py": true,
+      "snap_044.json": true
+    },
+    "cron_schedule": "*/5 4-19 * * 1-5",
+    "cron_unchanged": true,
+    "did_not_write_prod_stamps": true
+  },
+  "most_likely_failure_mode": "GitHub Contents 409 on coach/test/latest.json; retry with fresh sha",
+  "tests": [
+    {
+      "id": "SPEC-1",
+      "name": "slot for 12:15 ET is 100",
+      "status": "PASS",
+      "nnn": 100,
+      "file": "coach_100.json",
+      "formula": "floor((12*60+15-4*60)/5)+1"
+    },
+    {
+      "id": "SPEC-2",
+      "name": "slot for 04:00 ET is 001",
+      "status": "PASS",
+      "nnn": 1,
+      "padded": "001"
+    },
+    {
+      "id": "SPEC-3",
+      "name": "slot for 19:55 ET is 192",
+      "status": "PASS",
+      "nnn": 192,
+      "padded": "192"
+    },
+    {
+      "id": "BOT-B01",
+      "name": "03:59:59 ET fail-closed",
+      "status": "PASS",
+      "error": "out of window: 03:59:59 ET \u2192 computed NNN=0 (valid 001\u2013192 is 04:00\u201319:55 ET; fail-closed, no slot invented)"
+    },
+    {
+      "id": "BOT-B02",
+      "name": "20:00:00 ET fail-closed",
+      "status": "PASS",
+      "error": "out of window: 20:00:00 ET \u2192 computed NNN=193 (valid 001\u2013192 is 04:00\u201319:55 ET; fail-closed, no slot invented)"
+    },
+    {
+      "id": "BOT-B03",
+      "name": "exact :00/:05 boundaries 001/002/100/192",
+      "status": "PASS",
+      "pairs": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          100,
+          100
+        ],
+        [
+          192,
+          192
+        ]
+      ]
+    },
+    {
+      "id": "BOT-B04",
+      "name": "04:04:59.999\u2192001 and 12:14:59\u2192099 (floor not round-up)",
+      "status": "PASS",
+      "got": {
+        "04:04:59.999": 1,
+        "12:14:59": 99
+      }
+    },
+    {
+      "id": "BOT-B05",
+      "name": "19:55:01\u201319:59:59 stay on 192; 20:00 out",
+      "status": "PASS",
+      "stay": [
+        192,
+        192,
+        192
+      ]
+    },
+    {
+      "id": "BOT-B06",
+      "name": "missing previous stamp: 111 absent, manifest has 112 only",
+      "status": "PASS",
+      "has112": true,
+      "has111": false,
+      "manifest_slots": [
+        112
+      ]
+    },
+    {
+      "id": "BOT-B07",
+      "name": "GitHub 409 retries with fresh sha",
+      "status": "PASS",
+      "gh_calls": 2,
+      "get_calls": 2,
+      "put_status": 200
+    },
+    {
+      "id": "BOT-B08",
+      "name": "collect fail writes NONE of the three; last-good stays",
+      "status": "PASS",
+      "decision": "skip",
+      "last_good": true,
+      "n_puts": 0,
+      "reason": "fail-closed: simulated empty collect"
+    },
+    {
+      "id": "BOT-B09",
+      "name": "partial write fail logs step+slot; remaining steps proceed",
+      "status": "PASS",
+      "failed_steps": [
+        {
+          "step": 1,
+          "name": "stamp",
+          "slot": 100,
+          "path": "coach/test/stamps/2026-08-28/coach_100.json",
+          "error": "RuntimeError: simulated fail path=coach/test/stamps/2026-08-28/coach_100.json"
+        }
+      ],
+      "written": [
+        "latest",
+        "dr_stamp"
+      ]
+    },
+    {
+      "id": "BOT-B10",
+      "name": "TEST publisher refuses unprefixed PROD stamp path",
+      "status": "PASS",
+      "error": "TEST publisher refused PROD path coach/stamps/2026-08-28/coach_100.json"
+    },
+    {
+      "id": "BOT-B11",
+      "name": "refuse overwrite of test_001..test_023; latest allowed",
+      "status": "PASS",
+      "refuse_001": true,
+      "refuse_023": true,
+      "latest_allowed": true
+    },
+    {
+      "id": "BOT-B12",
+      "name": "same slot republish identical bytes is idempotent",
+      "status": "PASS",
+      "idempotent_puts": [
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": "BOT-B13",
+      "name": "privacy hit refuses PUT; collect-fail path writes none",
+      "status": "PASS",
+      "n_hits": 1,
+      "refused": true
+    },
+    {
+      "id": "BOT-B14",
+      "name": "stamp vs DR disagreement is a hard alert, not silent",
+      "status": "PASS",
+      "identical": false,
+      "hard_alert": "HARD_ALERT test stamp vs DR disagree for slot 100 stamp=f1c164418ca6271b dr=b335b10519860842"
+    },
+    {
+      "id": "BOT-C",
+      "name": "cache/reuse: blob sha retry, last-good, manifest GET-upsert, test_001 immutable, d-debounce unused",
+      "status": "PASS",
+      "cached": [
+        "GitHub blob sha (GET then PUT; 409 re-GET)",
+        "last-good TEST latest left in place on collect fail / out-of-window",
+        "daily manifest GET-upsert; missing \u2192 empty list, does not mark prior slots generated",
+        "test_001 never overwritten",
+        "on-demand d debounce file / snap_manifest used[] not read or written"
+      ]
+    },
+    {
+      "id": "BOT-D",
+      "name": "floor vs round at exact 5-min boundaries (named)",
+      "status": "PASS",
+      "got": {
+        "04:02:30_floor": 1,
+        "12:17:30_floor": 100,
+        "19:57:30_floor": 192,
+        "04:00:00_boundary": 1,
+        "04:05:00_boundary": 2,
+        "12:15:00_boundary": 100,
+        "19:55:00_boundary": 192
+      },
+      "expect": {
+        "04:02:30_floor": 1,
+        "12:17:30_floor": 100,
+        "19:57:30_floor": 192,
+        "04:00:00_boundary": 1,
+        "04:05:00_boundary": 2,
+        "12:15:00_boundary": 100,
+        "19:55:00_boundary": 192
+      },
+      "round_would": {
+        "04:02:30": 2,
+        "12:17:30": 101,
+        "19:57:30": 193
+      }
+    },
+    {
+      "id": "BOT-E",
+      "name": "most likely failure mode named: GitHub Contents 409 on coach/test/latest.json",
+      "status": "PASS",
+      "most_likely": "GitHub Contents 409 on coach/test/latest.json (overwritten every successful TEST run)",
+      "mitigation": "put_bytes retries up to 3 times with a fresh sha",
+      "runner_up": "publisher at 20:01 ET expecting slot 192; correct behavior is skip, URL stays 404"
+    },
+    {
+      "id": "BOT-F",
+      "name": "interpretation vs literal (called out, not silent)",
+      "status": "PASS",
+      "literal": [
+        "NNN=floor((minutes since 04:00 ET)/5)+1",
+        "04:00=001 12:15=100 19:55=192",
+        "TEST paths only on GitHub this rollout",
+        "write order stamp, latest, DR; collect fail writes none",
+        "PROD vs DR byte-identical or hard alert"
+      ],
+      "interpreted": [
+        "after 19:55 implemented as NNN>192 (>=20:00). 19:56-19:59 floor onto 192",
+        "manifest is an array of slots actually written, not a dense 192-row generated:false table",
+        "SPEC-5 without re-pasting is coach-tool side; producer checks enumerability + GET",
+        "SPEC-6/7 PROD writes are local sandbox using slots.prod_paths(), never GitHub",
+        "envelope field slot stays 'coach'; NNN lives in filename + manifest"
+      ]
+    },
+    {
+      "id": "SPEC-6",
+      "name": "three local PROD-sim writes share payload sha256",
+      "status": "PASS",
+      "hashes": {
+        "stamp": "f1c164418ca6271b3d8c67880598f738d280a869275ebee257ce64bc88f0f006",
+        "latest": "f1c164418ca6271b3d8c67880598f738d280a869275ebee257ce64bc88f0f006",
+        "dr": "f1c164418ca6271b3d8c67880598f738d280a869275ebee257ce64bc88f0f006"
+      },
+      "identical": true,
+      "paths": {
+        "stamp": "coach/stamps/2026-08-28/coach_100.json",
+        "latest": "coach/latest.json",
+        "dr": "coach/dr/stamps/2026-08-28/coach_100.json",
+        "manifest": "coach/stamps/2026-08-28/manifest.json"
+      },
+      "hard_alert": null,
+      "note": "local sandbox only; no GitHub PUT to unprefixed coach/stamps/"
+    },
+    {
+      "id": "SPEC-7",
+      "name": "stamp fail + DR success at matching slot number (local sim)",
+      "status": "PASS",
+      "stamp_exists": false,
+      "dr_exists": true,
+      "latest_exists": true,
+      "dr_path": "coach/dr/stamps/2026-08-28/coach_100.json",
+      "failed_steps": [
+        {
+          "step": 1,
+          "name": "stamp",
+          "slot": 100,
+          "path": "coach/stamps/2026-08-28/coach_100.json",
+          "error": "RuntimeError: simulated fail path=coach/stamps/2026-08-28/coach_100.json"
+        }
+      ],
+      "note": "local sandbox; DR fetchable at same NNN even when layer-1 failed"
+    },
+    {
+      "id": "SPEC-4",
+      "name": "unpublished future TEST slot is clean 404",
+      "status": "PASS",
+      "path": "coach/test/stamps/2026-08-28/coach_192.json",
+      "http_status": 404,
+      "expected": 404,
+      "future_slot": 192
+    },
+    {
+      "id": "PUBLISH-CURRENT",
+      "name": "publish current ET TEST slot 113",
+      "status": "PASS",
+      "slot": 113,
+      "slot_nnn": "113",
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-28/coach_113.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-28/coach_113.json",
+        "manifest": "coach/test/stamps/2026-08-28/manifest.json"
+      },
+      "prod_dr_identical": true,
+      "hard_alert": null,
+      "source": "live",
+      "failed_steps": [],
+      "test_001_overwritten": false,
+      "sha256": "deedcd171463ea96c1565f633fea710ac05106dca0b3e2b28aa790ba10c61e57"
+    },
+    {
+      "id": "SPEC-5",
+      "name": "192 names enumerable; published slot GET 200",
+      "status": "PASS",
+      "n_names": 192,
+      "names_ok": true,
+      "published_path": "coach/test/stamps/2026-08-28/coach_113.json",
+      "get_status": 200,
+      "note": "coach-tool 'no re-paste' is conversation-side; producer checks enumerability + GET"
+    },
+    {
+      "id": "SPEC-8",
+      "name": "TEST latest overwritten; PROD latest untouched",
+      "status": "PASS",
+      "test_latest_written": true,
+      "prod_latest_untouched": true,
+      "prod_sha_before": "a0be77297735acb1224faea3398d5c34f00002279615df40f6603e229d804a2f",
+      "prod_sha_after": "a0be77297735acb1224faea3398d5c34f00002279615df40f6603e229d804a2f"
+    },
+    {
+      "id": "SPEC-9",
+      "name": "d-path non-regression hashes + debounce 5s + PROD_SLOTS 100",
+      "status": "PASS",
+      "hash_match": {
+        "launch_snap.py": true,
+        "snap_api.py": true,
+        "snap_044.json": true
+      },
+      "after": {
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+        "snap_044.json": "0b841731de574d83140e90f9586ef46738d356e8ba91e973150a5b8165015719"
+      },
+      "debounce_sec": 5.0,
+      "prod_slots": 100,
+      "launch_ok": true
+    },
+    {
+      "id": "SPEC-10",
+      "name": "activity 5-slot rotation / 10-min job untouched",
+      "status": "PASS",
+      "activity_hash_match": true,
+      "forbidden_puts": [],
+      "activity_sha": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384"
+    },
+    {
+      "id": "BOT-G",
+      "name": "non-regression hashes + publish_prod stamp logic + cron unchanged",
+      "status": "PASS",
+      "hash_match": {
+        "publish_prod.py": true,
+        "launch_snap.py": true,
+        "snap_api.py": true,
+        "activity.py": true,
+        "snap_044.json": true
+      },
+      "after_hashes": {
+        "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+        "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+        "snap_044.json": "0b841731de574d83140e90f9586ef46738d356e8ba91e973150a5b8165015719"
+      },
+      "pre_hashes": {
+        "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+        "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+        "snap_044.json": "0b841731de574d83140e90f9586ef46738d356e8ba91e973150a5b8165015719"
+      },
+      "publish_prod_still_clock_floored": true,
+      "publish_prod_does_not_import_slots": true,
+      "cron_unchanged": true,
+      "cron_cmd": "*/5 4-19 * * 1-5"
+    },
+    {
+      "id": "BOT-H",
+      "name": "unpublished future TEST slot remains 404 (file never created)",
+      "status": "PASS",
+      "path": "coach/test/stamps/2026-08-28/coach_192.json",
+      "http_status": 404,
+      "future_slot": 192
+    },
+    {
+      "id": "BOT-NO-PROD-PUT",
+      "name": "no GitHub PUT outside coach/test/ this run",
+      "status": "PASS",
+      "all_put_paths": [
+        "coach/test/stamps/2026-08-28/coach_113.json",
+        "coach/test/latest.json",
+        "coach/test/dr/stamps/2026-08-28/coach_113.json",
+        "coach/test/stamps/2026-08-28/manifest.json"
+      ],
+      "leaked": []
+    }
+  ]
+}
