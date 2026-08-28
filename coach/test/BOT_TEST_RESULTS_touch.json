@@ -1,0 +1,512 @@
+{
+  "plan": "coach_pipeline_v1/BOT_TEST_PLAN_touch.md",
+  "requirement": "REQ_TOUCH_PROBABILITY",
+  "promote": false,
+  "trader_review": "TEST_ONLY_DO_NOT_PROMOTE",
+  "generated_at_et": "2026-08-28T14:25:37-04:00",
+  "overall": "PASS",
+  "counts": {
+    "PASS": 29,
+    "FAIL": 0,
+    "WARN": 2,
+    "total": 31
+  },
+  "formula": {
+    "method": "gbm_first_passage_r0",
+    "seconds_per_year": 31536000,
+    "expiry_clock": "16:00 America/New_York",
+    "log_drift": "nu = -sigma^2/2 (mu_S=0, r=0)",
+    "not_used": "2 * p_itm",
+    "zero_dte_T": "actual_seconds_remaining / (365*86400)",
+    "dte_ge_1_p_itm": "unchanged snap_derived T=dte/365"
+  },
+  "hashes_pre": {
+    "profit_center.py": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916",
+    "snap_derived.py": "74b7ad0c0a81d0a6d055d58c28ebb52efd0457ea86e73b8d028454dbc03bde68",
+    "derived.py": "cabb686fc7a0918138950c28883b885cf13b055878a7ef3765857bf49ff54f73",
+    "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+    "snap_api.py": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+    "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+    "publish_prod.py": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+    "collect.py": "895874bb440362e97c15e3b60b9d78873613902d33ecb3e8fe0a41683b287293"
+  },
+  "hashes_now": {
+    "profit_center.py": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916",
+    "snap_derived.py": "74b7ad0c0a81d0a6d055d58c28ebb52efd0457ea86e73b8d028454dbc03bde68",
+    "derived.py": "cabb686fc7a0918138950c28883b885cf13b055878a7ef3765857bf49ff54f73",
+    "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+    "snap_api.py": "7cde99a6e9438bfa477a2f554a5679842c0821c76b71c983461b20cc57c35cec",
+    "activity.py": "d56ed2784cea36f1c5c538df3d2fbcb2303896c85cdd19436219c0af7f5f9384",
+    "publish_prod.py": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+    "collect.py": "895874bb440362e97c15e3b60b9d78873613902d33ecb3e8fe0a41683b287293"
+  },
+  "current_et_slot": {
+    "nnn": "126",
+    "time": "14:25",
+    "session_date": "2026-08-28"
+  },
+  "published_test": {
+    "stamp": "coach/test/stamps/2026-08-28/coach_126.json",
+    "latest": "coach/test/latest.json",
+    "dr": "coach/test/dr/stamps/2026-08-28/coach_126.json",
+    "slot_nnn": "126",
+    "session_date": "2026-08-28",
+    "slot_time": "14:25"
+  },
+  "sample_shorts": [
+    {
+      "dte": 0,
+      "side": "C",
+      "strike": 350,
+      "qty": -50,
+      "iv": 53.5,
+      "p_itm": 7.0,
+      "touch_probability_pct": 14.0,
+      "touch_probability_method": "gbm_first_passage_r0",
+      "touch_probability_status": "OK",
+      "current_structure_mark": 0.1,
+      "max_profit_from_now": 500.0,
+      "max_loss_from_now": 37000.0,
+      "width": 7.5,
+      "long": 357.5,
+      "naked": false
+    },
+    {
+      "dte": 0,
+      "side": "C",
+      "strike": 352.5,
+      "qty": -17,
+      "iv": 64.2,
+      "p_itm": 2.0,
+      "touch_probability_pct": 4.0,
+      "touch_probability_method": "gbm_first_passage_r0",
+      "touch_probability_status": "OK",
+      "current_structure_mark": 0.02,
+      "max_profit_from_now": 34.0,
+      "max_loss_from_now": 4216.0,
+      "width": 2.5,
+      "long": 355,
+      "naked": false
+    }
+  ],
+  "tests": [
+    {
+      "id": "SPEC-1",
+      "name": "barrier already crossed \u2192 Touch 100 ALREADY_TOUCHED",
+      "status": "PASS",
+      "call": 100.0,
+      "put": 100.0,
+      "atm": 100.0,
+      "statuses": [
+        "ALREADY_TOUCHED",
+        "ALREADY_TOUCHED",
+        "ALREADY_TOUCHED"
+      ]
+    },
+    {
+      "id": "SPEC-2",
+      "name": "0-DTE hours remaining + valid IV \u2192 non-null Touch and P(ITM)",
+      "status": "PASS",
+      "T": 0.0002453717021816337,
+      "seconds_remaining": 7738.042000000001,
+      "touch_350": 19.3,
+      "p_itm_350": 9.6,
+      "touch_352": 5.2,
+      "p_itm_352": 2.6
+    },
+    {
+      "id": "SPEC-3",
+      "name": "near OTM Touch >= farther, else equal",
+      "status": "PASS",
+      "near": 37.9,
+      "far": 0.1
+    },
+    {
+      "id": "SPEC-4",
+      "name": "more time does not reduce OTM Touch, else equal",
+      "status": "PASS",
+      "short_t": 1.6,
+      "long_t": 27.3
+    },
+    {
+      "id": "SPEC-5",
+      "name": "higher IV generally increases OTM Touch",
+      "status": "PASS",
+      "low_iv": 0.1,
+      "high_iv": 16.9
+    },
+    {
+      "id": "SPEC-6",
+      "name": "call/put synthetic: both in (0,100]; down-barrier >= up (nu=-sig^2/2)",
+      "status": "PASS",
+      "call_up": 50.0,
+      "put_down": 55.0,
+      "interpreted": "not exact-equal under nu=-sig2/2"
+    },
+    {
+      "id": "SPEC-7",
+      "name": "OTM Touch \u2192 0 as T \u2192 0",
+      "status": "PASS",
+      "tiny": 0.0,
+      "zero": 0.0,
+      "touch_status": "OK"
+    },
+    {
+      "id": "SPEC-8",
+      "name": "invalid IV \u2192 null + NO_VALID_IV, never fabricated",
+      "status": "PASS",
+      "cases": [
+        {
+          "iv": "None",
+          "pct": null,
+          "status": "NO_VALID_IV",
+          "ok": true
+        },
+        {
+          "iv": "0.0",
+          "pct": null,
+          "status": "NO_VALID_IV",
+          "ok": true
+        },
+        {
+          "iv": "-0.1",
+          "pct": null,
+          "status": "NO_VALID_IV",
+          "ok": true
+        },
+        {
+          "iv": "nan",
+          "pct": null,
+          "status": "NO_VALID_IV",
+          "ok": true
+        },
+        {
+          "iv": "inf",
+          "pct": null,
+          "status": "NO_VALID_IV",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "id": "SPEC-9",
+      "name": "already ITM/touched \u2192 Touch 100; P(ITM) separate (not forced 100)",
+      "status": "PASS",
+      "touch": 100.0,
+      "touch_status": "ALREADY_TOUCHED",
+      "p_itm": 100.0,
+      "independent": true
+    },
+    {
+      "id": "SPEC-10",
+      "name": "P(ITM) and Touch independent; production is not 2*p_itm",
+      "status": "PASS",
+      "method": "gbm_first_passage_r0",
+      "touch": 19.3,
+      "p_itm": 9.6,
+      "two_p_itm": 19.2,
+      "two_used_in_attach": false,
+      "note": "350C 1dp may be 19.3 vs 19.2; formulas differ even when rounded close"
+    },
+    {
+      "id": "SPEC-11",
+      "name": "valid OTM Touch generally >= P(ITM)",
+      "status": "PASS",
+      "exceptions": [],
+      "n_exceptions": 0
+    },
+    {
+      "id": "SPEC-12",
+      "name": "live-like 0-DTE 350C and 352.5C fixtures",
+      "status": "PASS",
+      "fixture_as_of": "2026-08-28T13:51:01.958000-04:00",
+      "spot": 346.62,
+      "c350": {
+        "touch": 19.3,
+        "p_itm": 9.6,
+        "status": "OK",
+        "method": "gbm_first_passage_r0"
+      },
+      "c3525": {
+        "touch": 5.2,
+        "p_itm": 2.6,
+        "status": "OK",
+        "method": "gbm_first_passage_r0"
+      },
+      "seconds_remaining": 7738.042000000001
+    },
+    {
+      "id": "SPEC-13",
+      "name": "max-profit/max-loss-from-now vs hand calc",
+      "status": "PASS",
+      "pnl350": {
+        "current_structure_mark": 0.13,
+        "max_profit_from_now": 650.0,
+        "max_loss_from_now": 36850.0
+      },
+      "pnl352": {
+        "current_structure_mark": 0.02,
+        "max_profit_from_now": 100.0,
+        "max_loss_from_now": 12400.0
+      }
+    },
+    {
+      "id": "SPEC-14",
+      "name": "qty x50 is exactly 5x x10 dollar risk/reward",
+      "status": "PASS",
+      "x50": {
+        "current_structure_mark": 0.13,
+        "max_profit_from_now": 650.0,
+        "max_loss_from_now": 36850.0
+      },
+      "x10": {
+        "current_structure_mark": 0.13,
+        "max_profit_from_now": 130.0,
+        "max_loss_from_now": 7370.0
+      }
+    },
+    {
+      "id": "SPEC-15",
+      "name": "Profit Center regression (hash + sample price on disk)",
+      "status": "PASS",
+      "hash_ok": true,
+      "sample_price": 348.6,
+      "expected_price": 348.6,
+      "hash_now": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916",
+      "hash_pre": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916"
+    },
+    {
+      "id": "SPEC-16",
+      "name": "EL / balance_line regression",
+      "status": "PASS",
+      "derived_hash_ok": true,
+      "snap_derived_hash_ok": true,
+      "sample_balance_spot": 349.4,
+      "expected_balance_spot": 349.4
+    },
+    {
+      "id": "SPEC-17",
+      "name": "existing non-0-DTE P(ITM) regression (overlay does not change dte>=1)",
+      "status": "PASS",
+      "n_compared": 12
+    },
+    {
+      "id": "SPEC-18",
+      "name": "d pipeline hashes (launch_snap frozen; snap_api may be external worker)",
+      "status": "WARN",
+      "launch_snap_ok": true,
+      "snap_api_same": false,
+      "snap_api_now": "7cde99a6e9438bfa477a2f554a5679842c0821c76b71c983461b20cc57c35cec",
+      "snap_api_pre": "4e85aa8b936933b12804a57a7fe7b050394c5d6af0695b707dbc10084016b781",
+      "note": "this REQ did not write snap_api.py; drift is the other worker if any",
+      "did_not_run_trigger_d": true
+    },
+    {
+      "id": "SPEC-19",
+      "name": "PROD stamps refused; publish_prod.py not edited by this REQ",
+      "status": "WARN",
+      "unprefixed_refused": true,
+      "publish_prod_same": false,
+      "publish_prod_now": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+      "publish_prod_pre": "001840575f295dc8ac4b5f939e99676491c07b75e29aa75a9a946e6924cab4ec",
+      "note": "hash drift = external REQ 1/2/3 PROD worker; this file was not written here"
+    },
+    {
+      "id": "SPEC-20",
+      "name": "GET-only invariant",
+      "status": "PASS",
+      "forbidden_hits": [],
+      "order_limit": 0,
+      "get_only": true
+    },
+    {
+      "id": "BOT-B07",
+      "name": "attach does not mutate profit_center / balance_line / gate",
+      "status": "PASS"
+    },
+    {
+      "id": "BOT-B08",
+      "name": "REQ 2/3 fields survive attach (additive)",
+      "status": "PASS",
+      "req_status": {
+        "req1_slots": "in_this_file",
+        "req2_gate": "in_this_file",
+        "req3_materiality": "in_this_file",
+        "req_touch": "in_this_file"
+      }
+    },
+    {
+      "id": "BOT-B15",
+      "name": "input envelope shorts not mutated",
+      "status": "PASS"
+    },
+    {
+      "id": "BOT-B06",
+      "name": "0-DTE p_itm overlay does not invent expected_loss",
+      "status": "PASS",
+      "n_0dte": 2
+    },
+    {
+      "id": "BOT-B04",
+      "name": "shorts[].iv is percent (47.7 \u2192 0.477)",
+      "status": "PASS",
+      "attached_touch": 19.3,
+      "formula_touch": 19.3,
+      "iv_on_row": 47.7
+    },
+    {
+      "id": "BOT-B02",
+      "name": "S>=K ALREADY_TOUCHED even if IV invalid",
+      "status": "PASS",
+      "touch": 100.0,
+      "touch_status": "ALREADY_TOUCHED"
+    },
+    {
+      "id": "BOT-B12",
+      "name": "2*p_itm is not the first-passage model (can exceed 100; not always equal)",
+      "status": "PASS",
+      "grid": [
+        {
+          "spot": 100.0,
+          "strike": 110.0,
+          "T": 0.05,
+          "iv": 0.4,
+          "cp": "C",
+          "touch": 27.3,
+          "status": "OK",
+          "p_itm": 13.3,
+          "two_p_itm": 26.6,
+          "equal_to_two": false,
+          "two_exceeds_100": false
+        },
+        {
+          "spot": 100.0,
+          "strike": 90.0,
+          "T": 0.05,
+          "iv": 0.4,
+          "cp": "P",
+          "touch": 25.2,
+          "status": "OK",
+          "p_itm": 12.9,
+          "two_p_itm": 25.8,
+          "equal_to_two": false,
+          "two_exceeds_100": false
+        },
+        {
+          "spot": 346.62,
+          "strike": 350.0,
+          "T": 0.0002453717021816337,
+          "iv": 0.477,
+          "cp": "C",
+          "touch": 19.3,
+          "status": "OK",
+          "p_itm": 9.6,
+          "two_p_itm": 19.2,
+          "equal_to_two": false,
+          "two_exceeds_100": false
+        },
+        {
+          "spot": 111.0,
+          "strike": 110.0,
+          "T": 0.1,
+          "iv": 0.4,
+          "cp": "C",
+          "touch": 100.0,
+          "status": "ALREADY_TOUCHED",
+          "p_itm": 50.3,
+          "two_p_itm": 100.6,
+          "equal_to_two": false,
+          "two_exceeds_100": true
+        }
+      ],
+      "any_two_exceeds_100": true,
+      "all_equal_when_ok": false
+    },
+    {
+      "id": "BOT-B11",
+      "name": "privacy scan of attached envelope",
+      "status": "PASS",
+      "hits": []
+    },
+    {
+      "id": "BOT-B13",
+      "name": "this REQ did not write frozen modules (collect/derived/PC/launch/activity)",
+      "status": "PASS",
+      "match": {
+        "collect.py": true,
+        "launch_snap.py": true,
+        "profit_center.py": true,
+        "activity.py": true,
+        "snap_derived.py": true,
+        "derived.py": true
+      }
+    },
+    {
+      "id": "BOT-ATTACH",
+      "name": "fixture envelope 350C/352.5C carry Touch + P(ITM) + max P/L",
+      "status": "PASS",
+      "row350": {
+        "strike": 350,
+        "p_itm": 9.6,
+        "touch_probability_pct": 19.3,
+        "touch_probability_status": "OK",
+        "max_profit_from_now": 650.0,
+        "max_loss_from_now": 36850.0,
+        "current_structure_mark": 0.13
+      }
+    },
+    {
+      "id": "PUBLISH",
+      "name": "dedicated TEST publish overlay fields present on shorts",
+      "status": "PASS",
+      "ok": true,
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-28/coach_126.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-28/coach_126.json",
+        "slot_nnn": "126",
+        "session_date": "2026-08-28",
+        "slot_time": "14:25"
+      },
+      "sample_shorts": [
+        {
+          "dte": 0,
+          "side": "C",
+          "strike": 350,
+          "qty": -50,
+          "iv": 53.5,
+          "p_itm": 7.0,
+          "touch_probability_pct": 14.0,
+          "touch_probability_method": "gbm_first_passage_r0",
+          "touch_probability_status": "OK",
+          "current_structure_mark": 0.1,
+          "max_profit_from_now": 500.0,
+          "max_loss_from_now": 37000.0,
+          "width": 7.5,
+          "long": 357.5,
+          "naked": false
+        },
+        {
+          "dte": 0,
+          "side": "C",
+          "strike": 352.5,
+          "qty": -17,
+          "iv": 64.2,
+          "p_itm": 2.0,
+          "touch_probability_pct": 4.0,
+          "touch_probability_method": "gbm_first_passage_r0",
+          "touch_probability_status": "OK",
+          "current_structure_mark": 0.02,
+          "max_profit_from_now": 34.0,
+          "max_loss_from_now": 4216.0,
+          "width": 2.5,
+          "long": 355,
+          "naked": false
+        }
+      ],
+      "shorts_with_touch_fields": 14,
+      "reason": "published TEST slot with touch overlay (not PROD)"
+    }
+  ],
+  "not_evidence": "REQ 2 24/24 is not evidence for this REQ"
+}
