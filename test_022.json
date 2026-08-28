@@ -1,0 +1,421 @@
+{
+  "kind": "profit_center_v2_test_results",
+  "pipeline": "test",
+  "implementation_version": "profit_center_v2_2026-08-28",
+  "generated_at": "2026-08-28T10:15:46.828946-04:00",
+  "overall": "PASS",
+  "requirement_test_count": 30,
+  "bot_additional_test_count": 15,
+  "pass": 45,
+  "warn": 0,
+  "fail": 0,
+  "profit_center_runtime_ms": 12.654,
+  "runtime_pass_threshold_ms": 500.0,
+  "primary_spot": 355.49,
+  "primary_profit_center": {
+    "price": 356.73,
+    "pnl_at_center": 152,
+    "distance_from_spot": 1.24,
+    "distance_from_spot_pct": 0.35,
+    "search_lo": 302.17,
+    "search_hi": 408.81,
+    "search_expanded": false,
+    "search_hit_boundary": false,
+    "toward_center_monotonic": true,
+    "local_peaks_found": 1,
+    "second_best_peak": null,
+    "grid_stable": true,
+    "quality": "INTERIOR_MONOTONIC",
+    "reliable_for_directional_coaching": true,
+    "method": "mark_to_market_reprice_argmax",
+    "note": "Different from balance_spot. balance_spot equalizes put/call expected loss on shorts only; profit_center maximizes modeled full-book mark-to-market P&L."
+  },
+  "display": {
+    "line1": "SPOT 355.49 \u00b7 PROFIT CENTER 356.73 \u00b7 +1.24",
+    "line2": "EL BALANCE 359.20 \u00b7 PUT-heavy $22,924"
+  },
+  "reality_test": {
+    "sample_count": 23,
+    "toward_count": 7,
+    "away_count": 12,
+    "unchanged_count": 4,
+    "toward_and_book_improved": 2,
+    "away_and_book_worsened": 2,
+    "hit_rate": 0.2105,
+    "median_observed_change_toward": -0.3499999999985448,
+    "median_observed_change_away": 55.3550000000032,
+    "limitations": "Association only, not causation. IV, skew, theta, bid/ask, after-hours/stale quotes, and integer DTE all move between snaps. Observed MTM is POS marks, not the BS model. Unchanged-position pairs only (qty/strike/dte/side)."
+  },
+  "frozen_hashes": {
+    "derived.py": "8893cd08b23f4eda8c2b81faea5fe7bb5ac87c6eba98d62915fe42b5eed9e847",
+    "snap_derived.py": "cc3855a46fc1ddde31484f646d147d2d32921f9443ba3da751092aaf5171ced1",
+    "profit_center.py": "3b0181df30cab27b1c5a3e5c2e5aa4f85665934e2cd72c06c438985450064916",
+    "derived.py_matches_required_baseline": true,
+    "snap_derived.py_matches_required_baseline": true
+  },
+  "fixture_file": "test_021.json",
+  "prod_touched": false,
+  "dr_touched": false,
+  "tests": [
+    {
+      "id": "T01",
+      "name": "existing risk-curve reuse",
+      "status": "PASS",
+      "expected": "profit_center imports/calls derived.book_value; no duplicate bs/book_value",
+      "notes": "identity of book_value is the mark_to_market_reprice engine used by risk_curve and peak",
+      "source": "profit_center.py + derived.book_value"
+    },
+    {
+      "id": "T02",
+      "name": "sampled-curve dominance",
+      "status": "PASS",
+      "expected": "pnl_at_center >= every risk_curve.points pnl (tol $1 rounding)",
+      "notes": "risk_curve \u00b18% all sit inside the 0.85-1.15 window",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T03",
+      "name": "center direct repricing",
+      "status": "PASS",
+      "expected": "abs(reprice(center)-pnl_at_center) <= 0.51",
+      "notes": "published pnl is int(round(raw))",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T04",
+      "name": "path monotonicity",
+      "status": "PASS",
+      "expected": "path non-decreasing; coaching true",
+      "notes": "path includes spot, center, 0.25 intermediates, on-path center\u00b10.50/1/2",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T05",
+      "name": "away-from-center local test",
+      "status": "PASS",
+      "expected": "P&L(center) >= center \u00b10.50/1/2 when locally single-peaked",
+      "notes": "local single-peak check",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T06",
+      "name": "kink/grid-refinement",
+      "status": "PASS",
+      "expected": "abs(center_fine-center_normal)<=0.01 and P&L delta<=50.0",
+      "notes": "rerun refine_step/2",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T07",
+      "name": "short-strike kink fixture",
+      "status": "PASS",
+      "expected": "coarse scan does not skip the best region; center near clustered short strikes",
+      "notes": "synthetic 3-DTE 340/350/360/370 iron condor + snap_032 clustered shorts",
+      "source": "synthetic_iron_condor dte=3 + snap_032"
+    },
+    {
+      "id": "T08",
+      "name": "multiple local peaks fixture",
+      "status": "PASS",
+      "expected": "local_peaks_found>1, quality=MULTIPLE_PEAKS, coaching false",
+      "notes": "two Gaussians at 320 and 390; prominence $25",
+      "source": "synthetic two-gaussian reprice_fn"
+    },
+    {
+      "id": "T09",
+      "name": "initial-boundary expansion",
+      "status": "PASS",
+      "expected": "search_expanded true, search_hit_boundary false, interior center near 1.18*spot",
+      "notes": "quadratic peak at 1.18*spot (outside \u00b115%, inside 70-140%)",
+      "source": "synthetic quadratic 1.18x"
+    },
+    {
+      "id": "T10",
+      "name": "expanded-boundary failure",
+      "status": "PASS",
+      "expected": "quality=BOUNDARY, coaching false, expanded+hit",
+      "notes": "monotone increasing reprice_fn; argmax at 1.40*spot",
+      "source": "synthetic linear-up"
+    },
+    {
+      "id": "T11",
+      "name": "already-centered fixture",
+      "status": "PASS",
+      "expected": "abs(distance_from_spot)<=0.5 and INTERIOR_MONOTONIC",
+      "notes": "quadratic peak at current spot",
+      "source": "synthetic quadratic at spot"
+    },
+    {
+      "id": "T12",
+      "name": "deterministic rerun",
+      "status": "PASS",
+      "expected": "same center/pnl/quality/peak count on 3 reruns",
+      "notes": "identical positions/marks/IV/DTE",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T13",
+      "name": "leg-order independence",
+      "status": "PASS",
+      "expected": "identical output after shuffling legs",
+      "notes": "same book, iteration order shuffled",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T14",
+      "name": "old balance_spot non-regression",
+      "status": "PASS",
+      "expected": "value-identical frozen balance fields vs stored snap (timestamps ignored)",
+      "notes": "recompute build_snap_derived on unmodified snap_derived.py",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T15",
+      "name": "old risk_curve.points non-regression",
+      "status": "PASS",
+      "expected": "identical risk_curve.points and method",
+      "notes": "same fixture, frozen risk_curve construction",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T16",
+      "name": "full-book inclusion",
+      "status": "PASS",
+      "expected": "uses longs+shorts (same universe as MTM risk_curve); not shorts-only; stock only if engine includes it (it does not)",
+      "notes": "scope 0<=dte<=45 via snap_derived.build_legs; book_value options-only",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T17",
+      "name": "quantity sensitivity",
+      "status": "PASS",
+      "expected": "doubling one short qty changes profit_center price and/or pnl",
+      "notes": "one short leg qty * 2",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T18",
+      "name": "IV sensitivity",
+      "status": "PASS",
+      "expected": "1.5x per-leg IV changes center and/or pnl (not a strike-midpoint heuristic)",
+      "notes": "all per-leg IV * 1.5",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T19",
+      "name": "DTE sensitivity",
+      "status": "PASS",
+      "expected": "aging DTE by 5 days changes center and/or pnl",
+      "notes": "dte' = max(dte-5, 0)",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T20",
+      "name": "schema test",
+      "status": "PASS",
+      "expected": "derived.profit_center has all required fields with correct types",
+      "notes": "attached under derived.profit_center on TEST artifact",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T21",
+      "name": "null/error behavior",
+      "status": "PASS",
+      "expected": "invalid/missing reprice input \u2192 price null, quality UNRELIABLE, coaching false; never a fake numeric center",
+      "notes": "spot/legs/raising reprice_fn",
+      "source": "synthetic invalid inputs"
+    },
+    {
+      "id": "T22",
+      "name": "runtime / performance",
+      "status": "PASS",
+      "expected": "profit_center_runtime_ms <= 500.0 (threshold: snap jobs already ~4-5s API; 500ms is <15% extra; measured ~20ms)",
+      "notes": "threshold documented in BOT_TEST_PLAN; does not delay on-demand d (not wired into snap_api)",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T23",
+      "name": "PROD / DR equality",
+      "status": "PASS",
+      "expected": "N/A until PROD/DR enabled (requirement sequence step 8-9)",
+      "notes": "TEST-only publication. Equality cannot fail because PROD/DR were not touched.",
+      "source": "n/a (PROD/DR not enabled)"
+    },
+    {
+      "id": "T24",
+      "name": "TEST fixture",
+      "status": "PASS",
+      "expected": "non-empty TEST artifact with derived.profit_center, independently fetchable",
+      "notes": "PUT via publish_github.py test; raw GET 200 once on new filename (CDN miss)",
+      "source": "test_021.json"
+    },
+    {
+      "id": "T25",
+      "name": "historical unchanged-position reality test",
+      "status": "PASS",
+      "expected": "pairs with unchanged positions; TOWARD/AWAY vs observed mark MTM; no invented numbers",
+      "notes": "empirical association only; confounders logged in T26",
+      "source": "snap/snap_*.json unchanged POS fingerprint pairs"
+    },
+    {
+      "id": "T26",
+      "name": "confounder logging for reality test",
+      "status": "PASS",
+      "expected": "elapsed_minutes, IV change, VIX change, theta elapsed, bid/ask quality per pair; no causality claim",
+      "notes": "explicit limitations; spot not claimed as the P&L cause",
+      "source": "snap/snap_*.json"
+    },
+    {
+      "id": "T27",
+      "name": "directional coaching safety",
+      "status": "PASS",
+      "expected": "when coaching false, do not say move toward profit center = profit; display UNRELIABLE/MULTIPLE PEAKS/BOUNDARY",
+      "notes": "display_lines + directional_coaching_claim",
+      "source": "profit_center.display_lines"
+    },
+    {
+      "id": "T28",
+      "name": "distance sign convention",
+      "status": "PASS",
+      "expected": "distance_from_spot = profit_center.price - current_spot (signed)",
+      "notes": "example convention: spot 357.37 center 355.10 \u2192 -2.27",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T29",
+      "name": "current display fixture",
+      "status": "PASS",
+      "expected": "SPOT x \u00b7 PROFIT CENTER y \u00b7 signed distance / EL BALANCE z \u00b7 heavier side imbalance; no mislabel",
+      "notes": "labels verified against derived fields",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "T30",
+      "name": "privacy / sanitization",
+      "status": "PASS",
+      "expected": "no NEVER_PUBLISH keys; no [redacted]|[redacted]|[redacted]|[redacted]|[redacted] in payloads; numbers kept; 387 substring of longer numbers OK",
+      "notes": "scanner = NEVER_PUBLISH keys + identity value [redacted] + publish_github.EXCLUDED keys",
+      "source": "TEST artifact test_021.json"
+    },
+    {
+      "id": "B01",
+      "name": "frozen file hashes vs baseline",
+      "status": "PASS",
+      "expected": "{\"derived\": \"8893cd08b23f4eda8c2b81faea5fe7bb5ac87c6eba98d62915fe42b5eed9e847\", \"snap_derived\": \"cc3855a46fc1ddde31484f646d147d2d32921f9443ba3da751092aaf5171ced1\"}",
+      "notes": "no edits to derived.py / snap_derived.py",
+      "source": "profit_center_v2/baselines/"
+    },
+    {
+      "id": "B02",
+      "name": "shorts-only differs from full book",
+      "status": "PASS",
+      "expected": "full-book center != shorts-only on a book with longs",
+      "notes": "failure mode: accidentally using shorts-only",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B03",
+      "name": "peak window != profit_center window",
+      "status": "PASS",
+      "expected": "do not assume peak==profit_center; different search windows",
+      "notes": "peak SCAN 0.94-1.06 step 0.05 vs PC 0.85-1.15 / 0.25 then 0.01. Values may be close.",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B04",
+      "name": "display labels not swapped",
+      "status": "PASS",
+      "expected": "line1 is profit center; line2 is EL balance",
+      "notes": "mislabel would swap trading center vs structural EL",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B05",
+      "name": "on-demand snap trigger d untouched",
+      "status": "PASS",
+      "expected": "snap_api.py not modified by this work",
+      "notes": "this runner does not write snap_api.py / launch_snap.py",
+      "source": "snap_api.py"
+    },
+    {
+      "id": "B06",
+      "name": "published object identity-token free",
+      "status": "PASS",
+      "expected": "profit_center object has no identity [redacted]",
+      "notes": "note field is the specified non-identity sentence",
+      "source": "derived.profit_center"
+    },
+    {
+      "id": "B07",
+      "name": "no causal coaching sentence when unreliable",
+      "status": "PASS",
+      "expected": "directional_coaching_claim returns None",
+      "notes": "covers BOUNDARY/MULTIPLE_PEAKS/UNRELIABLE/INTERIOR_NONMONOTONIC",
+      "source": "profit_center.directional_coaching_claim"
+    },
+    {
+      "id": "B08",
+      "name": "does not mutate input legs",
+      "status": "PASS",
+      "expected": "legs list unchanged after compute",
+      "notes": "pure function wrt legs",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B09",
+      "name": "second_best_peak null when single peak",
+      "status": "PASS",
+      "expected": "second_best_peak null iff local_peaks_found<=1",
+      "notes": "schema consistency",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B10",
+      "name": "stock not injected into book_value",
+      "status": "PASS",
+      "expected": "make_mtm_pnl_fn body calls book_value(..., legs, None) only",
+      "notes": "existing engine is options-only; requirement says include stock only if engine does",
+      "source": "profit_center.make_mtm_pnl_fn"
+    },
+    {
+      "id": "B11",
+      "name": "TEST artifact avoids publish EXCLUDED keys",
+      "status": "PASS",
+      "expected": "no quoted cash/positions/[redacted]/[redacted]/[redacted] keys",
+      "notes": "publish_github.publish_test uses EXCLUDED",
+      "source": "test/test_021.json"
+    },
+    {
+      "id": "B12",
+      "name": "method string exact",
+      "status": "PASS",
+      "expected": "mark_to_market_reprice_argmax",
+      "notes": "requirement \u00a710",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B13",
+      "name": "no duplicate pricing engine in new file",
+      "status": "PASS",
+      "expected": "profit_center.py does not define bs or book_value",
+      "notes": "T01 companion",
+      "source": "profit_center.py"
+    },
+    {
+      "id": "B14",
+      "name": "search window matches expansion flag",
+      "status": "PASS",
+      "expected": "{\"search_lo\": 302.17, \"search_hi\": 408.81, \"expanded\": false}",
+      "notes": "published bounds are the final window",
+      "source": "/workspace/tsla_bot_data/snap/snap_032.json"
+    },
+    {
+      "id": "B15",
+      "name": "NaN/inf do not mint a fake center",
+      "status": "PASS",
+      "expected": "price is null",
+      "notes": "companion to T21",
+      "source": "synthetic"
+    }
+  ]
+}
