@@ -1,123 +1,18 @@
 {
-  "session_date": "2026-08-27",
-  "next_slot": 18,
+  "session_date": "2026-08-28",
+  "next_slot": 1,
   "used": [
     {
-      "slot": "snap_001.json",
-      "time": "13:20",
-      "spot": 355.03,
-      "positions": 67,
-      "working": 1
-    },
-    {
-      "slot": "snap_002.json",
-      "time": "13:34",
-      "spot": 354.2099,
-      "positions": 67,
-      "working": 1
-    },
-    {
-      "slot": "snap_003.json",
-      "time": "14:36",
-      "spot": 355.06,
-      "positions": 67,
-      "working": 1
-    },
-    {
-      "slot": "snap_004.json",
-      "time": "14:56",
-      "spot": 354.67,
-      "positions": 66,
-      "working": 1
-    },
-    {
-      "slot": "snap_005.json",
-      "time": "14:58",
-      "spot": 355.4051,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_006.json",
-      "time": "15:08",
-      "spot": 354.89,
-      "positions": 68,
-      "working": 2
-    },
-    {
-      "slot": "snap_007.json",
-      "time": "15:18",
-      "spot": 354.775,
-      "positions": 68,
-      "working": 2
-    },
-    {
-      "slot": "snap_008.json",
-      "time": "15:26",
-      "spot": 354.48,
-      "positions": 68,
-      "working": 2
-    },
-    {
-      "slot": "snap_009.json",
-      "time": "15:30",
-      "spot": 354.78,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_010.json",
-      "time": "15:32",
-      "spot": 355.092,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_011.json",
-      "time": "15:36",
-      "spot": 354.38,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_012.json",
-      "time": "15:48",
-      "spot": 354.705,
-      "positions": 68,
-      "working": 2
-    },
-    {
-      "slot": "snap_013.json",
-      "time": "15:52",
-      "spot": 355.11,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_014.json",
-      "time": "15:56",
-      "spot": 354.175,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_015.json",
-      "time": "16:00",
-      "spot": 354.1053,
-      "positions": 68,
-      "working": 1
-    },
-    {
-      "slot": "snap_016.json",
-      "time": "16:18",
-      "spot": 354.5,
+      "slot": "snap_018.json",
+      "time": "00:08",
+      "spot": 354.59,
       "positions": 68,
       "working": 0
     },
     {
-      "slot": "snap_017.json",
-      "time": "16:18",
-      "spot": 354.4536,
+      "slot": "snap_019.json",
+      "time": "00:17",
+      "spot": 354.59,
       "positions": 68,
       "working": 0
     }
