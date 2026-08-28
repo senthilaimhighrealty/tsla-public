@@ -1,6 +1,8 @@
 {
-  "generated_at": "2026-08-28T14:18:53.716-04:00",
-  "sha256": "d371c93f1667fea3e5a42ae9e0dd888c9597f33029ada3707f6faba039e3f3b1",
-  "stamp_path": "coach/stamps/2026-08-28_1415.json",
-  "session_date": "2026-08-28"
+  "generated_at": "2026-08-28T14:20:01.786-04:00",
+  "sha256": "2b0518fc4b93dee7a0ca96211f8f029daa90c63cdeb74461504a01ad1f315bf9",
+  "stamp_path": "coach/stamps/2026-08-28/coach_125.json",
+  "session_date": "2026-08-28",
+  "slot": 125,
+  "slot_nnn": "125"
 }
