@@ -909,17 +909,17 @@
           "move_5session_pct": null
         },
         "H1a_zero_dte_distance": {
-          "breached": false,
-          "warning": false,
+          "breached": true,
+          "warning": true,
           "limit": 4.0,
           "warn_at": 5.0,
-          "value": null,
-          "min_distance_pct": null,
-          "n_shorts": 0,
-          "inside_4pct": 0
+          "value": 3.392,
+          "min_distance_pct": 3.392,
+          "n_shorts": 2,
+          "inside_4pct": 1
         }
       },
-      "hard_rules_breached": 0,
+      "hard_rules_breached": 1,
       "guidance": {
         "note": "reported only — never counted in families_firing",
         "signals": [
@@ -1255,12 +1255,169 @@
         }
       ]
     },
-    "wing_ratios": [],
+    "wing_ratios": [
+      {
+        "expiry": "2026-08-31",
+        "dte": 1,
+        "side": "PUT",
+        "short": 320.0,
+        "long": 300.0,
+        "depth_pct": -8.1,
+        "width_pct": 5.74,
+        "ratio": 0.71,
+        "risk": 80000,
+        "inside_10pct": true,
+        "flag": "GREEN"
+      },
+      {
+        "expiry": "2026-08-31",
+        "dte": 1,
+        "side": "CALL",
+        "short": 360.0,
+        "long": 390.0,
+        "depth_pct": 3.4,
+        "width_pct": 8.62,
+        "ratio": 2.54,
+        "risk": 75000,
+        "inside_10pct": true,
+        "flag": "RED"
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 3,
+        "side": "PUT",
+        "short": 325.0,
+        "long": 305.0,
+        "depth_pct": -6.7,
+        "width_pct": 5.74,
+        "ratio": 0.86,
+        "risk": 30000,
+        "inside_10pct": true,
+        "flag": "GREEN"
+      },
+      {
+        "expiry": "2026-09-02",
+        "dte": 3,
+        "side": "CALL",
+        "short": 370.0,
+        "long": 395.0,
+        "depth_pct": 6.3,
+        "width_pct": 7.18,
+        "ratio": 1.15,
+        "risk": 75000,
+        "inside_10pct": true,
+        "flag": "AMBER"
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 5,
+        "side": "PUT",
+        "short": 280.0,
+        "long": 250.0,
+        "depth_pct": -19.6,
+        "width_pct": 8.62,
+        "ratio": 0.44,
+        "risk": 90000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      },
+      {
+        "expiry": "2026-09-04",
+        "dte": 5,
+        "side": "CALL",
+        "short": 420.0,
+        "long": 450.0,
+        "depth_pct": 20.6,
+        "width_pct": 8.62,
+        "ratio": 0.42,
+        "risk": 90000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 10,
+        "side": "PUT",
+        "short": 320.0,
+        "long": 290.0,
+        "depth_pct": -8.1,
+        "width_pct": 8.62,
+        "ratio": 1.06,
+        "risk": 45000,
+        "inside_10pct": true,
+        "flag": "AMBER"
+      },
+      {
+        "expiry": "2026-09-09",
+        "dte": 10,
+        "side": "CALL",
+        "short": 390.0,
+        "long": 430.0,
+        "depth_pct": 12.0,
+        "width_pct": 11.49,
+        "ratio": 0.96,
+        "risk": 120000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 12,
+        "side": "PUT",
+        "short": 325.0,
+        "long": 280.0,
+        "depth_pct": -6.7,
+        "width_pct": 12.92,
+        "ratio": 1.94,
+        "risk": 45000,
+        "inside_10pct": true,
+        "flag": "RED"
+      },
+      {
+        "expiry": "2026-09-11",
+        "dte": 12,
+        "side": "CALL",
+        "short": 400.0,
+        "long": 430.0,
+        "depth_pct": 14.9,
+        "width_pct": 8.62,
+        "ratio": 0.58,
+        "risk": 180000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 19,
+        "side": "PUT",
+        "short": 310.0,
+        "long": 290.0,
+        "depth_pct": -11.0,
+        "width_pct": 5.74,
+        "ratio": 0.52,
+        "risk": 6000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      },
+      {
+        "expiry": "2026-09-18",
+        "dte": 19,
+        "side": "CALL",
+        "short": 400.0,
+        "long": 440.0,
+        "depth_pct": 14.9,
+        "width_pct": 11.49,
+        "ratio": 0.77,
+        "risk": 8000,
+        "inside_10pct": false,
+        "flag": "INERT"
+      }
+    ],
     "wing_summary": {
-      "red_count": 0,
-      "amber_count": 0,
-      "flagged_risk": 0,
-      "total_risk": 0
+      "red_count": 2,
+      "amber_count": 2,
+      "flagged_risk": 240000,
+      "total_risk": 844000
     },
     "expected_loss": {
       "by_expiry": [
@@ -2395,7 +2552,7 @@
   "decisions": [],
   "day_pnl_track": [
     {
-      "t": "18:25",
+      "t": "17:35",
       "pnl": 318.0,
       "tsla": 348.19,
       "tsla_source": "quote"
@@ -2420,6 +2577,6 @@
   "shared_builder": "shared_snapshot.build_report",
   "shared_builder_version": "v1.1",
   "output_kind": "coach",
-  "output_path": "coach/test/stamps/2026-08-30/coach_174.json",
-  "payload_sha256": "6eeb8a175a4dc233c47efcee9599984e56cffb98053db9cf6276956ac4a6c84c"
+  "output_path": "coach/test/stamps/2026-08-30/coach_177.json",
+  "payload_sha256": "656c9dc44e7bd8afc6cdfdfca3ea3ee16731ea30561ea3eae3439ca574211676"
 }
