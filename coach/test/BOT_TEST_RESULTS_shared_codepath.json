@@ -1,0 +1,619 @@
+{
+  "plan": "coach_pipeline_v1/BOT_TEST_PLAN_shared_codepath.md",
+  "generated_at_et": "2026-08-30T17:23:58-04:00",
+  "overall": "PASS",
+  "counts": {
+    "PASS": 15,
+    "FAIL": 0,
+    "SKIP": 0,
+    "total": 15
+  },
+  "shared_builder": {
+    "module": "shared_snapshot.py",
+    "function": "shared_snapshot.build_report",
+    "imports": {
+      "publish_test.py": true,
+      "run_shared_codepath_tests.py": true,
+      "publish_prod.py": false,
+      "launch_snap.py": false
+    },
+    "live_d_frozen": true,
+    "publish_prod_unchanged": true,
+    "launch_snap_unchanged": true
+  },
+  "field_set": {
+    "before": {
+      "coach_only": [
+        "account_value",
+        "block_sha256",
+        "buying_power",
+        "cash",
+        "day_pnl_track",
+        "decisions",
+        "display_lines",
+        "feed",
+        "feed_kind",
+        "gate_warnings",
+        "get_only",
+        "order_limit",
+        "orders",
+        "payload_sha256",
+        "pnl_day",
+        "positions",
+        "req_status",
+        "schema_version"
+      ],
+      "snap_only": [
+        "helpers_dir",
+        "latest_fallback_calls",
+        "ocr_fallback_selected",
+        "overwrite"
+      ],
+      "shared": [
+        "api_timings",
+        "asset_types_seen",
+        "block",
+        "chain_marks",
+        "checks",
+        "derived",
+        "dropped_cx",
+        "dte_659",
+        "generated_at",
+        "live",
+        "mark_formula",
+        "market_holidays_next_30d",
+        "next_earnings",
+        "parsed_block_dte_15",
+        "parsed_block_dte_659",
+        "pl_reconciliation",
+        "qty_source",
+        "session_date",
+        "slot",
+        "snapshot_time",
+        "source",
+        "term_structure",
+        "trigger",
+        "warnings"
+      ],
+      "coach_n": 42,
+      "snap_n": 28
+    },
+    "after_content_keys_identical": true,
+    "path_metadata_keys": [
+      "output_kind",
+      "output_path",
+      "slot",
+      "trigger"
+    ],
+    "companion_net_liq_file": "requirements/REQUIREMENT_net_market_value_v2.md",
+    "per_leg_pass_through": [
+      "net_liq",
+      "cost",
+      "pl_open",
+      "pl_day"
+    ],
+    "bucket_bias": false
+  },
+  "current_et_slot": {
+    "nnn": "161",
+    "time": "17:20",
+    "session_date": "2026-08-30"
+  },
+  "published_test": {
+    "coach": {
+      "ok": true,
+      "slot_nnn": "161",
+      "session_date": "2026-08-30",
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-30/coach_161.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-30/coach_161.json",
+        "manifest": "coach/test/stamps/2026-08-30/manifest.json",
+        "trigger_log": "coach/test/stamps/2026-08-30/trigger_log.json"
+      },
+      "sha256": "510a37f31d7ef62e13f950d9eedd0d9847f8cd7b3ec9ffe4b13557a4a7d60d32",
+      "prod_dr_identical": true,
+      "test_001_overwritten": false,
+      "shared_builder": "shared_snapshot.build_report",
+      "source": "live",
+      "decision": "publish",
+      "reason": "published TEST slot bundle",
+      "stamp_url_path": "coach/test/stamps/2026-08-30/coach_161.json",
+      "failed_steps": []
+    },
+    "snap_pair": {
+      "ok": true,
+      "path": "coach/test/snap_from_shared.json",
+      "sha256": "38040e5df2180fc7493cde5570f84ebc622ba5694ca9cbfdfed45a2f611ff74f",
+      "idempotent": false
+    },
+    "relative_paths": {
+      "coach_stamp": "coach/test/stamps/2026-08-30/coach_161.json",
+      "coach_latest": "coach/test/latest.json",
+      "coach_dr": "coach/test/dr/stamps/2026-08-30/coach_161.json",
+      "snap_pair": "coach/test/snap_from_shared.json",
+      "plan": "coach/test/BOT_TEST_PLAN_shared_codepath.md",
+      "results": "coach/test/BOT_TEST_RESULTS_shared_codepath.json"
+    }
+  },
+  "slot_picker": {
+    "next_unused": 46,
+    "skipped": [
+      45,
+      47
+    ],
+    "debounce_sec": 5.0,
+    "prod_slots": 100,
+    "did_not_write_snap_046": true
+  },
+  "non_regression": {
+    "before": {
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "publish_prod.py": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+      "snap_api.py": "4f799a26877cb023c5daa856b3985d89a6151ff458f3886e551c4eaa50f30f2f",
+      "publish_test_touch.py": "73e1a61176141b5448880b210068e0c9e72ce2a59e015e505a6726ece96cc88d",
+      "touch_probability.py": "9642382fb277ca059ea223290c258057fa37b81ce7dbb3471285d63798d209d9",
+      "snap_045.json": "e8bbf93e3a2b33a4b01b379b0c7bfd3c11af9a09b5bcdacb37e25f46ddb27a50",
+      "snap_047.json": "058b6a87231613fd1391d5d64620c9b3b2eb6102512b07e4e9698763ab8ccfb9",
+      "last_snap.json": "f6ab7788b4bd32c5eb91e824c902c573cbd60bb33bad070670fdcde6ec854783"
+    },
+    "after": {
+      "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+      "publish_prod.py": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+      "snap_api.py": "4f799a26877cb023c5daa856b3985d89a6151ff458f3886e551c4eaa50f30f2f",
+      "publish_test_touch.py": "73e1a61176141b5448880b210068e0c9e72ce2a59e015e505a6726ece96cc88d",
+      "touch_probability.py": "9642382fb277ca059ea223290c258057fa37b81ce7dbb3471285d63798d209d9",
+      "snap_045.json": "e8bbf93e3a2b33a4b01b379b0c7bfd3c11af9a09b5bcdacb37e25f46ddb27a50",
+      "snap_047.json": "058b6a87231613fd1391d5d64620c9b3b2eb6102512b07e4e9698763ab8ccfb9",
+      "last_snap.json": "f6ab7788b4bd32c5eb91e824c902c573cbd60bb33bad070670fdcde6ec854783"
+    },
+    "unchanged": {
+      "launch_snap.py": true,
+      "publish_prod.py": true,
+      "snap_api.py": true,
+      "publish_test_touch.py": true,
+      "touch_probability.py": true,
+      "snap_045.json": true,
+      "snap_047.json": true,
+      "last_snap.json": true
+    },
+    "did_not_write_prod_stamps": true,
+    "touch_not_promoted": true
+  },
+  "most_likely_failure_mode": "GitHub Contents 409 on coach/test/latest.json; retry with fresh sha",
+  "tests": [
+    {
+      "id": "SPEC-1",
+      "name": "same field set from two writers on one payload",
+      "status": "PASS",
+      "builder_ok": {
+        "coach": true,
+        "snap": true
+      },
+      "reason": {
+        "coach": "shared report built",
+        "snap": "shared report built"
+      },
+      "content_key_diff": {
+        "only_a": [],
+        "only_b": [],
+        "shared": [
+          "account_value",
+          "api_timings",
+          "asset_types_seen",
+          "block",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "chain_marks",
+          "checks",
+          "day_pnl_track",
+          "decisions",
+          "derived",
+          "display_lines",
+          "dropped_cx",
+          "dte_659",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "live",
+          "mark_formula",
+          "market_holidays_next_30d",
+          "next_earnings",
+          "order_limit",
+          "orders",
+          "parsed_block_dte_15",
+          "parsed_block_dte_659",
+          "payload_sha256",
+          "pl_reconciliation",
+          "pnl_day",
+          "positions",
+          "qty_source",
+          "req_status",
+          "schema_version",
+          "schwab_leg_fields",
+          "session_date",
+          "shared_builder",
+          "shared_builder_version",
+          "snapshot_time",
+          "source",
+          "term_structure",
+          "warnings"
+        ],
+        "identical": true
+      },
+      "path_metadata_values_differ": true,
+      "generated_at_same": true,
+      "required_present": [
+        "block",
+        "display_lines",
+        "live",
+        "orders",
+        "positions",
+        "req_status"
+      ],
+      "gate_both": true,
+      "coach_n_keys": 47,
+      "snap_n_keys": 47
+    },
+    {
+      "id": "SPEC-NL",
+      "name": "Schwab pass-through net_liq/cost/pl_open/pl_day; not qty*mark*100; both writers",
+      "status": "PASS",
+      "coach_320p": {
+        "dte": 1,
+        "side": "P",
+        "strike": 320,
+        "qty": -40,
+        "mark": 0.055,
+        "net_liq": -220.4,
+        "cost": -312.33,
+        "pl_open": 91.93,
+        "pl_day": 100,
+        "line": "1 P 320 -40 0.055 netliq=-220.40 cost=-312.33 pl_open=91.93 pl_day=100.00"
+      },
+      "snap_320p": {
+        "dte": 1,
+        "side": "P",
+        "strike": 320,
+        "qty": -40,
+        "mark": 0.055,
+        "net_liq": -220.4,
+        "cost": -312.33,
+        "pl_open": 91.93,
+        "pl_day": 100,
+        "line": "1 P 320 -40 0.055 netliq=-220.40 cost=-312.33 pl_open=91.93 pl_day=100.00"
+      },
+      "reconstructed_qty_mark_100": -220.0,
+      "net_liq_differs_from_reconstructed": true,
+      "bucket_bias_absent": true,
+      "mark_kept": true,
+      "schwab_keys": {
+        "net_liq": "marketValue",
+        "cost": "averagePrice",
+        "pl_open": "longOpenProfitLoss|shortOpenProfitLoss",
+        "pl_day": "currentDayProfitLoss"
+      }
+    },
+    {
+      "id": "SPEC-2",
+      "name": "AST/grep: one builder, TEST writers call it, live frozen",
+      "status": "PASS",
+      "build_report_defs": 1,
+      "coach_writer_calls": 1,
+      "snap_writer_calls": 1,
+      "publish_test_calls": 1,
+      "publish_test_imports": true,
+      "publish_prod_imports": false,
+      "launch_snap_imports": false,
+      "builder_id": "shared_snapshot.build_report"
+    },
+    {
+      "id": "SPEC-3",
+      "name": "dummy field in builder appears in both writers",
+      "status": "PASS",
+      "coach_has": "codepath_probe",
+      "snap_has": "codepath_probe",
+      "coach_ok": true,
+      "snap_ok": true,
+      "hook_cleared": true
+    },
+    {
+      "id": "SPEC-4",
+      "name": "slot picker skips existing snap_045/047; next unused 046; debounce 5s; PROD_SLOTS 100",
+      "status": "PASS",
+      "used_has_045": true,
+      "used_has_047": true,
+      "used_has_046": false,
+      "lowest_unused": 46,
+      "exists_045": true,
+      "exists_046": false,
+      "exists_047": true,
+      "debounce_sec": 5.0,
+      "prod_slots": 100,
+      "assign_slot_default": true
+    },
+    {
+      "id": "BOT-A",
+      "name": "launch_snap / publish_prod / snap_api / Touch hashes frozen this run",
+      "status": "PASS",
+      "before": {
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "publish_prod.py": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+        "snap_api.py": "4f799a26877cb023c5daa856b3985d89a6151ff458f3886e551c4eaa50f30f2f",
+        "publish_test_touch.py": "73e1a61176141b5448880b210068e0c9e72ce2a59e015e505a6726ece96cc88d",
+        "touch_probability.py": "9642382fb277ca059ea223290c258057fa37b81ce7dbb3471285d63798d209d9",
+        "snap_045.json": "e8bbf93e3a2b33a4b01b379b0c7bfd3c11af9a09b5bcdacb37e25f46ddb27a50",
+        "snap_047.json": "058b6a87231613fd1391d5d64620c9b3b2eb6102512b07e4e9698763ab8ccfb9",
+        "last_snap.json": "f6ab7788b4bd32c5eb91e824c902c573cbd60bb33bad070670fdcde6ec854783"
+      },
+      "after": {
+        "launch_snap.py": "1585124db62b3ea852be1172eab120cc5631f2ffae64078b8b192e4677422a7c",
+        "publish_prod.py": "e5cc47c51caf32f71e03454ed2a7617cb591e092c9312e289b043d9e3139a266",
+        "snap_api.py": "4f799a26877cb023c5daa856b3985d89a6151ff458f3886e551c4eaa50f30f2f",
+        "publish_test_touch.py": "73e1a61176141b5448880b210068e0c9e72ce2a59e015e505a6726ece96cc88d",
+        "touch_probability.py": "9642382fb277ca059ea223290c258057fa37b81ce7dbb3471285d63798d209d9",
+        "snap_045.json": "e8bbf93e3a2b33a4b01b379b0c7bfd3c11af9a09b5bcdacb37e25f46ddb27a50",
+        "snap_047.json": "058b6a87231613fd1391d5d64620c9b3b2eb6102512b07e4e9698763ab8ccfb9",
+        "last_snap.json": "f6ab7788b4bd32c5eb91e824c902c573cbd60bb33bad070670fdcde6ec854783"
+      },
+      "unchanged": {
+        "launch_snap.py": true,
+        "publish_prod.py": true,
+        "snap_api.py": true,
+        "publish_test_touch.py": true,
+        "touch_probability.py": true,
+        "snap_045.json": true,
+        "snap_047.json": true,
+        "last_snap.json": true
+      }
+    },
+    {
+      "id": "BOT-B",
+      "name": "companion v2 on disk; per-leg pass-through; not top-level net_liq; AV header kept",
+      "status": "PASS",
+      "companion_v2": true,
+      "top_level_net_liq": [],
+      "header_kept": true,
+      "note": "REQUIREMENT_net_market_value_v2.md; net_liq is per-leg pass-through from marketValue"
+    },
+    {
+      "id": "BOT-C",
+      "name": "BEFORE vs AFTER field-set (coach vs snap)",
+      "status": "PASS",
+      "before": {
+        "coach_only": [
+          "account_value",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "day_pnl_track",
+          "decisions",
+          "display_lines",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "order_limit",
+          "orders",
+          "payload_sha256",
+          "pnl_day",
+          "positions",
+          "req_status",
+          "schema_version"
+        ],
+        "snap_only": [
+          "helpers_dir",
+          "latest_fallback_calls",
+          "ocr_fallback_selected",
+          "overwrite"
+        ],
+        "shared": [
+          "api_timings",
+          "asset_types_seen",
+          "block",
+          "chain_marks",
+          "checks",
+          "derived",
+          "dropped_cx",
+          "dte_659",
+          "generated_at",
+          "live",
+          "mark_formula",
+          "market_holidays_next_30d",
+          "next_earnings",
+          "parsed_block_dte_15",
+          "parsed_block_dte_659",
+          "pl_reconciliation",
+          "qty_source",
+          "session_date",
+          "slot",
+          "snapshot_time",
+          "source",
+          "term_structure",
+          "trigger",
+          "warnings"
+        ],
+        "coach_n": 42,
+        "snap_n": 28
+      },
+      "after": {
+        "content_keys_identical": true,
+        "path_metadata_keys": [
+          "output_kind",
+          "output_path",
+          "slot",
+          "trigger"
+        ],
+        "shared_builder_in_both": true,
+        "content_n": 42,
+        "new_vs_old_snap": [
+          "account_value",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "day_pnl_track",
+          "decisions",
+          "display_lines",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "order_limit",
+          "orders",
+          "payload_sha256",
+          "pnl_day",
+          "positions",
+          "req_status",
+          "schema_version",
+          "schwab_leg_fields",
+          "shared_builder",
+          "shared_builder_version"
+        ]
+      }
+    },
+    {
+      "id": "BOT-D",
+      "name": "privacy scan of TEST envelopes",
+      "status": "PASS",
+      "hits": []
+    },
+    {
+      "id": "BOT-E-SLOT",
+      "name": "current ET in slot window",
+      "status": "PASS",
+      "nnn": "161",
+      "time": "17:20",
+      "session_date": "2026-08-30"
+    },
+    {
+      "id": "BOT-E-COACH",
+      "name": "publish TEST coach stamp from shared builder",
+      "status": "PASS",
+      "ok": true,
+      "slot_nnn": "161",
+      "session_date": "2026-08-30",
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-30/coach_161.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-30/coach_161.json",
+        "manifest": "coach/test/stamps/2026-08-30/manifest.json",
+        "trigger_log": "coach/test/stamps/2026-08-30/trigger_log.json"
+      },
+      "sha256": "510a37f31d7ef62e13f950d9eedd0d9847f8cd7b3ec9ffe4b13557a4a7d60d32",
+      "prod_dr_identical": true,
+      "test_001_overwritten": false,
+      "shared_builder": "shared_snapshot.build_report",
+      "source": "live",
+      "decision": "publish",
+      "reason": "published TEST slot bundle",
+      "stamp_url_path": "coach/test/stamps/2026-08-30/coach_161.json",
+      "failed_steps": []
+    },
+    {
+      "id": "BOT-E-SNAP",
+      "name": "publish TEST snap-shaped pair from same payload",
+      "status": "PASS",
+      "ok": true,
+      "path": "coach/test/snap_from_shared.json",
+      "sha256": "38040e5df2180fc7493cde5570f84ebc622ba5694ca9cbfdfed45a2f611ff74f",
+      "idempotent": false,
+      "content_key_diff": {
+        "only_a": [],
+        "only_b": [],
+        "shared": [
+          "account_value",
+          "api_timings",
+          "asset_types_seen",
+          "block",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "chain_marks",
+          "checks",
+          "day_pnl_track",
+          "decisions",
+          "derived",
+          "display_lines",
+          "dropped_cx",
+          "dte_659",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "live",
+          "mark_formula",
+          "market_holidays_next_30d",
+          "next_earnings",
+          "order_limit",
+          "orders",
+          "parsed_block_dte_15",
+          "parsed_block_dte_659",
+          "payload_sha256",
+          "pl_reconciliation",
+          "pnl_day",
+          "positions",
+          "qty_source",
+          "req_status",
+          "schema_version",
+          "schwab_leg_fields",
+          "session_date",
+          "shared_builder",
+          "shared_builder_version",
+          "snapshot_time",
+          "source",
+          "term_structure",
+          "warnings"
+        ],
+        "identical": true
+      },
+      "generated_at_same": false
+    },
+    {
+      "id": "BOT-E-GUARD",
+      "name": "TEST publisher refuses PROD stamps, fixtures, and snap_046",
+      "status": "PASS",
+      "refused": [
+        {
+          "path": "coach/stamps/2026-08-30/coach_158.json",
+          "refused": true
+        },
+        {
+          "path": "coach/test/test_001.json",
+          "refused": true
+        },
+        {
+          "path": "coach/test/test_024.json",
+          "refused": true
+        },
+        {
+          "path": "coach/latest.json",
+          "refused": true
+        },
+        {
+          "path": "snap_046.json",
+          "refused": true
+        }
+      ]
+    },
+    {
+      "id": "BOT-E-PATHS",
+      "name": "all PUTs under coach/test/; no test_001-024; no unprefixed PROD",
+      "status": "PASS",
+      "leaked": [],
+      "fixture_puts": [],
+      "put_count": 6
+    },
+    {
+      "id": "BOT-F",
+      "name": "GET-only source; snap_046 not created; last_snap unchanged",
+      "status": "PASS",
+      "forbidden_src": [],
+      "snap_046_exists": false,
+      "last_snap_unchanged": true,
+      "get_only": true,
+      "order_limit": 0
+    }
+  ]
+}
