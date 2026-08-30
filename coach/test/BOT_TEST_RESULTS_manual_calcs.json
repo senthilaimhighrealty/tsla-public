@@ -1,0 +1,670 @@
+{
+  "plan": "coach_pipeline_v1/BOT_TEST_PLAN_manual_calcs.md",
+  "requirement": "REQUIREMENT_publish_all_manual_calcs v2",
+  "generated_at_et": "2026-08-30T18:26:20-04:00",
+  "overall": "PASS",
+  "counts": {
+    "PASS": 17,
+    "FAIL": 0,
+    "INFO": 0,
+    "total": 17
+  },
+  "fixture": {
+    "path": "/workspace/tsla_bot_data/coach_pipeline_v1/fixtures/coach_164.json",
+    "generated_at": "2026-08-30T17:39:49.110-04:00",
+    "spot": 348.19
+  },
+  "acceptance": {
+    "ACCEPT-1": {
+      "status": "PASS",
+      "near": {
+        "match": true,
+        "got": {
+          "put_sum": -60.0,
+          "call_sum": -800.0,
+          "heavy_side": "CALL",
+          "imbalance": 740.0
+        },
+        "expected": {
+          "put_sum": -60.0,
+          "call_sum": -800.0,
+          "heavy_side": "CALL",
+          "imbalance": 740.0
+        }
+      },
+      "short": {
+        "match": true,
+        "got": {
+          "put_sum": -442.5,
+          "call_sum": -1470.0,
+          "heavy_side": "CALL",
+          "imbalance": 1027.5
+        },
+        "expected": {
+          "put_sum": -442.5,
+          "call_sum": -1470.0,
+          "heavy_side": "CALL",
+          "imbalance": 1027.5
+        }
+      },
+      "mid": {
+        "match": true,
+        "got": {
+          "put_sum": -3642.0,
+          "call_sum": -3330.0,
+          "heavy_side": "PUT",
+          "imbalance": 312.0
+        },
+        "expected": {
+          "put_sum": -3642.0,
+          "call_sum": -3330.0,
+          "heavy_side": "PUT",
+          "imbalance": 312.0
+        }
+      },
+      "long": {
+        "match": true,
+        "got": {
+          "put_sum": -20760.5,
+          "call_sum": -6217.0,
+          "heavy_side": "PUT",
+          "imbalance": 14543.5
+        },
+        "expected": {
+          "put_sum": -20760.5,
+          "call_sum": -6217.0,
+          "heavy_side": "PUT",
+          "imbalance": 14543.5
+        }
+      },
+      "attach_meta": {
+        "ok": true,
+        "reason": "manual calcs attached",
+        "spot": 348.19,
+        "n_bucket": 63
+      }
+    },
+    "ACCEPT-2": {
+      "status": "PASS",
+      "got": {
+        "dte": 1,
+        "side": "P",
+        "strike": 320,
+        "mark": 0.055,
+        "distance_dollar": 28.19,
+        "rtr": 0.00195,
+        "rtr_status": "RED",
+        "bucket": "NEAR"
+      },
+      "expected": {
+        "distance_dollar": 28.19,
+        "rtr": 0.00195,
+        "rtr_status": "RED"
+      }
+    },
+    "ACCEPT-3": {
+      "status": "PASS",
+      "got": {
+        "dte": 82,
+        "side": "C",
+        "strike": 700,
+        "mark": 0.525,
+        "distance_dollar": 351.81,
+        "rtr": 0.00149,
+        "rtr_status": "RED",
+        "bucket": "LONG"
+      },
+      "expected": {
+        "distance_dollar": 351.81
+      },
+      "still_absent_from_derived_shorts_0_45": true
+    },
+    "ACCEPT-4": {
+      "status": "PASS",
+      "n_shorts": 32,
+      "n_options": 63,
+      "n_stk": 1,
+      "missing_rtr": [],
+      "missing_bucket": [],
+      "stk_bucket_omitted": true
+    },
+    "ACCEPT-5": {
+      "status": "PASS",
+      "positions_hits": [],
+      "derived_shorts_gt45": [],
+      "derived_shorts_count": 13,
+      "existing_0_45_keep_long_width": true,
+      "sample_0_45_distance_dollar": {
+        "dte": 1,
+        "side": "C",
+        "strike": 360,
+        "distance_pct": 3.39,
+        "distance_dollar": 11.81,
+        "long": 390,
+        "width": 30
+      }
+    }
+  },
+  "tests": [
+    {
+      "id": "ACCEPT-1",
+      "name": "bucket_bias NEAR CALL heavy 740.00 (and SHORT/MID/LONG)",
+      "status": "PASS",
+      "near": {
+        "match": true,
+        "got": {
+          "put_sum": -60.0,
+          "call_sum": -800.0,
+          "heavy_side": "CALL",
+          "imbalance": 740.0
+        },
+        "expected": {
+          "put_sum": -60.0,
+          "call_sum": -800.0,
+          "heavy_side": "CALL",
+          "imbalance": 740.0
+        }
+      },
+      "short": {
+        "match": true,
+        "got": {
+          "put_sum": -442.5,
+          "call_sum": -1470.0,
+          "heavy_side": "CALL",
+          "imbalance": 1027.5
+        },
+        "expected": {
+          "put_sum": -442.5,
+          "call_sum": -1470.0,
+          "heavy_side": "CALL",
+          "imbalance": 1027.5
+        }
+      },
+      "mid": {
+        "match": true,
+        "got": {
+          "put_sum": -3642.0,
+          "call_sum": -3330.0,
+          "heavy_side": "PUT",
+          "imbalance": 312.0
+        },
+        "expected": {
+          "put_sum": -3642.0,
+          "call_sum": -3330.0,
+          "heavy_side": "PUT",
+          "imbalance": 312.0
+        }
+      },
+      "long": {
+        "match": true,
+        "got": {
+          "put_sum": -20760.5,
+          "call_sum": -6217.0,
+          "heavy_side": "PUT",
+          "imbalance": 14543.5
+        },
+        "expected": {
+          "put_sum": -20760.5,
+          "call_sum": -6217.0,
+          "heavy_side": "PUT",
+          "imbalance": 14543.5
+        }
+      },
+      "attach_meta": {
+        "ok": true,
+        "reason": "manual calcs attached",
+        "spot": 348.19,
+        "n_bucket": 63
+      }
+    },
+    {
+      "id": "ACCEPT-2",
+      "name": "320P 1 DTE rtr 0.00195 RED distance_dollar 28.19",
+      "status": "PASS",
+      "got": {
+        "dte": 1,
+        "side": "P",
+        "strike": 320,
+        "mark": 0.055,
+        "distance_dollar": 28.19,
+        "rtr": 0.00195,
+        "rtr_status": "RED",
+        "bucket": "NEAR"
+      },
+      "expected": {
+        "distance_dollar": 28.19,
+        "rtr": 0.00195,
+        "rtr_status": "RED"
+      }
+    },
+    {
+      "id": "ACCEPT-3",
+      "name": "82 DTE 700C distance_dollar 351.81 (positions[] coverage; not 0-45 shorts scope)",
+      "status": "PASS",
+      "got": {
+        "dte": 82,
+        "side": "C",
+        "strike": 700,
+        "mark": 0.525,
+        "distance_dollar": 351.81,
+        "rtr": 0.00149,
+        "rtr_status": "RED",
+        "bucket": "LONG"
+      },
+      "expected": {
+        "distance_dollar": 351.81
+      },
+      "still_absent_from_derived_shorts_0_45": true
+    },
+    {
+      "id": "ACCEPT-4",
+      "name": "every short in positions[] has rtr/rtr_status/distance_dollar; every option has bucket",
+      "status": "PASS",
+      "n_shorts": 32,
+      "n_options": 63,
+      "n_stk": 1,
+      "missing_rtr": [],
+      "missing_bucket": [],
+      "stk_bucket_omitted": true
+    },
+    {
+      "id": "ACCEPT-5",
+      "name": "no long/width/spread risk added for >45 DTE legs",
+      "status": "PASS",
+      "positions_hits": [],
+      "derived_shorts_gt45": [],
+      "derived_shorts_count": 13,
+      "existing_0_45_keep_long_width": true,
+      "sample_0_45_distance_dollar": {
+        "dte": 1,
+        "side": "C",
+        "strike": 360,
+        "distance_pct": 3.39,
+        "distance_dollar": 11.81,
+        "long": 390,
+        "width": 30
+      }
+    },
+    {
+      "id": "EXTRA-LEGS",
+      "name": "360C GREEN / 600C AMBER / 280P RED / 420C RED",
+      "status": "PASS",
+      "rows": [
+        {
+          "expected": {
+            "dte": 1,
+            "side": "C",
+            "strike": 360,
+            "mark": 0.355,
+            "distance_dollar": 11.81,
+            "rtr": 0.03006,
+            "rtr_status": "GREEN"
+          },
+          "got": {
+            "dte": 1,
+            "side": "C",
+            "strike": 360,
+            "mark": 0.355,
+            "distance_dollar": 11.81,
+            "rtr": 0.03006,
+            "rtr_status": "GREEN",
+            "bucket": "NEAR"
+          },
+          "match": true
+        },
+        {
+          "expected": {
+            "dte": 110,
+            "side": "C",
+            "strike": 600,
+            "mark": 1.72,
+            "distance_dollar": 251.81,
+            "rtr": 0.00683,
+            "rtr_status": "AMBER"
+          },
+          "got": {
+            "dte": 110,
+            "side": "C",
+            "strike": 600,
+            "mark": 1.72,
+            "distance_dollar": 251.81,
+            "rtr": 0.00683,
+            "rtr_status": "AMBER",
+            "bucket": "LONG"
+          },
+          "match": true
+        },
+        {
+          "expected": {
+            "dte": 5,
+            "side": "P",
+            "strike": 280,
+            "mark": 0.07,
+            "distance_dollar": 68.19,
+            "rtr": 0.00103,
+            "rtr_status": "RED"
+          },
+          "got": {
+            "dte": 5,
+            "side": "P",
+            "strike": 280,
+            "mark": 0.07,
+            "distance_dollar": 68.19,
+            "rtr": 0.00103,
+            "rtr_status": "RED",
+            "bucket": "SHORT"
+          },
+          "match": true
+        },
+        {
+          "expected": {
+            "dte": 5,
+            "side": "C",
+            "strike": 420,
+            "mark": 0.09,
+            "distance_dollar": 71.81,
+            "rtr": 0.00125,
+            "rtr_status": "RED"
+          },
+          "got": {
+            "dte": 5,
+            "side": "C",
+            "strike": 420,
+            "mark": 0.09,
+            "distance_dollar": 71.81,
+            "rtr": 0.00125,
+            "rtr_status": "RED",
+            "bucket": "SHORT"
+          },
+          "match": true
+        }
+      ]
+    },
+    {
+      "id": "BOT-DEFAULT-OFF",
+      "name": "include_manual_calcs defaults False; live callers do not pass True",
+      "status": "PASS",
+      "signature_default": false,
+      "off_has_bucket_bias": false,
+      "off_pos0_bucket": "<omitted>",
+      "off_manual_meta": {
+        "attached": false,
+        "include_manual_calcs": false
+      },
+      "publish_prod_passes_true_at": [],
+      "snap_api_passes_true_at": [],
+      "launch_snap_mentions_flag": false
+    },
+    {
+      "id": "BOT-FAIL-CLOSED",
+      "name": "distance_dollar 0 -> rtr null RED; mark<0.05 RED even if rtr green",
+      "status": "PASS",
+      "zero_distance": {
+        "rtr": null,
+        "rtr_status": "RED"
+      },
+      "mark_dead": {
+        "rtr": 0.04,
+        "rtr_status": "RED",
+        "mark": 0.04,
+        "distance": 1.0
+      }
+    },
+    {
+      "id": "BOT-FIELDSET",
+      "name": "coach vs snap writers same content keys with include_manual_calcs=True",
+      "status": "PASS",
+      "diff": {
+        "only_a": [],
+        "only_b": [],
+        "shared": [
+          "account_value",
+          "api_timings",
+          "asset_types_seen",
+          "block",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "chain_marks",
+          "checks",
+          "day_pnl_track",
+          "decisions",
+          "derived",
+          "display_lines",
+          "dropped_cx",
+          "dte_659",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "live",
+          "mark_formula",
+          "market_holidays_next_30d",
+          "next_earnings",
+          "order_limit",
+          "orders",
+          "parsed_block_dte_15",
+          "parsed_block_dte_659",
+          "payload_sha256",
+          "pl_reconciliation",
+          "pnl_day",
+          "positions",
+          "qty_source",
+          "req_status",
+          "schema_version",
+          "schwab_leg_fields",
+          "session_date",
+          "shared_builder",
+          "shared_builder_version",
+          "snapshot_time",
+          "source",
+          "term_structure",
+          "warnings"
+        ],
+        "identical": true
+      },
+      "coach_trigger": "coach_5min",
+      "snap_trigger": "d",
+      "path_metadata": [
+        "output_kind",
+        "output_path",
+        "slot",
+        "trigger"
+      ]
+    },
+    {
+      "id": "BOT-UNTOUCHED",
+      "name": "balance_line / profit_center / gate unchanged by attach_manual_calcs",
+      "status": "PASS",
+      "same": {
+        "balance_line": true,
+        "profit_center": true,
+        "gate": true
+      },
+      "bucket_bias_added": true
+    },
+    {
+      "id": "BOT-TOUCH-SNAP",
+      "name": "no touch_probability import; snap_048 not written",
+      "status": "PASS",
+      "touch_imported": false,
+      "snap_048_before": false,
+      "snap_048_after": false,
+      "touch_string_in_shared": false
+    },
+    {
+      "id": "BOT-E-SLOT",
+      "name": "current ET in 04:00-19:55 window",
+      "status": "PASS",
+      "in_window": true,
+      "nnn": "174",
+      "time": "18:25",
+      "session_date": "2026-08-30",
+      "now_et": "2026-08-30T18:26:20-04:00"
+    },
+    {
+      "id": "BOT-E-COACH",
+      "name": "publish TEST coach stamp from shared builder (include_manual_calcs=True)",
+      "status": "PASS",
+      "ok": true,
+      "slot_nnn": "174",
+      "session_date": "2026-08-30",
+      "paths": {
+        "stamp": "coach/test/stamps/2026-08-30/coach_174.json",
+        "latest": "coach/test/latest.json",
+        "dr": "coach/test/dr/stamps/2026-08-30/coach_174.json",
+        "manifest": "coach/test/stamps/2026-08-30/manifest.json",
+        "trigger_log": "coach/test/stamps/2026-08-30/trigger_log.json"
+      },
+      "sha256": "260088f37406017d2cb951ae36294071da42c33488ca9e08822d0e93ad27f372",
+      "stamp_url": "coach/test/stamps/2026-08-30/coach_174.json",
+      "test_latest_url": "coach/test/latest.json",
+      "decision": "publish",
+      "reason": "published TEST slot bundle",
+      "shared_builder": "shared_snapshot.build_report",
+      "test_001_overwritten": false,
+      "failed_steps": []
+    },
+    {
+      "id": "BOT-E-SNAP",
+      "name": "publish TEST snap_from_shared.json from same build_report (trigger d)",
+      "status": "PASS",
+      "ok": true,
+      "path": "coach/test/snap_from_shared.json",
+      "url": "coach/test/snap_from_shared.json",
+      "sha256": "3316f25db4ac0806beac9e992ddbb1b4fd8c5b346ae68858c257cdeb3c6a2070",
+      "content_key_diff": {
+        "only_a": [],
+        "only_b": [],
+        "shared": [
+          "account_value",
+          "api_timings",
+          "asset_types_seen",
+          "block",
+          "block_sha256",
+          "buying_power",
+          "cash",
+          "chain_marks",
+          "checks",
+          "day_pnl_track",
+          "decisions",
+          "derived",
+          "display_lines",
+          "dropped_cx",
+          "dte_659",
+          "feed",
+          "feed_kind",
+          "gate_warnings",
+          "get_only",
+          "live",
+          "mark_formula",
+          "market_holidays_next_30d",
+          "next_earnings",
+          "order_limit",
+          "orders",
+          "parsed_block_dte_15",
+          "parsed_block_dte_659",
+          "payload_sha256",
+          "pl_reconciliation",
+          "pnl_day",
+          "positions",
+          "qty_source",
+          "req_status",
+          "schema_version",
+          "schwab_leg_fields",
+          "session_date",
+          "shared_builder",
+          "shared_builder_version",
+          "snapshot_time",
+          "source",
+          "term_structure",
+          "warnings"
+        ],
+        "identical": true
+      },
+      "trigger": "d",
+      "has_bucket_bias": true
+    },
+    {
+      "id": "BOT-E-GUARD",
+      "name": "TEST publisher refuses PROD stamps, fixtures, snap_048",
+      "status": "PASS",
+      "refused": [
+        {
+          "path": "coach/stamps/2026-08-30/coach_164.json",
+          "refused": true
+        },
+        {
+          "path": "coach/latest.json",
+          "refused": true
+        },
+        {
+          "path": "coach/test/test_001.json",
+          "refused": true
+        },
+        {
+          "path": "coach/test/test_024.json",
+          "refused": true
+        },
+        {
+          "path": "snap_048.json",
+          "refused": true
+        }
+      ]
+    },
+    {
+      "id": "BOT-E-PATHS",
+      "name": "all PUTs under coach/test/; no test_001-024; no unprefixed PROD",
+      "status": "PASS",
+      "leaked": [],
+      "fixture_puts": [],
+      "put_count": 6,
+      "put_paths": [
+        "coach/test/stamps/2026-08-30/coach_174.json",
+        "coach/test/latest.json",
+        "coach/test/dr/stamps/2026-08-30/coach_174.json",
+        "coach/test/stamps/2026-08-30/trigger_log.json",
+        "coach/test/stamps/2026-08-30/manifest.json",
+        "coach/test/snap_from_shared.json"
+      ]
+    },
+    {
+      "id": "BOT-PROD-FROZEN",
+      "name": "PROD coach/latest.json sha unchanged; live files unedited",
+      "status": "PASS",
+      "latest_before_sha256": "ac5937be8b1df195cf16d64cbf476f00a4d55081e471f5d69afcb9cf21559ff8",
+      "latest_after_sha256": "ac5937be8b1df195cf16d64cbf476f00a4d55081e471f5d69afcb9cf21559ff8",
+      "latest_before_blob": "af38a04657eb33557c72b196f2f93993d8f91270",
+      "latest_after_blob": "af38a04657eb33557c72b196f2f93993d8f91270",
+      "coach_164_sha256": "ac5937be8b1df195cf16d64cbf476f00a4d55081e471f5d69afcb9cf21559ff8",
+      "latest_equals_coach_164": true,
+      "live_files_unchanged": {
+        "launch_snap.py": true,
+        "publish_prod.py": true,
+        "snap_api.py": true,
+        "touch_probability.py": true,
+        "last_snap.json": true
+      },
+      "latest_get_error": null
+    }
+  ],
+  "test_urls": {
+    "stamp": "coach/test/stamps/2026-08-30/coach_174.json",
+    "snap_from_shared": "coach/test/snap_from_shared.json",
+    "results": "coach/test/BOT_TEST_RESULTS_manual_calcs.json",
+    "plan": "coach/test/BOT_TEST_PLAN_manual_calcs.md",
+    "slot_nnn": "174",
+    "out_of_window_path": null,
+    "raw_base_note": "raw.githubusercontent.com/{owner}/{repo}/main/<path> (owner omitted here for privacy scan)"
+  },
+  "live_frozen": {
+    "include_manual_calcs_default": false,
+    "publish_prod_passes_true": false,
+    "snap_api_passes_true": false,
+    "prod_latest_sha256_before": "ac5937be8b1df195cf16d64cbf476f00a4d55081e471f5d69afcb9cf21559ff8",
+    "prod_latest_sha256_after": "ac5937be8b1df195cf16d64cbf476f00a4d55081e471f5d69afcb9cf21559ff8",
+    "prod_latest_unchanged": true
+  },
+  "get_only": true,
+  "order_limit": 0
+}
