@@ -1,41 +1,25 @@
 {
-  "session_date": "2026-08-28",
-  "generated_at": "2026-08-28T14:47:42.774653-04:00",
+  "session_date": "2026-08-30",
+  "generated_at": "2026-08-30T16:16:23.045356-04:00",
   "files": {
     "market.json": {
-      "next_slot": 2,
+      "next_slot": 1,
       "last_slot": 1,
       "last_written": "14:04",
-      "slots_used_today": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
+      "slots_used_today": []
     },
     "activity.json": {
       "next_slot": 1,
       "last_slot": 5,
       "last_written": "14:47",
-      "slots_used_today": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ]
+      "slots_used_today": []
     },
     "snap_manifest.json": {
       "next_slot": 2,
       "last_slot": 1,
-      "last_written": "12:31",
+      "last_written": "16:16",
       "slots_used_today": [
-        1,
-        2,
-        3,
-        4,
-        5
+        1
       ]
     },
     "test_manifest.json": {
