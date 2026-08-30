@@ -1,0 +1,12 @@
+[
+  {
+    "slot": 161,
+    "generated_at": "2026-08-30T17:23:58-04:00",
+    "payload_sha256": "510a37f31d7ef62e13f950d9eedd0d9847f8cd7b3ec9ffe4b13557a4a7d60d32",
+    "files_written": [
+      "coach_161.json",
+      "latest.json",
+      "dr/coach_161.json"
+    ]
+  }
+]
