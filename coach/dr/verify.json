@@ -1,0 +1,11 @@
+{
+  "job": "coach_book",
+  "newest_slot": "coach/stamps/2026-08-31/coach_184.json",
+  "generated_at": "2026-08-31T19:16:57.955-04:00",
+  "block_sha256": "7e76d7e8f2ab1f75e70cf057dfb3d58f1c53f2be8abeb94ac3a19a7101fcaae2",
+  "payload_sha256": "6263eb3e0d7a2e251a9b762747d556f05e95442b7c81f42d4364b3bce66db9f0",
+  "account_value": 838885,
+  "pnl_day": -16391,
+  "spot": 367.2099,
+  "session_date": "2026-08-31"
+}
