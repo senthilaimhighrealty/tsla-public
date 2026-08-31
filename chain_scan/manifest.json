@@ -1,28 +1,12 @@
 {
-  "generated_at": "2026-08-30T20:43:35-04:00",
-  "session_date": "2026-08-30",
-  "last_stamp": "chain_scan/stamps/2026-08-30/scan_001.json",
+  "generated_at": "2026-08-31T10:42:33-04:00",
+  "session_date": "2026-08-31",
+  "last_stamp": "chain_scan/stamps/2026-08-31/scan_001.json",
   "slot": "001",
-  "n_contracts": 630,
-  "spot": 348.75,
-  "sha256": "89e526863da9193dd0420fec5152f892a9cab32b044e2351118bb60f3dae6735",
+  "n_contracts": 692,
+  "spot": 364.8,
+  "sha256": "c766c00f02b88876e82e4aec3222d8250fcb70458a23f35004d9b895e28fa6f6",
   "get_only": true,
   "order_limit": 0,
-  "trigger": "now",
-  "retention": {
-    "policy": "2_calendar_days",
-    "kept_dates": [
-      "2026-08-30"
-    ],
-    "purged_dates": [
-      "2026-08-01"
-    ],
-    "last_run_et": "2026-08-30T20:58:16-04:00",
-    "keep_calendar_days": 2,
-    "dry_run": false,
-    "roots": [
-      "chain_scan/stamps",
-      "chain_scan/dr/stamps"
-    ]
-  }
+  "trigger": "scheduled"
 }
