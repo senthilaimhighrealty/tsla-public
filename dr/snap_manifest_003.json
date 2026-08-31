@@ -1,26 +1,26 @@
 {
-  "session_date": "2026-08-30",
+  "session_date": "2026-08-31",
   "next_slot": 1,
   "used": [
     {
-      "slot": "snap_045.json",
-      "time": "16:16",
-      "spot": 348.19,
+      "slot": "snap_050.json",
+      "time": "04:54",
+      "spot": 347.7842,
       "positions": 63,
       "working": 0
     },
     {
-      "slot": "snap_046.json",
-      "time": "17:38",
-      "spot": 348.19,
+      "slot": "snap_051.json",
+      "time": "05:40",
+      "spot": 346.84,
       "positions": 63,
       "working": 0
     },
     {
-      "slot": "snap_048.json",
-      "time": "20:05",
-      "spot": 348.19,
-      "positions": 63,
+      "slot": "snap_052.json",
+      "time": "14:21",
+      "spot": 367.35,
+      "positions": 60,
       "working": 0
     }
   ],
