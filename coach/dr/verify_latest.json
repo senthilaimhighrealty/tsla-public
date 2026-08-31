@@ -1,11 +1,11 @@
 {
   "job": "coach_book",
-  "newest_slot": "coach/stamps/2026-08-31/coach_184.json",
-  "generated_at": "2026-08-31T19:16:57.955-04:00",
-  "block_sha256": "7e76d7e8f2ab1f75e70cf057dfb3d58f1c53f2be8abeb94ac3a19a7101fcaae2",
-  "payload_sha256": "6263eb3e0d7a2e251a9b762747d556f05e95442b7c81f42d4364b3bce66db9f0",
+  "newest_slot": "coach/stamps/2026-08-31/coach_187.json",
+  "generated_at": "2026-08-31T19:30:07.721-04:00",
+  "block_sha256": "778ee35706591063f921e32b79e295ec947eda763667da5975bb3018c15b0c35",
+  "payload_sha256": "883f5a09d5f0dba10199ea2bd49c5af9fe09b802b029ea46b1b27a47e2f77609",
   "account_value": 838885,
-  "pnl_day": -16391,
-  "spot": 367.2099,
+  "pnl_day": -16392,
+  "spot": 367.0987,
   "session_date": "2026-08-31"
 }
