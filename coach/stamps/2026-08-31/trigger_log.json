@@ -238,5 +238,15 @@
       "latest.json",
       "dr/coach_141.json"
     ]
+  },
+  {
+    "slot": 142,
+    "generated_at": "2026-08-31T15:48:37-04:00",
+    "payload_sha256": "ada16f99d231726fdf21e5d3a233d192a90e02bc46f701d15d8ee1f5398bae55",
+    "files_written": [
+      "coach_142.json",
+      "latest.json",
+      "dr/coach_142.json"
+    ]
   }
 ]
