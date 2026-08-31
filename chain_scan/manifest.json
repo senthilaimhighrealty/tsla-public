@@ -8,5 +8,21 @@
   "sha256": "89e526863da9193dd0420fec5152f892a9cab32b044e2351118bb60f3dae6735",
   "get_only": true,
   "order_limit": 0,
-  "trigger": "now"
+  "trigger": "now",
+  "retention": {
+    "policy": "2_calendar_days",
+    "kept_dates": [
+      "2026-08-30"
+    ],
+    "purged_dates": [
+      "2026-08-01"
+    ],
+    "last_run_et": "2026-08-30T20:58:16-04:00",
+    "keep_calendar_days": 2,
+    "dry_run": false,
+    "roots": [
+      "chain_scan/stamps",
+      "chain_scan/dr/stamps"
+    ]
+  }
 }
