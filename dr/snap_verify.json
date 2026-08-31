@@ -1,6 +1,7 @@
 {
   "job": "on_demand_snap",
   "newest_slot": "snap_053.json",
+  "newest_slot_url": "https://raw.githubusercontent.com/senthilaimhighrealty/tsla-public/main/snap_053.json",
   "generated_at": "2026-08-31T18:52:52.556-04:00",
   "block_sha256": "9084b45ad5c469c27e1fe3b9ff404f2dc8bea5d880b3ce0dff3ca65d988cb734",
   "payload_sha256": "12ed73baa43385f5c8521e856ce3d7989cbff827f0e7d10def88c723477e2048",
