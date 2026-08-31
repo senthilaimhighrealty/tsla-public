@@ -1,7 +1,7 @@
 {
   "source": "coach_pipeline_v1 session_history",
   "note": "append-only by session_date; pnl_day_dollars from live book / seed; trailing_40d needs 40 prior sessions with pnl; do not invent days",
-  "updated_at": "2026-08-30T20:05:42-04:00",
+  "updated_at": "2026-08-30T23:42:40-04:00",
   "n_sessions": 7,
   "n_with_pnl": 3,
   "sessions": [
@@ -42,7 +42,10 @@
       "cycles_legs": 21,
       "cycles_decisions": 5,
       "contracts_opened_0_1_dte": 850,
-      "source": "internal close recent_sessions"
+      "source": "internal close recent_sessions",
+      "pnl_day_dollars": null,
+      "pnl_reason": "no_settled_file",
+      "pnl_source": "no local schwab_2026-08-24 settled/close dump; Schwab GET transactions TRADE n=142 had no account.pnl_day or liquidation vs SOD"
     },
     {
       "session_date": "2026-08-25",
@@ -55,7 +58,10 @@
       "cycles_legs": 6,
       "cycles_decisions": 0,
       "contracts_opened_0_1_dte": 50,
-      "source": "internal close recent_sessions"
+      "source": "internal close recent_sessions",
+      "pnl_day_dollars": null,
+      "pnl_reason": "no_settled_file",
+      "pnl_source": "no local schwab_2026-08-25 settled/close dump; Schwab GET transactions TRADE n=28 had no account.pnl_day or liquidation vs SOD"
     },
     {
       "session_date": "2026-08-26",
