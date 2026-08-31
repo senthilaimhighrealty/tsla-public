@@ -1,0 +1,8 @@
+{
+  "canary": true,
+  "purpose": "chain_scan_2day_retention_delete_proof",
+  "not_scan_data": true,
+  "not_real_contracts": true,
+  "created_et": "2026-08-30T20:57:54-04:00",
+  "note": "throwaway 2026-08-01/scan_999.json — must be deleted by 2-day retention"
+}
