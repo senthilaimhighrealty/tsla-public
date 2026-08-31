@@ -1,0 +1,97 @@
+{
+  "source": "coach_pipeline_v1 session_history",
+  "note": "append-only by session_date; pnl_day_dollars from live book / seed; trailing_40d needs 40 prior sessions with pnl; do not invent days",
+  "updated_at": "2026-08-30T20:05:42-04:00",
+  "n_sessions": 7,
+  "n_with_pnl": 3,
+  "sessions": [
+    {
+      "session_date": "2026-08-20",
+      "date": "2026-08-20",
+      "decisions": 7,
+      "legs": 57,
+      "contracts": 568,
+      "ping_pong_legs": 0,
+      "ping_pong_decisions": 0,
+      "cycles_legs": 13,
+      "cycles_decisions": 1,
+      "contracts_opened_0_1_dte": 344,
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-21",
+      "date": "2026-08-21",
+      "decisions": 35,
+      "legs": 284,
+      "contracts": 5300,
+      "ping_pong_legs": 17,
+      "ping_pong_decisions": 12,
+      "cycles_legs": 27,
+      "cycles_decisions": 5,
+      "contracts_opened_0_1_dte": 2020,
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-24",
+      "date": "2026-08-24",
+      "decisions": 24,
+      "legs": 142,
+      "contracts": 2366,
+      "ping_pong_legs": 13,
+      "ping_pong_decisions": 7,
+      "cycles_legs": 21,
+      "cycles_decisions": 5,
+      "contracts_opened_0_1_dte": 850,
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-25",
+      "date": "2026-08-25",
+      "decisions": 3,
+      "legs": 28,
+      "contracts": 380,
+      "ping_pong_legs": 3,
+      "ping_pong_decisions": 0,
+      "cycles_legs": 6,
+      "cycles_decisions": 0,
+      "contracts_opened_0_1_dte": 50,
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-26",
+      "date": "2026-08-26",
+      "decisions": 50,
+      "legs": 248,
+      "contracts": 6951,
+      "ping_pong_legs": 21,
+      "ping_pong_decisions": 17,
+      "cycles_legs": 34,
+      "cycles_decisions": 4,
+      "contracts_opened_0_1_dte": 3400,
+      "pnl_day_dollars": -7130.71,
+      "pnl_source": "internal schwab_2026-08-26_1637.json settled",
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-27",
+      "date": "2026-08-27",
+      "decisions": 25,
+      "legs": 137,
+      "contracts": 1614,
+      "ping_pong_legs": 5,
+      "ping_pong_decisions": 5,
+      "cycles_legs": 32,
+      "cycles_decisions": 3,
+      "contracts_opened_0_1_dte": 570,
+      "pnl_day_dollars": 7488.04,
+      "pnl_source": "internal schwab_2026-08-27_1640.json settled",
+      "source": "internal close recent_sessions"
+    },
+    {
+      "session_date": "2026-08-28",
+      "date": "2026-08-28",
+      "pnl_day_dollars": 4080.71,
+      "pnl_source": "internal schwab_2026-08-28_1447.json intraday"
+    }
+  ]
+}
