@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-08-30T20:43:35-04:00",
+  "session_date": "2026-08-30",
+  "last_stamp": "chain_scan/stamps/2026-08-30/scan_001.json",
+  "slot": "001",
+  "n_contracts": 630,
+  "spot": 348.75,
+  "sha256": "89e526863da9193dd0420fec5152f892a9cab32b044e2351118bb60f3dae6735",
+  "get_only": true,
+  "order_limit": 0,
+  "trigger": "now"
+}
