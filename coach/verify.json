@@ -1,12 +1,12 @@
 {
   "job": "coach_book",
-  "newest_slot": "coach/stamps/2026-09-01/coach_008.json",
-  "newest_slot_url": "https://raw.githubusercontent.com/senthilaimhighrealty/tsla-public/main/coach/stamps/2026-09-01/coach_008.json",
-  "generated_at": "2026-09-01T04:39:35.690-04:00",
-  "block_sha256": "26a3352182880a18cf733e4e4cb97191c3f30d512d6dbe1bfde6fe131c114c72",
-  "payload_sha256": "d7decc8205f5ca2ca7da00a243c02da51dda624631f85af52098ef2b0683b945",
+  "newest_slot": "coach/stamps/2026-09-01/coach_010.json",
+  "newest_slot_url": "https://raw.githubusercontent.com/senthilaimhighrealty/tsla-public/main/coach/stamps/2026-09-01/coach_010.json",
+  "generated_at": "2026-09-01T04:47:17.718-04:00",
+  "block_sha256": "08264808ad048a4dc333e21c2933417fbfcef42dd06974a2869cfbeaac08e535",
+  "payload_sha256": "c953fd26270cf59790815b19e10f6e21f710990c3e5e92cc6e9e64f90db4449a",
   "account_value": 838895,
   "pnl_day": -4,
-  "spot": 364.01,
+  "spot": 364.66,
   "session_date": "2026-09-01"
 }
