@@ -88,5 +88,10 @@
     "slot": 25,
     "time": "06:00",
     "generated": true
+  },
+  {
+    "slot": 27,
+    "time": "06:10",
+    "generated": true
   }
 ]
