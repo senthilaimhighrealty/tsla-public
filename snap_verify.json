@@ -1,12 +1,12 @@
 {
   "job": "on_demand_snap",
-  "newest_slot": "snap_053.json",
-  "newest_slot_url": "https://raw.githubusercontent.com/senthilaimhighrealty/tsla-public/main/snap_053.json",
-  "generated_at": "2026-08-31T18:52:52.556-04:00",
-  "block_sha256": "9084b45ad5c469c27e1fe3b9ff404f2dc8bea5d880b3ce0dff3ca65d988cb734",
-  "payload_sha256": "12ed73baa43385f5c8521e856ce3d7989cbff827f0e7d10def88c723477e2048",
-  "account_value": 838885,
-  "pnl_day": -16392,
-  "spot": 366.82,
-  "session_date": "2026-08-31"
+  "newest_slot": "snap_054.json",
+  "newest_slot_url": "https://raw.githubusercontent.com/senthilaimhighrealty/tsla-public/main/snap_054.json",
+  "generated_at": "2026-09-01T02:35:51.889-04:00",
+  "block_sha256": "e1996072d002f7ec871de8a328324aea1f92e82f75de6ec6a334690b94c15eab",
+  "payload_sha256": "3d45a54c46b13c8f9dda821530b674d99aa46d1e5ec09cfcafcd0bfb56118def",
+  "account_value": 838886,
+  "pnl_day": -16391,
+  "spot": 367.4203,
+  "session_date": "2026-09-01"
 }
