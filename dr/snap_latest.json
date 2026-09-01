@@ -1,41 +1,41 @@
 {
-  "generated_at": "2026-09-01T10:24:28.479-04:00",
+  "generated_at": "2026-09-01T11:22:51.401-04:00",
   "session_date": "2026-09-01",
-  "snapshot_time": "10:24",
-  "slot": "snap_055.json",
+  "snapshot_time": "11:22",
+  "slot": "snap_056.json",
   "source": "schwab api",
   "trigger": "d",
-  "block": "=SNAP 2026-09-01 10:24 API\nTSLA 358.4 -2.59% PREV 367.95\nAV 833287 BP 63387 CASH 890257 PL -5613\n=POS\n1 P 360 -15 4.625 netliq=-6937.50 cost=-4947.40 pl_open=-1990.10 pl_day=-3840.00\n1 P 350 +15 0.955 netliq=1432.50 cost=1442.45 pl_open=-9.95 pl_day=645.00\n1 P 340 -150 0.185 netliq=-2775.00 cost=-4200.00 pl_open=1425.00 pl_day=1425.00\n1 P 320 +150 0.055 netliq=825.00 cost=1050.00 pl_open=-225.00 pl_day=-225.00\n1 C 385 +350 0.115 netliq=4025.00 cost=4090.00 pl_open=-65.00 pl_day=197.00\n1 C 375 -350 0.32 netliq=-11200.00 cost=-12100.00 pl_open=900.00 pl_day=1621.00\n3 P 360 -10 6.975 netliq=-6975.00 cost=-5498.22 pl_open=-1476.78 pl_day=-2925.00\n3 P 340 +10 0.935 netliq=935.00 cost=881.63 pl_open=53.37 pl_day=310.00\n3 P 330 -100 0.34 netliq=-3400.00 cost=-3580.00 pl_open=180.00 pl_day=180.00\n3 P 310 +100 0.125 netliq=1250.00 cost=1380.00 pl_open=-130.00 pl_day=-130.00\n3 C 450 +30 0.05 netliq=150.00 cost=1324.90 pl_open=-1174.90 pl_day=-120.30\n3 C 420 -30 0.095 netliq=-285.00 cost=-3024.94 pl_open=2739.94 pl_day=465.00\n3 C 380 +50 0.91 netliq=4550.00 cost=3950.00 pl_open=600.00 pl_day=600.00\n3 C 370 -50 2.33 netliq=-11650.00 cost=-9700.00 pl_open=-1950.00 pl_day=-1950.00\n10 C 430 +20 0.285 netliq=570.00 cost=563.27 pl_open=6.73 pl_day=1668.40\n10 C 400 -20 0.855 netliq=-1710.00 cost=-1616.63 pl_open=-93.37 pl_day=-6130.00\n17 C 440 +2 0.51 netliq=102.00 cost=124.33 pl_open=-22.33 pl_day=-84.00\n17 C 400 -2 2.01 netliq=-402.00 cost=-405.65 pl_open=3.65 pl_day=393.00\n80 P 250 -2 1.76 netliq=-352.00 cost=-2029.67 pl_open=1677.67 pl_day=-31.00\n80 P 150 +2 0.305 netliq=61.00 cost=526.32 pl_open=-465.32 pl_day=-0.22\n80 C 800 +2 0.375 netliq=75.00 cost=1790.32 pl_open=-1715.32 pl_day=-11.80\n80 C 700 -2 0.62 netliq=-124.00 cost=-2919.67 pl_open=2795.67 pl_day=23.42\n108 P 300 -2 9.7 netliq=-1940.00 cost=-3033.60 pl_open=1093.60 pl_day=-205.00\n108 P 260 +2 3.525 netliq=705.00 cost=1450.32 pl_open=-745.32 pl_day=60.00\n108 C 670 +2 1.32 netliq=264.00 cost=3610.32 pl_open=-3346.32 pl_day=-55.46\n108 C 600 -2 2.095 netliq=-419.00 cost=-5169.67 pl_open=4750.67 pl_day=104.96\n136 P 250 -2 3.85 netliq=-770.00 cost=-1219.63 pl_open=449.63 pl_day=-55.00\n136 P 100 +2 0.245 netliq=49.00 cost=322.32 pl_open=-273.32 pl_day=-1.06\n136 C 600 +2 3.15 netliq=630.00 cost=720.33 pl_open=-90.33 pl_day=-155.00\n136 C 500 -2 7.85 netliq=-1570.00 cost=-1723.62 pl_open=153.62 pl_day=385.00\n199 P 250 -1 7.175 netliq=-717.50 cost=-1709.84 pl_open=992.34 pl_day=-50.00\n199 P 100 +1 0.455 netliq=45.50 cost=218.16 pl_open=-172.66 pl_day=-0.78\n199 C 850 +1 2.19 netliq=219.00 cost=1305.16 pl_open=-1086.16 pl_day=-26.95\n199 C 700 -1 4.05 netliq=-405.00 cost=-2267.84 pl_open=1862.84 pl_day=72.50\n289 P 300 -2 26.075 netliq=-5215.00 cost=-6467.54 pl_open=1252.54 pl_day=-291.02\n289 P 200 +2 4.825 netliq=965.00 cost=1858.32 pl_open=-893.32 pl_day=33.10\n289 C 800 +2 5.825 netliq=1165.00 cost=3240.32 pl_open=-2075.32 pl_day=-188.20\n289 C 700 -2 8.725 netliq=-1745.00 cost=-4499.58 pl_open=2754.58 pl_day=285.00\n381 P 300 -2 32.675 netliq=-6535.00 cost=-7685.51 pl_open=1150.51 pl_day=-310.00\n381 P 200 +2 7.325 netliq=1465.00 cost=2408.32 pl_open=-943.32 pl_day=44.34\n381 C 800 +2 9.95 netliq=1990.00 cost=4654.32 pl_open=-2664.32 pl_day=-275.00\n381 C 700 -2 14.225 netliq=-2845.00 cost=-6235.54 pl_open=3390.54 pl_day=412.90\n472 P 300 -1 38.35 netliq=-3835.00 cost=-4424.75 pl_open=589.75 pl_day=-147.09\n472 P 100 +1 1.355 netliq=135.50 cost=310.16 pl_open=-174.66 pl_day=-2.26\n472 C 900 +1 11.05 netliq=1105.00 cost=2430.16 pl_open=-1325.16 pl_day=-155.13\n472 C 700 -1 20.475 netliq=-2047.50 cost=-3964.76 pl_open=1917.26 pl_day=261.38\n507 P 250 -1 22.525 netliq=-2252.50 cost=-2426.79 pl_open=174.29 pl_day=-82.50\n507 P 50 +1 0.335 netliq=33.50 cost=39.16 pl_open=-5.66 pl_day=-5.19\n507 C 900 +1 12.6 netliq=1260.00 cost=2699.16 pl_open=-1439.16 pl_day=-161.58\n507 C 700 -1 22.75 netliq=-2275.00 cost=-4307.75 pl_open=2032.75 pl_day=270.73\n654 C 900 +1 20.625 netliq=2062.50 cost=3780.16 pl_open=-1717.66 pl_day=-236.06\n654 C 700 -1 33.9 netliq=-3390.00 cost=-5649.72 pl_open=2259.72 pl_day=328.85\n836 P 150 -1 9.125 netliq=-912.50 cost=-1344.84 pl_open=432.34 pl_day=-15.70\n836 P 50 +1 0.815 netliq=81.50 cost=171.16 pl_open=-89.66 pl_day=2.68\n836 C 850 +1 33.975 netliq=3397.50 cost=5994.16 pl_open=-2596.66 pl_day=-315.10\n836 C 750 -1 41.925 netliq=-4192.50 cost=-7079.84 pl_open=2887.34 pl_day=371.37\nSTK +1 358.46 netliq=358.46 cost=309.60 pl_open=48.86 pl_day=-9.49\n=ORDERS\nW 0944 B 385C/375C 100 0.13\nW 0959 B 350P/360P 7 3.0\nW 1020 B 385C/375C 150 0.15\nW 1021 B 380C/370C 20 1.1\nR 0936 S 375C/385C 400 0.25\nR 0936 S 375C/385C 400 0.27\nR 0936 S 375C/385C 400 0.29\nF 0937 S 375C/385C 400 0.24\nF 0938 S 370C/380C 50 1.15\nF 0938 B 375C/365C 50 0.84\nF 0939 S 365C/375C 50 0.82\nR 0941 B 385C/375C 100 0.15\nX 0950 S 340P/325P 300 0.17\nF 0953 B 385C/365C 50 1.7\nF 0955 S 340P/320P 150 0.21\nR 1002 S 330P/310P 100 0.24\nC 1009 B 380C/370C 25 1.5\nF 1010 S 330P/310P 100 0.22\nR 1014 B 380C/370C 20 1.3\nR 1014 B 385C/375C 150 0.2\nR 1017 B 385C/375C 150 0.18\n=COUNTS\nplaced 21 filled 7 working 4 cancelled 1 replaced 8 rejected 1\nfill_rate 33.3 replaces_per_fill 1.1\n=END",
+  "block": "=SNAP 2026-09-01 11:22 API\nTSLA 358.31 -2.62% PREV 367.95\nAV 834972 BP 96087 CASH 887957 PL -3927\n=POS\n1 P 360 -15 4.5 netliq=-6750.00 cost=-4947.40 pl_open=-1802.60 pl_day=-3652.50\n1 P 350 +15 0.85 netliq=1275.00 cost=1442.45 pl_open=-167.45 pl_day=487.50\n1 P 340 -150 0.175 netliq=-2625.00 cost=-4200.00 pl_open=1575.00 pl_day=1575.00\n1 P 320 +150 0.05 netliq=750.00 cost=1050.00 pl_open=-300.00 pl_day=-300.00\n1 C 385 +200 0.085 netliq=1700.00 cost=2360.00 pl_open=-660.00 pl_day=-928.00\n1 C 375 -200 0.255 netliq=-5100.00 cost=-6630.00 pl_open=1530.00 pl_day=4271.00\n3 P 360 -10 6.95 netliq=-6950.00 cost=-5498.22 pl_open=-1451.78 pl_day=-2900.00\n3 P 340 +10 0.92 netliq=920.00 cost=881.63 pl_open=38.37 pl_day=295.00\n3 P 330 -100 0.335 netliq=-3350.00 cost=-3580.00 pl_open=230.00 pl_day=230.00\n3 P 310 +100 0.125 netliq=1250.00 cost=1380.00 pl_open=-130.00 pl_day=-130.00\n3 C 450 +30 0.045 netliq=135.00 cost=1324.90 pl_open=-1189.90 pl_day=-135.30\n3 C 420 -30 0.105 netliq=-315.00 cost=-3024.94 pl_open=2709.94 pl_day=435.00\n3 C 380 +50 0.89 netliq=4450.00 cost=3950.00 pl_open=500.00 pl_day=500.00\n3 C 370 -50 2.29 netliq=-11450.00 cost=-9700.00 pl_open=-1750.00 pl_day=-1750.00\n10 C 430 +20 0.31 netliq=620.00 cost=563.27 pl_open=56.73 pl_day=1718.40\n10 C 400 -20 0.88 netliq=-1760.00 cost=-1616.63 pl_open=-143.37 pl_day=-6180.00\n17 C 440 +2 0.53 netliq=106.00 cost=124.33 pl_open=-18.33 pl_day=-80.00\n17 C 400 -2 2.035 netliq=-407.00 cost=-405.65 pl_open=-1.35 pl_day=388.00\n80 P 250 -2 1.77 netliq=-354.00 cost=-2029.67 pl_open=1675.67 pl_day=-33.00\n80 P 150 +2 0.285 netliq=57.00 cost=526.32 pl_open=-469.32 pl_day=-4.22\n80 C 800 +2 0.355 netliq=71.00 cost=1790.32 pl_open=-1719.32 pl_day=-15.80\n80 C 700 -2 0.62 netliq=-124.00 cost=-2919.67 pl_open=2795.67 pl_day=23.42\n108 P 300 -2 9.75 netliq=-1950.00 cost=-3033.60 pl_open=1083.60 pl_day=-215.00\n108 P 260 +2 3.55 netliq=710.00 cost=1450.32 pl_open=-740.32 pl_day=65.00\n108 C 670 +2 1.32 netliq=264.00 cost=3610.32 pl_open=-3346.32 pl_day=-55.46\n108 C 600 -2 2.11 netliq=-422.00 cost=-5169.67 pl_open=4747.67 pl_day=101.96\n136 P 250 -2 3.875 netliq=-775.00 cost=-1219.63 pl_open=444.63 pl_day=-60.00\n136 P 100 +2 0.245 netliq=49.00 cost=322.32 pl_open=-273.32 pl_day=-1.06\n136 C 600 +2 3.2 netliq=640.00 cost=720.33 pl_open=-80.33 pl_day=-145.00\n136 C 500 -2 7.875 netliq=-1575.00 cost=-1723.62 pl_open=148.62 pl_day=380.00\n199 P 250 -1 7.275 netliq=-727.50 cost=-1709.84 pl_open=982.34 pl_day=-60.00\n199 P 100 +1 0.45 netliq=45.00 cost=218.16 pl_open=-173.16 pl_day=-1.28\n199 C 850 +1 2.185 netliq=218.50 cost=1305.16 pl_open=-1086.66 pl_day=-27.45\n199 C 700 -1 4.025 netliq=-402.50 cost=-2267.84 pl_open=1865.34 pl_day=75.00\n289 P 300 -2 26.125 netliq=-5225.00 cost=-6467.54 pl_open=1242.54 pl_day=-301.02\n289 P 200 +2 4.825 netliq=965.00 cost=1858.32 pl_open=-893.32 pl_day=33.10\n289 C 800 +2 5.825 netliq=1165.00 cost=3240.32 pl_open=-2075.32 pl_day=-188.20\n289 C 700 -2 8.65 netliq=-1730.00 cost=-4499.58 pl_open=2769.58 pl_day=300.00\n381 P 300 -2 32.65 netliq=-6530.00 cost=-7685.51 pl_open=1155.51 pl_day=-305.00\n381 P 200 +2 7.325 netliq=1465.00 cost=2408.32 pl_open=-943.32 pl_day=44.34\n381 C 800 +2 10.0 netliq=2000.00 cost=4654.32 pl_open=-2654.32 pl_day=-265.00\n381 C 700 -2 14.3 netliq=-2860.00 cost=-6235.54 pl_open=3375.54 pl_day=397.90\n472 P 300 -1 38.375 netliq=-3837.50 cost=-4424.75 pl_open=587.25 pl_day=-149.59\n472 P 100 +1 1.355 netliq=135.50 cost=310.16 pl_open=-174.66 pl_day=-2.26\n472 C 900 +1 11.075 netliq=1107.50 cost=2430.16 pl_open=-1322.66 pl_day=-152.63\n472 C 700 -1 20.475 netliq=-2047.50 cost=-3964.76 pl_open=1917.26 pl_day=261.38\n507 P 250 -1 22.4 netliq=-2240.00 cost=-2426.79 pl_open=186.79 pl_day=-70.00\n507 P 50 +1 0.355 netliq=35.50 cost=39.16 pl_open=-3.66 pl_day=-3.19\n507 C 900 +1 12.525 netliq=1252.50 cost=2699.16 pl_open=-1446.66 pl_day=-169.08\n507 C 700 -1 22.725 netliq=-2272.50 cost=-4307.75 pl_open=2035.25 pl_day=273.23\n654 C 900 +1 20.55 netliq=2055.00 cost=3780.16 pl_open=-1725.16 pl_day=-243.56\n654 C 700 -1 33.85 netliq=-3385.00 cost=-5649.72 pl_open=2264.72 pl_day=333.85\n836 P 150 -1 9.125 netliq=-912.50 cost=-1344.84 pl_open=432.34 pl_day=-15.70\n836 P 50 +1 0.82 netliq=82.00 cost=171.16 pl_open=-89.16 pl_day=3.18\n836 C 850 +1 34.025 netliq=3402.50 cost=5994.16 pl_open=-2591.66 pl_day=-310.10\n836 C 750 -1 41.925 netliq=-4192.50 cost=-7079.84 pl_open=2887.34 pl_day=371.37\nSTK +1 358.35 netliq=358.35 cost=309.60 pl_open=48.74 pl_day=-9.61\n=ORDERS\nW 0944 B 385C/375C 100 0.13\nW 1052 B 380C/370C 20 1.1\nW 1121 B 350P/360P 15 3.4\nW 1122 B 340P/360P 5 5.5\nR 0936 S 375C/385C 400 0.25\nR 0936 S 375C/385C 400 0.27\nR 0936 S 375C/385C 400 0.29\nF 0937 S 375C/385C 400 0.24\nF 0938 S 370C/380C 50 1.15\nF 0938 B 375C/365C 50 0.84\nF 0939 S 365C/375C 50 0.82\nR 0941 B 385C/375C 100 0.15\nX 0950 S 340P/325P 300 0.17\nF 0953 B 385C/365C 50 1.7\nF 0955 S 340P/320P 150 0.21\nC 0959 B 350P/360P 7 3.0\nR 1002 S 330P/310P 100 0.24\nC 1009 B 380C/370C 25 1.5\nF 1010 S 330P/310P 100 0.22\nR 1014 B 380C/370C 20 1.3\nR 1014 B 385C/375C 150 0.2\nR 1017 B 385C/375C 150 0.18\nF 1020 B 385C/375C 150 0.15\nR 1021 B 380C/370C 20 1.1\nR 1036 B 380C/370C 20 1.3\n=COUNTS\nplaced 25 filled 8 working 4 cancelled 2 replaced 10 rejected 1\nfill_rate 32.0 replaces_per_fill 1.2\n=END",
   "live": {
-    "as_of": "2026-09-01T10:24:28.479-04:00",
+    "as_of": "2026-09-01T11:22:51.401-04:00",
     "tsla": {
-      "last": 358.405,
-      "bid": 358.36,
-      "ask": 358.46,
+      "last": 358.315,
+      "bid": 358.25,
+      "ask": 358.37,
       "previous_close": 367.95,
-      "move_pct": -2.59,
+      "move_pct": -2.62,
       "day_high": 362.7,
       "day_low": 353.39,
-      "volume": 12332957
+      "volume": 16476270
     },
     "vix": {
-      "last": 15.46,
+      "last": 15.38,
       "previous_close": 14.92
     }
   },
   "chain_marks": {
-    "as_of": "2026-09-01T10:24:33.577-04:00",
+    "as_of": "2026-09-01T11:22:57.810-04:00",
     "strikes": [
       {
         "expiry": "2026-09-02",
         "dte": 1,
         "side": "P",
         "strike": 320,
-        "bid": 0.05,
+        "bid": 0.04,
         "ask": 0.06,
-        "mark": 0.06,
-        "iv": 83.4,
-        "volume": 1018,
+        "mark": 0.05,
+        "iv": 83.6,
+        "volume": 1230,
         "oi": 1772
       },
       {
@@ -43,11 +43,11 @@
         "dte": 1,
         "side": "P",
         "strike": 340,
-        "bid": 0.18,
-        "ask": 0.19,
-        "mark": 0.19,
-        "iv": 52.5,
-        "volume": 8494,
+        "bid": 0.17,
+        "ask": 0.18,
+        "mark": 0.18,
+        "iv": 52.6,
+        "volume": 9532,
         "oi": 2736
       },
       {
@@ -55,11 +55,11 @@
         "dte": 1,
         "side": "P",
         "strike": 350,
-        "bid": 0.95,
-        "ask": 0.96,
-        "mark": 0.96,
-        "iv": 45.3,
-        "volume": 44776,
+        "bid": 0.84,
+        "ask": 0.86,
+        "mark": 0.85,
+        "iv": 44.1,
+        "volume": 59708,
         "oi": 8214
       },
       {
@@ -67,11 +67,11 @@
         "dte": 1,
         "side": "P",
         "strike": 360,
-        "bid": 4.55,
-        "ask": 4.65,
-        "mark": 4.6,
-        "iv": 45.4,
-        "volume": 22811,
+        "bid": 4.45,
+        "ask": 4.55,
+        "mark": 4.5,
+        "iv": 44.4,
+        "volume": 31722,
         "oi": 6641
       },
       {
@@ -79,11 +79,11 @@
         "dte": 1,
         "side": "C",
         "strike": 375,
-        "bid": 0.32,
-        "ask": 0.33,
-        "mark": 0.33,
-        "iv": 51.8,
-        "volume": 7224,
+        "bid": 0.25,
+        "ask": 0.26,
+        "mark": 0.26,
+        "iv": 50.1,
+        "volume": 9272,
         "oi": 4460
       },
       {
@@ -91,11 +91,11 @@
         "dte": 1,
         "side": "C",
         "strike": 385,
-        "bid": 0.11,
-        "ask": 0.12,
-        "mark": 0.12,
-        "iv": 61.5,
-        "volume": 1888,
+        "bid": 0.08,
+        "ask": 0.09,
+        "mark": 0.09,
+        "iv": 59.9,
+        "volume": 2468,
         "oi": 3188
       },
       {
@@ -106,8 +106,8 @@
         "bid": 0.12,
         "ask": 0.13,
         "mark": 0.13,
-        "iv": 71.6,
-        "volume": 208,
+        "iv": 72.0,
+        "volume": 214,
         "oi": 1837
       },
       {
@@ -116,10 +116,10 @@
         "side": "P",
         "strike": 330,
         "bid": 0.33,
-        "ask": 0.35,
+        "ask": 0.34,
         "mark": 0.34,
-        "iv": 52.8,
-        "volume": 1186,
+        "iv": 52.9,
+        "volume": 1291,
         "oi": 3597
       },
       {
@@ -127,11 +127,11 @@
         "dte": 3,
         "side": "P",
         "strike": 340,
-        "bid": 0.92,
+        "bid": 0.91,
         "ask": 0.94,
         "mark": 0.93,
-        "iv": 48.0,
-        "volume": 5301,
+        "iv": 47.9,
+        "volume": 6320,
         "oi": 4874
       },
       {
@@ -139,11 +139,11 @@
         "dte": 3,
         "side": "P",
         "strike": 360,
-        "bid": 6.95,
+        "bid": 6.9,
         "ask": 7.05,
-        "mark": 7.0,
-        "iv": 46.9,
-        "volume": 8353,
+        "mark": 6.98,
+        "iv": 46.6,
+        "volume": 9581,
         "oi": 5302
       },
       {
@@ -151,11 +151,11 @@
         "dte": 3,
         "side": "C",
         "strike": 370,
-        "bid": 2.32,
-        "ask": 2.35,
-        "mark": 2.34,
-        "iv": 47.8,
-        "volume": 7186,
+        "bid": 2.26,
+        "ask": 2.3,
+        "mark": 2.28,
+        "iv": 47.7,
+        "volume": 10721,
         "oi": 13982
       },
       {
@@ -163,11 +163,11 @@
         "dte": 3,
         "side": "C",
         "strike": 380,
-        "bid": 0.9,
-        "ask": 0.92,
-        "mark": 0.91,
-        "iv": 50.0,
-        "volume": 4351,
+        "bid": 0.87,
+        "ask": 0.9,
+        "mark": 0.89,
+        "iv": 50.1,
+        "volume": 5563,
         "oi": 9053
       },
       {
@@ -175,11 +175,11 @@
         "dte": 3,
         "side": "C",
         "strike": 420,
-        "bid": 0.09,
-        "ask": 0.1,
-        "mark": 0.1,
-        "iv": 72.7,
-        "volume": 2666,
+        "bid": 0.1,
+        "ask": 0.11,
+        "mark": 0.11,
+        "iv": 74.3,
+        "volume": 2686,
         "oi": 3547
       },
       {
@@ -188,9 +188,9 @@
         "side": "C",
         "strike": 450,
         "bid": 0.04,
-        "ask": 0.06,
+        "ask": 0.05,
         "mark": 0.05,
-        "iv": 92.5,
+        "iv": 92.2,
         "volume": 94,
         "oi": 3480
       },
@@ -199,11 +199,11 @@
         "dte": 10,
         "side": "C",
         "strike": 400,
-        "bid": 0.85,
-        "ask": 0.87,
-        "mark": 0.86,
-        "iv": 44.2,
-        "volume": 3619,
+        "bid": 0.87,
+        "ask": 0.89,
+        "mark": 0.88,
+        "iv": 44.6,
+        "volume": 4112,
         "oi": 11148
       },
       {
@@ -211,11 +211,11 @@
         "dte": 10,
         "side": "C",
         "strike": 430,
-        "bid": 0.27,
-        "ask": 0.3,
-        "mark": 0.29,
-        "iv": 53.8,
-        "volume": 229,
+        "bid": 0.3,
+        "ask": 0.32,
+        "mark": 0.31,
+        "iv": 54.7,
+        "volume": 231,
         "oi": 1185
       },
       {
@@ -223,11 +223,11 @@
         "dte": 17,
         "side": "C",
         "strike": 400,
-        "bid": 1.99,
-        "ask": 2.02,
-        "mark": 2.01,
-        "iv": 42.4,
-        "volume": 2818,
+        "bid": 2.02,
+        "ask": 2.05,
+        "mark": 2.04,
+        "iv": 42.7,
+        "volume": 3546,
         "oi": 22881
       },
       {
@@ -235,11 +235,11 @@
         "dte": 17,
         "side": "C",
         "strike": 440,
-        "bid": 0.5,
-        "ask": 0.52,
-        "mark": 0.51,
-        "iv": 50.3,
-        "volume": 14,
+        "bid": 0.52,
+        "ask": 0.54,
+        "mark": 0.53,
+        "iv": 50.7,
+        "volume": 23,
         "oi": 8439
       }
     ]
@@ -248,17 +248,17 @@
     {
       "expiry": "2026-09-02",
       "dte": 1,
-      "atm_iv": 44.8
+      "atm_iv": 43.6
     },
     {
       "expiry": "2026-09-04",
       "dte": 3,
-      "atm_iv": 45.9
+      "atm_iv": 45.6
     },
     {
       "expiry": "2026-09-09",
       "dte": 8,
-      "atm_iv": 36.3
+      "atm_iv": 36.2
     },
     {
       "expiry": "2026-09-11",
@@ -268,17 +268,17 @@
     {
       "expiry": "2026-09-14",
       "dte": 13,
-      "atm_iv": 38.2
+      "atm_iv": 37.8
     },
     {
       "expiry": "2026-09-16",
       "dte": 15,
-      "atm_iv": 39.3
+      "atm_iv": 40.2
     },
     {
       "expiry": "2026-09-18",
       "dte": 17,
-      "atm_iv": 38.4
+      "atm_iv": 38.6
     },
     {
       "expiry": "2026-09-25",
@@ -288,17 +288,17 @@
     {
       "expiry": "2026-10-02",
       "dte": 31,
-      "atm_iv": 41.4
+      "atm_iv": 41.3
     },
     {
       "expiry": "2026-10-09",
       "dte": 38,
-      "atm_iv": 38.3
+      "atm_iv": 41.6
     },
     {
       "expiry": "2026-10-16",
       "dte": 45,
-      "atm_iv": 38.5
+      "atm_iv": 38.6
     }
   ],
   "next_earnings": null,
@@ -308,51 +308,51 @@
   "warnings": [
     "PL used Schwab current-initial; session_open missing",
     "next_earnings unknown (no date on file)",
-    "Schwab current-initial PL=-5612.51",
+    "Schwab current-initial PL=-3926.73",
     "trimmed chain_marks ladders for size (364 -> 18)",
-    "derived: BS vs mark 0.47 >= 0.25 for 1 P 340 bs=0.101 mark=0.19",
-    "derived: BS vs mark 0.41 >= 0.25 for 1 C 375 bs=0.196 mark=0.33",
-    "derived: BS vs mark 0.32 >= 0.25 for 3 C 420 bs=0.068 mark=0.1"
+    "derived: BS vs mark 0.42 >= 0.25 for 1 P 340 bs=0.105 mark=0.18",
+    "derived: BS vs mark 0.38 >= 0.25 for 1 C 375 bs=0.161 mark=0.26",
+    "derived: BS vs mark 0.27 >= 0.25 for 3 C 420 bs=0.081 mark=0.11"
   ],
   "checks": {
     "option_position_lines": 56,
     "api_option_positions": 56,
     "stock_line_present": true,
     "api_stock_positions": 1,
-    "block_lines": 87,
+    "block_lines": 91,
     "orders_omitted": 0,
     "non_tsla_excluded": 0,
-    "order_lines": 21,
-    "orders_placed": 21,
+    "order_lines": 25,
+    "orders_placed": 25,
     "working": 4,
     "signs_balance": true,
     "dust_longs": [],
     "chain_strikes": 18,
     "held_strikes_covered": true,
     "working_strikes_covered": true,
-    "elapsed_seconds": 4.74
+    "elapsed_seconds": 5.86
   },
   "pl_reconciliation": {
     "session_open_account_value": null,
-    "av": 833287,
-    "pl": -5613,
-    "schwab_current_minus_initial": -5612.51
+    "av": 834972,
+    "pl": -3927,
+    "schwab_current_minus_initial": -3926.73
   },
   "qty_source": "longQuantity - shortQuantity (collector quantity is already signed; used when raw long/short absent)",
   "mark_formula": "marketValue / (signed qty * 100), 3 decimals, not averagePrice",
   "ocr_fallback_selected": false,
   "api_timings": {
-    "linked_accounts": 0.316,
-    "account": 0.275,
-    "orders": 0.649,
-    "quotes": 0.2,
-    "transactions": 0.423,
-    "option_chains": 3.193
+    "linked_accounts": 0.509,
+    "account": 0.345,
+    "orders": 0.552,
+    "quotes": 0.352,
+    "transactions": 0.811,
+    "option_chains": 3.8
   },
   "latest_fallback_calls": [],
   "dropped_cx": false,
   "overwrite": false,
-  "helpers_dir": "/tmp/snap_helpers_142428_2986811",
+  "helpers_dir": "/tmp/snap_helpers_152251_3009842",
   "asset_types_seen": {
     "OPTION": 56,
     "EQUITY": 1
@@ -380,8 +380,8 @@
   "parsed_block_dte_659": [],
   "parsed_block_dte_15": [],
   "derived": {
-    "as_of": "2026-09-01T10:24:28.479-04:00",
-    "underlying_price": 358.4,
+    "as_of": "2026-09-01T11:22:51.401-04:00",
+    "underlying_price": 358.31,
     "iv_source": "per_expiry_atm_from_term_structure",
     "scope": "0 <= dte <= 45",
     "risk_curve": {
@@ -389,101 +389,101 @@
       "points": [
         {
           "move_pct": -8,
-          "spot": 329.73,
-          "pnl": -183008
+          "spot": 329.65,
+          "pnl": -186410
         },
         {
           "move_pct": -5,
-          "spot": 340.48,
-          "pnl": -64665
+          "spot": 340.39,
+          "pnl": -67980
         },
         {
           "move_pct": -3,
-          "spot": 347.65,
-          "pnl": -20494
+          "spot": 347.56,
+          "pnl": -23432
         },
         {
           "move_pct": -2,
-          "spot": 351.23,
-          "pnl": -8302
+          "spot": 351.14,
+          "pnl": -10824
         },
         {
           "move_pct": -1,
-          "spot": 354.82,
-          "pnl": -1507
+          "spot": 354.73,
+          "pnl": -3194
         },
         {
           "move_pct": 0,
-          "spot": 358.4,
+          "spot": 358.31,
           "pnl": 0
         },
         {
           "move_pct": 1,
-          "spot": 361.98,
-          "pnl": -4635
+          "spot": 361.89,
+          "pnl": -1437
         },
         {
           "move_pct": 2,
-          "spot": 365.57,
-          "pnl": -16957
+          "spot": 365.48,
+          "pnl": -8245
         },
         {
           "move_pct": 3,
-          "spot": 369.15,
-          "pnl": -38528
+          "spot": 369.06,
+          "pnl": -21253
         },
         {
           "move_pct": 5,
-          "spot": 376.32,
-          "pnl": -110549
+          "spot": 376.23,
+          "pnl": -66274
         },
         {
           "move_pct": 8,
-          "spot": 387.07,
-          "pnl": -253015
+          "spot": 386.97,
+          "pnl": -156829
         }
       ],
       "topline": {
-        "pct_2": -8000,
-        "pct_3": -20000,
-        "pct_5": -65000
+        "pct_2": -11000,
+        "pct_3": -23000,
+        "pct_5": -68000
       }
     },
     "peak": {
-      "spot": 357.6,
-      "pnl": 152,
-      "distance": -0.8,
-      "distance_pct": -0.22,
+      "spot": 359.06,
+      "pnl": 101,
+      "distance": 0.75,
+      "distance_pct": 0.21,
       "peak_at_boundary": false
     },
     "flat_zone": {
-      "lo": 354.55,
-      "hi": 360.45,
+      "lo": 355.71,
+      "hi": 362.26,
       "threshold": 2000,
       "clamped": false
     },
     "theta": {
-      "one_day_flat": 13075,
-      "to_next_expiry": 9072,
+      "one_day_flat": 10422,
+      "to_next_expiry": 6413,
       "next_expiry": "2026-09-02",
       "next_expiry_dte": 1
     },
     "balance_line": {
-      "spot": 358.4,
-      "balance_spot": 358.89,
-      "distance": 0.49,
-      "distance_pct": 0.14,
-      "put_expected_loss": 36885,
-      "call_expected_loss": 32548,
-      "imbalance": 4337,
+      "spot": 358.31,
+      "balance_spot": 360.05,
+      "distance": 1.74,
+      "distance_pct": 0.48,
+      "put_expected_loss": 37535,
+      "call_expected_loss": 24456,
+      "imbalance": 13079,
       "heavier_side": "PUT",
-      "dollars_per_point": 8850,
+      "dollars_per_point": 7528,
       "in_flat_zone": true
     },
     "balance_peak_divergence": {
-      "gap": 1.29,
-      "gap_pct": 0.36,
-      "flag": "LOPSIDED"
+      "gap": 0.99,
+      "gap_pct": 0.28,
+      "flag": ""
     },
     "shorts": [
       {
@@ -492,11 +492,11 @@
         "side": "P",
         "strike": 360,
         "qty": -15,
-        "distance_pct": 0.45,
-        "iv": 45.4,
-        "p_itm": 57.9,
+        "distance_pct": 0.47,
+        "iv": 44.4,
+        "p_itm": 58.5,
         "risk": 15000,
-        "expected_loss": 8685,
+        "expected_loss": 8775,
         "flag": "RED",
         "long": 350,
         "width": 10,
@@ -508,11 +508,11 @@
         "side": "P",
         "strike": 360,
         "qty": -10,
-        "distance_pct": 0.45,
-        "iv": 46.9,
-        "p_itm": 55.0,
+        "distance_pct": 0.47,
+        "iv": 46.6,
+        "p_itm": 55.3,
         "risk": 20000,
-        "expected_loss": 11000,
+        "expected_loss": 11060,
         "flag": "RED",
         "long": 340,
         "width": 20,
@@ -524,11 +524,11 @@
         "side": "C",
         "strike": 370,
         "qty": -50,
-        "distance_pct": 3.24,
-        "iv": 47.8,
-        "p_itm": 22.5,
+        "distance_pct": 3.26,
+        "iv": 47.7,
+        "p_itm": 22.2,
         "risk": 50000,
-        "expected_loss": 11250,
+        "expected_loss": 11100,
         "flag": "RED",
         "long": 380,
         "width": 10,
@@ -539,12 +539,12 @@
         "dte": 1,
         "side": "C",
         "strike": 375,
-        "qty": -350,
-        "distance_pct": 4.63,
-        "iv": 51.8,
-        "p_itm": 4.6,
-        "risk": 350000,
-        "expected_loss": 16100,
+        "qty": -200,
+        "distance_pct": 4.66,
+        "iv": 50.1,
+        "p_itm": 4.0,
+        "risk": 200000,
+        "expected_loss": 8000,
         "flag": "",
         "long": 385,
         "width": 10,
@@ -556,11 +556,11 @@
         "side": "P",
         "strike": 340,
         "qty": -150,
-        "distance_pct": -5.13,
-        "iv": 52.5,
-        "p_itm": 2.8,
+        "distance_pct": -5.11,
+        "iv": 52.6,
+        "p_itm": 2.9,
         "risk": 300000,
-        "expected_loss": 8400,
+        "expected_loss": 8700,
         "flag": "",
         "long": 320,
         "width": 20,
@@ -572,11 +572,11 @@
         "side": "P",
         "strike": 330,
         "qty": -100,
-        "distance_pct": -7.92,
-        "iv": 52.8,
-        "p_itm": 4.4,
+        "distance_pct": -7.9,
+        "iv": 52.9,
+        "p_itm": 4.5,
         "risk": 200000,
-        "expected_loss": 8800,
+        "expected_loss": 9000,
         "flag": "",
         "long": 310,
         "width": 20,
@@ -588,11 +588,11 @@
         "side": "C",
         "strike": 400,
         "qty": -20,
-        "distance_pct": 11.61,
-        "iv": 44.2,
-        "p_itm": 6.2,
+        "distance_pct": 11.64,
+        "iv": 44.6,
+        "p_itm": 6.3,
         "risk": 60000,
-        "expected_loss": 3720,
+        "expected_loss": 3780,
         "flag": "",
         "long": 430,
         "width": 30,
@@ -604,11 +604,11 @@
         "side": "C",
         "strike": 400,
         "qty": -2,
-        "distance_pct": 11.61,
-        "iv": 42.4,
-        "p_itm": 10.6,
+        "distance_pct": 11.64,
+        "iv": 42.7,
+        "p_itm": 10.7,
         "risk": 8000,
-        "expected_loss": 848,
+        "expected_loss": 856,
         "flag": "AMBER",
         "long": 440,
         "width": 40,
@@ -620,11 +620,11 @@
         "side": "C",
         "strike": 420,
         "qty": -30,
-        "distance_pct": 17.19,
-        "iv": 72.7,
-        "p_itm": 0.7,
+        "distance_pct": 17.22,
+        "iv": 74.3,
+        "p_itm": 0.8,
         "risk": 90000,
-        "expected_loss": 630,
+        "expected_loss": 720,
         "flag": "",
         "long": 450,
         "width": 30,
@@ -635,9 +635,9 @@
       "count": 9,
       "red": 3,
       "amber": 1,
-      "total_risk": 1093000,
-      "total_expected_loss": 69433,
-      "nearest_distance_pct": 0.45
+      "total_risk": 943000,
+      "total_expected_loss": 61991,
+      "nearest_distance_pct": 0.47
     },
     "working_order_economics": [
       {
@@ -646,10 +646,10 @@
         "structure": "385C/375C",
         "contracts": 100,
         "limit": 0.13,
-        "mid": 0.21,
-        "natural": 0.22,
-        "gap_from_mid": -0.08,
-        "cost_to_cross_at_mid": 800,
+        "mid": 0.17,
+        "natural": 0.18,
+        "gap_from_mid": -0.04,
+        "cost_to_cross_at_mid": 400,
         "fillable": false,
         "legs": [
           {
@@ -658,9 +658,9 @@
             "dte": 1,
             "side": "C",
             "strike": 375,
-            "bid": 0.32,
-            "ask": 0.33,
-            "mark": 0.33
+            "bid": 0.25,
+            "ask": 0.26,
+            "mark": 0.26
           },
           {
             "action": "SELL",
@@ -668,90 +668,22 @@
             "dte": 1,
             "side": "C",
             "strike": 385,
-            "bid": 0.11,
-            "ask": 0.12,
-            "mark": 0.12
+            "bid": 0.08,
+            "ask": 0.09,
+            "mark": 0.09
           }
         ]
       },
       {
-        "line": "W 0959 B 350P/360P 7 3.0",
-        "sb": "B",
-        "structure": "350P/360P",
-        "contracts": 7,
-        "limit": 3.0,
-        "mid": 3.64,
-        "natural": 3.7,
-        "gap_from_mid": -0.64,
-        "cost_to_cross_at_mid": 448,
-        "fillable": false,
-        "legs": [
-          {
-            "action": "BUY",
-            "expiry": "2026-09-02",
-            "dte": 1,
-            "side": "P",
-            "strike": 360,
-            "bid": 4.55,
-            "ask": 4.65,
-            "mark": 4.6
-          },
-          {
-            "action": "SELL",
-            "expiry": "2026-09-02",
-            "dte": 1,
-            "side": "P",
-            "strike": 350,
-            "bid": 0.95,
-            "ask": 0.96,
-            "mark": 0.96
-          }
-        ]
-      },
-      {
-        "line": "W 1020 B 385C/375C 150 0.15",
-        "sb": "B",
-        "structure": "385C/375C",
-        "contracts": 150,
-        "limit": 0.15,
-        "mid": 0.21,
-        "natural": 0.22,
-        "gap_from_mid": -0.06,
-        "cost_to_cross_at_mid": 900,
-        "fillable": false,
-        "legs": [
-          {
-            "action": "BUY",
-            "expiry": "2026-09-02",
-            "dte": 1,
-            "side": "C",
-            "strike": 375,
-            "bid": 0.32,
-            "ask": 0.33,
-            "mark": 0.33
-          },
-          {
-            "action": "SELL",
-            "expiry": "2026-09-02",
-            "dte": 1,
-            "side": "C",
-            "strike": 385,
-            "bid": 0.11,
-            "ask": 0.12,
-            "mark": 0.12
-          }
-        ]
-      },
-      {
-        "line": "W 1021 B 380C/370C 20 1.1",
+        "line": "W 1052 B 380C/370C 20 1.1",
         "sb": "B",
         "structure": "380C/370C",
         "contracts": 20,
         "limit": 1.1,
-        "mid": 1.43,
-        "natural": 1.45,
-        "gap_from_mid": -0.33,
-        "cost_to_cross_at_mid": 660,
+        "mid": 1.39,
+        "natural": 1.43,
+        "gap_from_mid": -0.29,
+        "cost_to_cross_at_mid": 580,
         "fillable": false,
         "legs": [
           {
@@ -760,9 +692,9 @@
             "dte": 3,
             "side": "C",
             "strike": 370,
-            "bid": 2.32,
-            "ask": 2.35,
-            "mark": 2.34
+            "bid": 2.26,
+            "ask": 2.3,
+            "mark": 2.28
           },
           {
             "action": "SELL",
@@ -770,20 +702,88 @@
             "dte": 3,
             "side": "C",
             "strike": 380,
-            "bid": 0.9,
-            "ask": 0.92,
-            "mark": 0.91
+            "bid": 0.87,
+            "ask": 0.9,
+            "mark": 0.89
+          }
+        ]
+      },
+      {
+        "line": "W 1121 B 350P/360P 15 3.4",
+        "sb": "B",
+        "structure": "350P/360P",
+        "contracts": 15,
+        "limit": 3.4,
+        "mid": 3.65,
+        "natural": 3.71,
+        "gap_from_mid": -0.25,
+        "cost_to_cross_at_mid": 375,
+        "fillable": false,
+        "legs": [
+          {
+            "action": "BUY",
+            "expiry": "2026-09-02",
+            "dte": 1,
+            "side": "P",
+            "strike": 360,
+            "bid": 4.45,
+            "ask": 4.55,
+            "mark": 4.5
+          },
+          {
+            "action": "SELL",
+            "expiry": "2026-09-02",
+            "dte": 1,
+            "side": "P",
+            "strike": 350,
+            "bid": 0.84,
+            "ask": 0.86,
+            "mark": 0.85
+          }
+        ]
+      },
+      {
+        "line": "W 1122 B 340P/360P 5 5.5",
+        "sb": "B",
+        "structure": "340P/360P",
+        "contracts": 5,
+        "limit": 5.5,
+        "mid": 6.05,
+        "natural": 6.14,
+        "gap_from_mid": -0.55,
+        "cost_to_cross_at_mid": 275,
+        "fillable": false,
+        "legs": [
+          {
+            "action": "BUY",
+            "expiry": "2026-09-04",
+            "dte": 3,
+            "side": "P",
+            "strike": 360,
+            "bid": 6.9,
+            "ask": 7.05,
+            "mark": 6.98
+          },
+          {
+            "action": "SELL",
+            "expiry": "2026-09-04",
+            "dte": 3,
+            "side": "P",
+            "strike": 340,
+            "bid": 0.91,
+            "ask": 0.94,
+            "mark": 0.93
           }
         ]
       }
     ],
     "profit_center": {
-      "price": 357.59,
-      "pnl_at_center": 152,
-      "distance_from_spot": -0.81,
-      "distance_from_spot_pct": -0.23,
-      "search_lo": 304.64,
-      "search_hi": 412.16,
+      "price": 359.05,
+      "pnl_at_center": 101,
+      "distance_from_spot": 0.74,
+      "distance_from_spot_pct": 0.21,
+      "search_lo": 304.56,
+      "search_hi": 412.06,
       "search_expanded": false,
       "search_hit_boundary": false,
       "toward_center_monotonic": true,
@@ -888,8 +888,8 @@
           "warning": true,
           "limit": 4.0,
           "warn_at": 5.0,
-          "value": 0.445,
-          "min_distance_pct": 0.445,
+          "value": 0.47,
+          "min_distance_pct": 0.47,
           "n_shorts": 3,
           "inside_4pct": 1
         }
@@ -900,7 +900,7 @@
         "signals": [
           {
             "name": "vix",
-            "value": 15.46,
+            "value": 15.38,
             "condition": "> 22",
             "fires": false,
             "retired_from": "VOLATILITY"
@@ -1068,7 +1068,7 @@
       "signals": [
         {
           "name": "vix",
-          "value": 15.46,
+          "value": 15.38,
           "condition": "> 22",
           "fires": false,
           "retired_from": "VOLATILITY"
@@ -1237,9 +1237,9 @@
         "side": "PUT",
         "short": 360.0,
         "long": 320.0,
-        "depth_pct": 0.4,
+        "depth_pct": 0.5,
         "width_pct": 11.16,
-        "ratio": 25.08,
+        "ratio": 23.74,
         "risk": 60000,
         "inside_10pct": true,
         "flag": "RED"
@@ -1250,10 +1250,10 @@
         "side": "CALL",
         "short": 375.0,
         "long": 385.0,
-        "depth_pct": 4.6,
+        "depth_pct": 4.7,
         "width_pct": 2.79,
         "ratio": 0.6,
-        "risk": 350000,
+        "risk": 200000,
         "inside_10pct": true,
         "flag": "GREEN"
       },
@@ -1263,9 +1263,9 @@
         "side": "PUT",
         "short": 360.0,
         "long": 310.0,
-        "depth_pct": 0.4,
+        "depth_pct": 0.5,
         "width_pct": 13.95,
-        "ratio": 31.35,
+        "ratio": 29.67,
         "risk": 50000,
         "inside_10pct": true,
         "flag": "RED"
@@ -1276,9 +1276,9 @@
         "side": "CALL",
         "short": 370.0,
         "long": 450.0,
-        "depth_pct": 3.2,
-        "width_pct": 22.32,
-        "ratio": 6.9,
+        "depth_pct": 3.3,
+        "width_pct": 22.33,
+        "ratio": 6.85,
         "risk": 240000,
         "inside_10pct": true,
         "flag": "RED"
@@ -1314,50 +1314,50 @@
       "red_count": 3,
       "amber_count": 0,
       "flagged_risk": 350000,
-      "total_risk": 768000
+      "total_risk": 618000
     },
     "expected_loss": {
       "by_expiry": [
         {
+          "expiry": "2026-09-02",
+          "dte": 1,
+          "p_put_itm": 2.9,
+          "put_expected_loss": 17475,
+          "p_call_itm": 4.0,
+          "call_expected_loss": 8000,
+          "net": 9475
+        },
+        {
           "expiry": "2026-09-04",
           "dte": 3,
-          "p_put_itm": 4.4,
-          "put_expected_loss": 19800,
-          "p_call_itm": 0.7,
-          "call_expected_loss": 11880,
-          "net": 7920
+          "p_put_itm": 4.5,
+          "put_expected_loss": 20060,
+          "p_call_itm": 0.8,
+          "call_expected_loss": 11820,
+          "net": 8240
         },
         {
           "expiry": "2026-09-11",
           "dte": 10,
           "p_put_itm": null,
           "put_expected_loss": 0,
-          "p_call_itm": 6.2,
-          "call_expected_loss": 3720,
-          "net": -3720
-        },
-        {
-          "expiry": "2026-09-02",
-          "dte": 1,
-          "p_put_itm": 2.8,
-          "put_expected_loss": 17085,
-          "p_call_itm": 4.6,
-          "call_expected_loss": 16100,
-          "net": 985
+          "p_call_itm": 6.3,
+          "call_expected_loss": 3780,
+          "net": -3780
         },
         {
           "expiry": "2026-09-18",
           "dte": 17,
           "p_put_itm": null,
           "put_expected_loss": 0,
-          "p_call_itm": 10.6,
-          "call_expected_loss": 848,
-          "net": -848
+          "p_call_itm": 10.7,
+          "call_expected_loss": 856,
+          "net": -856
         }
       ],
-      "total_put": 36885,
-      "total_call": 32548,
-      "total": 69433,
+      "total_put": 37535,
+      "total_call": 24456,
+      "total": 61991,
       "iv_source": "per_leg_chain_or_expiry_atm"
     }
   },
@@ -1369,120 +1369,120 @@
   "positions": [
     {
       "kind": "OPT",
-      "line": "1 P 360 -15 4.625 netliq=-6937.50 cost=-4947.40 pl_open=-1990.10 pl_day=-3840.00",
+      "line": "1 P 360 -15 4.5 netliq=-6750.00 cost=-4947.40 pl_open=-1802.60 pl_day=-3652.50",
       "dte": 1,
       "side": "P",
       "strike": 360,
       "qty": -15,
-      "mark": 4.625,
-      "net_liq": -6937.5,
+      "mark": 4.5,
+      "net_liq": -6750,
       "cost": -4947.4,
-      "pl_open": -1990.1,
-      "pl_day": -3840
+      "pl_open": -1802.6,
+      "pl_day": -3652.5
     },
     {
       "kind": "OPT",
-      "line": "1 P 350 +15 0.955 netliq=1432.50 cost=1442.45 pl_open=-9.95 pl_day=645.00",
+      "line": "1 P 350 +15 0.85 netliq=1275.00 cost=1442.45 pl_open=-167.45 pl_day=487.50",
       "dte": 1,
       "side": "P",
       "strike": 350,
       "qty": 15,
-      "mark": 0.955,
-      "net_liq": 1432.5,
+      "mark": 0.85,
+      "net_liq": 1275,
       "cost": 1442.45,
-      "pl_open": -9.95,
-      "pl_day": 645
+      "pl_open": -167.45,
+      "pl_day": 487.5
     },
     {
       "kind": "OPT",
-      "line": "1 P 340 -150 0.185 netliq=-2775.00 cost=-4200.00 pl_open=1425.00 pl_day=1425.00",
+      "line": "1 P 340 -150 0.175 netliq=-2625.00 cost=-4200.00 pl_open=1575.00 pl_day=1575.00",
       "dte": 1,
       "side": "P",
       "strike": 340,
       "qty": -150,
-      "mark": 0.185,
-      "net_liq": -2775,
+      "mark": 0.175,
+      "net_liq": -2625,
       "cost": -4200,
-      "pl_open": 1425,
-      "pl_day": 1425
+      "pl_open": 1575,
+      "pl_day": 1575
     },
     {
       "kind": "OPT",
-      "line": "1 P 320 +150 0.055 netliq=825.00 cost=1050.00 pl_open=-225.00 pl_day=-225.00",
+      "line": "1 P 320 +150 0.05 netliq=750.00 cost=1050.00 pl_open=-300.00 pl_day=-300.00",
       "dte": 1,
       "side": "P",
       "strike": 320,
       "qty": 150,
-      "mark": 0.055,
-      "net_liq": 825,
+      "mark": 0.05,
+      "net_liq": 750,
       "cost": 1050,
-      "pl_open": -225,
-      "pl_day": -225
+      "pl_open": -300,
+      "pl_day": -300
     },
     {
       "kind": "OPT",
-      "line": "1 C 385 +350 0.115 netliq=4025.00 cost=4090.00 pl_open=-65.00 pl_day=197.00",
+      "line": "1 C 385 +200 0.085 netliq=1700.00 cost=2360.00 pl_open=-660.00 pl_day=-928.00",
       "dte": 1,
       "side": "C",
       "strike": 385,
-      "qty": 350,
-      "mark": 0.115,
-      "net_liq": 4025,
-      "cost": 4090,
-      "pl_open": -65,
-      "pl_day": 197
+      "qty": 200,
+      "mark": 0.085,
+      "net_liq": 1700,
+      "cost": 2360,
+      "pl_open": -660,
+      "pl_day": -928
     },
     {
       "kind": "OPT",
-      "line": "1 C 375 -350 0.32 netliq=-11200.00 cost=-12100.00 pl_open=900.00 pl_day=1621.00",
+      "line": "1 C 375 -200 0.255 netliq=-5100.00 cost=-6630.00 pl_open=1530.00 pl_day=4271.00",
       "dte": 1,
       "side": "C",
       "strike": 375,
-      "qty": -350,
-      "mark": 0.32,
-      "net_liq": -11200,
-      "cost": -12100,
-      "pl_open": 900,
-      "pl_day": 1621
+      "qty": -200,
+      "mark": 0.255,
+      "net_liq": -5100,
+      "cost": -6630,
+      "pl_open": 1530,
+      "pl_day": 4271
     },
     {
       "kind": "OPT",
-      "line": "3 P 360 -10 6.975 netliq=-6975.00 cost=-5498.22 pl_open=-1476.78 pl_day=-2925.00",
+      "line": "3 P 360 -10 6.95 netliq=-6950.00 cost=-5498.22 pl_open=-1451.78 pl_day=-2900.00",
       "dte": 3,
       "side": "P",
       "strike": 360,
       "qty": -10,
-      "mark": 6.975,
-      "net_liq": -6975,
+      "mark": 6.95,
+      "net_liq": -6950,
       "cost": -5498.22,
-      "pl_open": -1476.78,
-      "pl_day": -2925
+      "pl_open": -1451.78,
+      "pl_day": -2900
     },
     {
       "kind": "OPT",
-      "line": "3 P 340 +10 0.935 netliq=935.00 cost=881.63 pl_open=53.37 pl_day=310.00",
+      "line": "3 P 340 +10 0.92 netliq=920.00 cost=881.63 pl_open=38.37 pl_day=295.00",
       "dte": 3,
       "side": "P",
       "strike": 340,
       "qty": 10,
-      "mark": 0.935,
-      "net_liq": 935,
+      "mark": 0.92,
+      "net_liq": 920,
       "cost": 881.63,
-      "pl_open": 53.37,
-      "pl_day": 310
+      "pl_open": 38.37,
+      "pl_day": 295
     },
     {
       "kind": "OPT",
-      "line": "3 P 330 -100 0.34 netliq=-3400.00 cost=-3580.00 pl_open=180.00 pl_day=180.00",
+      "line": "3 P 330 -100 0.335 netliq=-3350.00 cost=-3580.00 pl_open=230.00 pl_day=230.00",
       "dte": 3,
       "side": "P",
       "strike": 330,
       "qty": -100,
-      "mark": 0.34,
-      "net_liq": -3400,
+      "mark": 0.335,
+      "net_liq": -3350,
       "cost": -3580,
-      "pl_open": 180,
-      "pl_day": 180
+      "pl_open": 230,
+      "pl_day": 230
     },
     {
       "kind": "OPT",
@@ -1499,146 +1499,146 @@
     },
     {
       "kind": "OPT",
-      "line": "3 C 450 +30 0.05 netliq=150.00 cost=1324.90 pl_open=-1174.90 pl_day=-120.30",
+      "line": "3 C 450 +30 0.045 netliq=135.00 cost=1324.90 pl_open=-1189.90 pl_day=-135.30",
       "dte": 3,
       "side": "C",
       "strike": 450,
       "qty": 30,
-      "mark": 0.05,
-      "net_liq": 150,
+      "mark": 0.045,
+      "net_liq": 135,
       "cost": 1324.9,
-      "pl_open": -1174.9,
-      "pl_day": -120.3
+      "pl_open": -1189.9,
+      "pl_day": -135.3
     },
     {
       "kind": "OPT",
-      "line": "3 C 420 -30 0.095 netliq=-285.00 cost=-3024.94 pl_open=2739.94 pl_day=465.00",
+      "line": "3 C 420 -30 0.105 netliq=-315.00 cost=-3024.94 pl_open=2709.94 pl_day=435.00",
       "dte": 3,
       "side": "C",
       "strike": 420,
       "qty": -30,
-      "mark": 0.095,
-      "net_liq": -285,
+      "mark": 0.105,
+      "net_liq": -315,
       "cost": -3024.94,
-      "pl_open": 2739.94,
-      "pl_day": 465
+      "pl_open": 2709.94,
+      "pl_day": 435
     },
     {
       "kind": "OPT",
-      "line": "3 C 380 +50 0.91 netliq=4550.00 cost=3950.00 pl_open=600.00 pl_day=600.00",
+      "line": "3 C 380 +50 0.89 netliq=4450.00 cost=3950.00 pl_open=500.00 pl_day=500.00",
       "dte": 3,
       "side": "C",
       "strike": 380,
       "qty": 50,
-      "mark": 0.91,
-      "net_liq": 4550,
+      "mark": 0.89,
+      "net_liq": 4450,
       "cost": 3950,
-      "pl_open": 600,
-      "pl_day": 600
+      "pl_open": 500,
+      "pl_day": 500
     },
     {
       "kind": "OPT",
-      "line": "3 C 370 -50 2.33 netliq=-11650.00 cost=-9700.00 pl_open=-1950.00 pl_day=-1950.00",
+      "line": "3 C 370 -50 2.29 netliq=-11450.00 cost=-9700.00 pl_open=-1750.00 pl_day=-1750.00",
       "dte": 3,
       "side": "C",
       "strike": 370,
       "qty": -50,
-      "mark": 2.33,
-      "net_liq": -11650,
+      "mark": 2.29,
+      "net_liq": -11450,
       "cost": -9700,
-      "pl_open": -1950,
-      "pl_day": -1950
+      "pl_open": -1750,
+      "pl_day": -1750
     },
     {
       "kind": "OPT",
-      "line": "10 C 430 +20 0.285 netliq=570.00 cost=563.27 pl_open=6.73 pl_day=1668.40",
+      "line": "10 C 430 +20 0.31 netliq=620.00 cost=563.27 pl_open=56.73 pl_day=1718.40",
       "dte": 10,
       "side": "C",
       "strike": 430,
       "qty": 20,
-      "mark": 0.285,
-      "net_liq": 570,
+      "mark": 0.31,
+      "net_liq": 620,
       "cost": 563.27,
-      "pl_open": 6.73,
-      "pl_day": 1668.4
+      "pl_open": 56.73,
+      "pl_day": 1718.4
     },
     {
       "kind": "OPT",
-      "line": "10 C 400 -20 0.855 netliq=-1710.00 cost=-1616.63 pl_open=-93.37 pl_day=-6130.00",
+      "line": "10 C 400 -20 0.88 netliq=-1760.00 cost=-1616.63 pl_open=-143.37 pl_day=-6180.00",
       "dte": 10,
       "side": "C",
       "strike": 400,
       "qty": -20,
-      "mark": 0.855,
-      "net_liq": -1710,
+      "mark": 0.88,
+      "net_liq": -1760,
       "cost": -1616.63,
-      "pl_open": -93.37,
-      "pl_day": -6130
+      "pl_open": -143.37,
+      "pl_day": -6180
     },
     {
       "kind": "OPT",
-      "line": "17 C 440 +2 0.51 netliq=102.00 cost=124.33 pl_open=-22.33 pl_day=-84.00",
+      "line": "17 C 440 +2 0.53 netliq=106.00 cost=124.33 pl_open=-18.33 pl_day=-80.00",
       "dte": 17,
       "side": "C",
       "strike": 440,
       "qty": 2,
-      "mark": 0.51,
-      "net_liq": 102,
+      "mark": 0.53,
+      "net_liq": 106,
       "cost": 124.33,
-      "pl_open": -22.33,
-      "pl_day": -84
+      "pl_open": -18.33,
+      "pl_day": -80
     },
     {
       "kind": "OPT",
-      "line": "17 C 400 -2 2.01 netliq=-402.00 cost=-405.65 pl_open=3.65 pl_day=393.00",
+      "line": "17 C 400 -2 2.035 netliq=-407.00 cost=-405.65 pl_open=-1.35 pl_day=388.00",
       "dte": 17,
       "side": "C",
       "strike": 400,
       "qty": -2,
-      "mark": 2.01,
-      "net_liq": -402,
+      "mark": 2.035,
+      "net_liq": -407,
       "cost": -405.65,
-      "pl_open": 3.65,
-      "pl_day": 393
+      "pl_open": -1.35,
+      "pl_day": 388
     },
     {
       "kind": "OPT",
-      "line": "80 P 250 -2 1.76 netliq=-352.00 cost=-2029.67 pl_open=1677.67 pl_day=-31.00",
+      "line": "80 P 250 -2 1.77 netliq=-354.00 cost=-2029.67 pl_open=1675.67 pl_day=-33.00",
       "dte": 80,
       "side": "P",
       "strike": 250,
       "qty": -2,
-      "mark": 1.76,
-      "net_liq": -352,
+      "mark": 1.77,
+      "net_liq": -354,
       "cost": -2029.67,
-      "pl_open": 1677.67,
-      "pl_day": -31
+      "pl_open": 1675.67,
+      "pl_day": -33
     },
     {
       "kind": "OPT",
-      "line": "80 P 150 +2 0.305 netliq=61.00 cost=526.32 pl_open=-465.32 pl_day=-0.22",
+      "line": "80 P 150 +2 0.285 netliq=57.00 cost=526.32 pl_open=-469.32 pl_day=-4.22",
       "dte": 80,
       "side": "P",
       "strike": 150,
       "qty": 2,
-      "mark": 0.305,
-      "net_liq": 61,
+      "mark": 0.285,
+      "net_liq": 57,
       "cost": 526.32,
-      "pl_open": -465.32,
-      "pl_day": -0.22
+      "pl_open": -469.32,
+      "pl_day": -4.22
     },
     {
       "kind": "OPT",
-      "line": "80 C 800 +2 0.375 netliq=75.00 cost=1790.32 pl_open=-1715.32 pl_day=-11.80",
+      "line": "80 C 800 +2 0.355 netliq=71.00 cost=1790.32 pl_open=-1719.32 pl_day=-15.80",
       "dte": 80,
       "side": "C",
       "strike": 800,
       "qty": 2,
-      "mark": 0.375,
-      "net_liq": 75,
+      "mark": 0.355,
+      "net_liq": 71,
       "cost": 1790.32,
-      "pl_open": -1715.32,
-      "pl_day": -11.8
+      "pl_open": -1719.32,
+      "pl_day": -15.8
     },
     {
       "kind": "OPT",
@@ -1655,29 +1655,29 @@
     },
     {
       "kind": "OPT",
-      "line": "108 P 300 -2 9.7 netliq=-1940.00 cost=-3033.60 pl_open=1093.60 pl_day=-205.00",
+      "line": "108 P 300 -2 9.75 netliq=-1950.00 cost=-3033.60 pl_open=1083.60 pl_day=-215.00",
       "dte": 108,
       "side": "P",
       "strike": 300,
       "qty": -2,
-      "mark": 9.7,
-      "net_liq": -1940,
+      "mark": 9.75,
+      "net_liq": -1950,
       "cost": -3033.6,
-      "pl_open": 1093.6,
-      "pl_day": -205
+      "pl_open": 1083.6,
+      "pl_day": -215
     },
     {
       "kind": "OPT",
-      "line": "108 P 260 +2 3.525 netliq=705.00 cost=1450.32 pl_open=-745.32 pl_day=60.00",
+      "line": "108 P 260 +2 3.55 netliq=710.00 cost=1450.32 pl_open=-740.32 pl_day=65.00",
       "dte": 108,
       "side": "P",
       "strike": 260,
       "qty": 2,
-      "mark": 3.525,
-      "net_liq": 705,
+      "mark": 3.55,
+      "net_liq": 710,
       "cost": 1450.32,
-      "pl_open": -745.32,
-      "pl_day": 60
+      "pl_open": -740.32,
+      "pl_day": 65
     },
     {
       "kind": "OPT",
@@ -1694,29 +1694,29 @@
     },
     {
       "kind": "OPT",
-      "line": "108 C 600 -2 2.095 netliq=-419.00 cost=-5169.67 pl_open=4750.67 pl_day=104.96",
+      "line": "108 C 600 -2 2.11 netliq=-422.00 cost=-5169.67 pl_open=4747.67 pl_day=101.96",
       "dte": 108,
       "side": "C",
       "strike": 600,
       "qty": -2,
-      "mark": 2.095,
-      "net_liq": -419,
+      "mark": 2.11,
+      "net_liq": -422,
       "cost": -5169.67,
-      "pl_open": 4750.67,
-      "pl_day": 104.96
+      "pl_open": 4747.67,
+      "pl_day": 101.96
     },
     {
       "kind": "OPT",
-      "line": "136 P 250 -2 3.85 netliq=-770.00 cost=-1219.63 pl_open=449.63 pl_day=-55.00",
+      "line": "136 P 250 -2 3.875 netliq=-775.00 cost=-1219.63 pl_open=444.63 pl_day=-60.00",
       "dte": 136,
       "side": "P",
       "strike": 250,
       "qty": -2,
-      "mark": 3.85,
-      "net_liq": -770,
+      "mark": 3.875,
+      "net_liq": -775,
       "cost": -1219.63,
-      "pl_open": 449.63,
-      "pl_day": -55
+      "pl_open": 444.63,
+      "pl_day": -60
     },
     {
       "kind": "OPT",
@@ -1733,94 +1733,94 @@
     },
     {
       "kind": "OPT",
-      "line": "136 C 600 +2 3.15 netliq=630.00 cost=720.33 pl_open=-90.33 pl_day=-155.00",
+      "line": "136 C 600 +2 3.2 netliq=640.00 cost=720.33 pl_open=-80.33 pl_day=-145.00",
       "dte": 136,
       "side": "C",
       "strike": 600,
       "qty": 2,
-      "mark": 3.15,
-      "net_liq": 630,
+      "mark": 3.2,
+      "net_liq": 640,
       "cost": 720.33,
-      "pl_open": -90.33,
-      "pl_day": -155
+      "pl_open": -80.33,
+      "pl_day": -145
     },
     {
       "kind": "OPT",
-      "line": "136 C 500 -2 7.85 netliq=-1570.00 cost=-1723.62 pl_open=153.62 pl_day=385.00",
+      "line": "136 C 500 -2 7.875 netliq=-1575.00 cost=-1723.62 pl_open=148.62 pl_day=380.00",
       "dte": 136,
       "side": "C",
       "strike": 500,
       "qty": -2,
-      "mark": 7.85,
-      "net_liq": -1570,
+      "mark": 7.875,
+      "net_liq": -1575,
       "cost": -1723.62,
-      "pl_open": 153.62,
-      "pl_day": 385
+      "pl_open": 148.62,
+      "pl_day": 380
     },
     {
       "kind": "OPT",
-      "line": "199 P 250 -1 7.175 netliq=-717.50 cost=-1709.84 pl_open=992.34 pl_day=-50.00",
+      "line": "199 P 250 -1 7.275 netliq=-727.50 cost=-1709.84 pl_open=982.34 pl_day=-60.00",
       "dte": 199,
       "side": "P",
       "strike": 250,
       "qty": -1,
-      "mark": 7.175,
-      "net_liq": -717.5,
+      "mark": 7.275,
+      "net_liq": -727.5,
       "cost": -1709.84,
-      "pl_open": 992.34,
-      "pl_day": -50
+      "pl_open": 982.34,
+      "pl_day": -60
     },
     {
       "kind": "OPT",
-      "line": "199 P 100 +1 0.455 netliq=45.50 cost=218.16 pl_open=-172.66 pl_day=-0.78",
+      "line": "199 P 100 +1 0.45 netliq=45.00 cost=218.16 pl_open=-173.16 pl_day=-1.28",
       "dte": 199,
       "side": "P",
       "strike": 100,
       "qty": 1,
-      "mark": 0.455,
-      "net_liq": 45.5,
+      "mark": 0.45,
+      "net_liq": 45,
       "cost": 218.16,
-      "pl_open": -172.66,
-      "pl_day": -0.78
+      "pl_open": -173.16,
+      "pl_day": -1.28
     },
     {
       "kind": "OPT",
-      "line": "199 C 850 +1 2.19 netliq=219.00 cost=1305.16 pl_open=-1086.16 pl_day=-26.95",
+      "line": "199 C 850 +1 2.185 netliq=218.50 cost=1305.16 pl_open=-1086.66 pl_day=-27.45",
       "dte": 199,
       "side": "C",
       "strike": 850,
       "qty": 1,
-      "mark": 2.19,
-      "net_liq": 219,
+      "mark": 2.185,
+      "net_liq": 218.5,
       "cost": 1305.16,
-      "pl_open": -1086.16,
-      "pl_day": -26.95
+      "pl_open": -1086.66,
+      "pl_day": -27.45
     },
     {
       "kind": "OPT",
-      "line": "199 C 700 -1 4.05 netliq=-405.00 cost=-2267.84 pl_open=1862.84 pl_day=72.50",
+      "line": "199 C 700 -1 4.025 netliq=-402.50 cost=-2267.84 pl_open=1865.34 pl_day=75.00",
       "dte": 199,
       "side": "C",
       "strike": 700,
       "qty": -1,
-      "mark": 4.05,
-      "net_liq": -405,
+      "mark": 4.025,
+      "net_liq": -402.5,
       "cost": -2267.84,
-      "pl_open": 1862.84,
-      "pl_day": 72.5
+      "pl_open": 1865.34,
+      "pl_day": 75
     },
     {
       "kind": "OPT",
-      "line": "289 P 300 -2 26.075 netliq=-5215.00 cost=-6467.54 pl_open=1252.54 pl_day=-291.02",
+      "line": "289 P 300 -2 26.125 netliq=-5225.00 cost=-6467.54 pl_open=1242.54 pl_day=-301.02",
       "dte": 289,
       "side": "P",
       "strike": 300,
       "qty": -2,
-      "mark": 26.075,
-      "net_liq": -5215,
+      "mark": 26.125,
+      "net_liq": -5225,
       "cost": -6467.54,
-      "pl_open": 1252.54,
-      "pl_day": -291.02
+      "pl_open": 1242.54,
+      "pl_day": -301.02
     },
     {
       "kind": "OPT",
@@ -1850,29 +1850,29 @@
     },
     {
       "kind": "OPT",
-      "line": "289 C 700 -2 8.725 netliq=-1745.00 cost=-4499.58 pl_open=2754.58 pl_day=285.00",
+      "line": "289 C 700 -2 8.65 netliq=-1730.00 cost=-4499.58 pl_open=2769.58 pl_day=300.00",
       "dte": 289,
       "side": "C",
       "strike": 700,
       "qty": -2,
-      "mark": 8.725,
-      "net_liq": -1745,
+      "mark": 8.65,
+      "net_liq": -1730,
       "cost": -4499.58,
-      "pl_open": 2754.58,
-      "pl_day": 285
+      "pl_open": 2769.58,
+      "pl_day": 300
     },
     {
       "kind": "OPT",
-      "line": "381 P 300 -2 32.675 netliq=-6535.00 cost=-7685.51 pl_open=1150.51 pl_day=-310.00",
+      "line": "381 P 300 -2 32.65 netliq=-6530.00 cost=-7685.51 pl_open=1155.51 pl_day=-305.00",
       "dte": 381,
       "side": "P",
       "strike": 300,
       "qty": -2,
-      "mark": 32.675,
-      "net_liq": -6535,
+      "mark": 32.65,
+      "net_liq": -6530,
       "cost": -7685.51,
-      "pl_open": 1150.51,
-      "pl_day": -310
+      "pl_open": 1155.51,
+      "pl_day": -305
     },
     {
       "kind": "OPT",
@@ -1889,42 +1889,42 @@
     },
     {
       "kind": "OPT",
-      "line": "381 C 800 +2 9.95 netliq=1990.00 cost=4654.32 pl_open=-2664.32 pl_day=-275.00",
+      "line": "381 C 800 +2 10.0 netliq=2000.00 cost=4654.32 pl_open=-2654.32 pl_day=-265.00",
       "dte": 381,
       "side": "C",
       "strike": 800,
       "qty": 2,
-      "mark": 9.95,
-      "net_liq": 1990,
+      "mark": 10,
+      "net_liq": 2000,
       "cost": 4654.32,
-      "pl_open": -2664.32,
-      "pl_day": -275
+      "pl_open": -2654.32,
+      "pl_day": -265
     },
     {
       "kind": "OPT",
-      "line": "381 C 700 -2 14.225 netliq=-2845.00 cost=-6235.54 pl_open=3390.54 pl_day=412.90",
+      "line": "381 C 700 -2 14.3 netliq=-2860.00 cost=-6235.54 pl_open=3375.54 pl_day=397.90",
       "dte": 381,
       "side": "C",
       "strike": 700,
       "qty": -2,
-      "mark": 14.225,
-      "net_liq": -2845,
+      "mark": 14.3,
+      "net_liq": -2860,
       "cost": -6235.54,
-      "pl_open": 3390.54,
-      "pl_day": 412.9
+      "pl_open": 3375.54,
+      "pl_day": 397.9
     },
     {
       "kind": "OPT",
-      "line": "472 P 300 -1 38.35 netliq=-3835.00 cost=-4424.75 pl_open=589.75 pl_day=-147.09",
+      "line": "472 P 300 -1 38.375 netliq=-3837.50 cost=-4424.75 pl_open=587.25 pl_day=-149.59",
       "dte": 472,
       "side": "P",
       "strike": 300,
       "qty": -1,
-      "mark": 38.35,
-      "net_liq": -3835,
+      "mark": 38.375,
+      "net_liq": -3837.5,
       "cost": -4424.75,
-      "pl_open": 589.75,
-      "pl_day": -147.09
+      "pl_open": 587.25,
+      "pl_day": -149.59
     },
     {
       "kind": "OPT",
@@ -1941,16 +1941,16 @@
     },
     {
       "kind": "OPT",
-      "line": "472 C 900 +1 11.05 netliq=1105.00 cost=2430.16 pl_open=-1325.16 pl_day=-155.13",
+      "line": "472 C 900 +1 11.075 netliq=1107.50 cost=2430.16 pl_open=-1322.66 pl_day=-152.63",
       "dte": 472,
       "side": "C",
       "strike": 900,
       "qty": 1,
-      "mark": 11.05,
-      "net_liq": 1105,
+      "mark": 11.075,
+      "net_liq": 1107.5,
       "cost": 2430.16,
-      "pl_open": -1325.16,
-      "pl_day": -155.13
+      "pl_open": -1322.66,
+      "pl_day": -152.63
     },
     {
       "kind": "OPT",
@@ -1967,81 +1967,81 @@
     },
     {
       "kind": "OPT",
-      "line": "507 P 250 -1 22.525 netliq=-2252.50 cost=-2426.79 pl_open=174.29 pl_day=-82.50",
+      "line": "507 P 250 -1 22.4 netliq=-2240.00 cost=-2426.79 pl_open=186.79 pl_day=-70.00",
       "dte": 507,
       "side": "P",
       "strike": 250,
       "qty": -1,
-      "mark": 22.525,
-      "net_liq": -2252.5,
+      "mark": 22.4,
+      "net_liq": -2240,
       "cost": -2426.79,
-      "pl_open": 174.29,
-      "pl_day": -82.5
+      "pl_open": 186.79,
+      "pl_day": -70
     },
     {
       "kind": "OPT",
-      "line": "507 P 50 +1 0.335 netliq=33.50 cost=39.16 pl_open=-5.66 pl_day=-5.19",
+      "line": "507 P 50 +1 0.355 netliq=35.50 cost=39.16 pl_open=-3.66 pl_day=-3.19",
       "dte": 507,
       "side": "P",
       "strike": 50,
       "qty": 1,
-      "mark": 0.335,
-      "net_liq": 33.5,
+      "mark": 0.355,
+      "net_liq": 35.5,
       "cost": 39.16,
-      "pl_open": -5.66,
-      "pl_day": -5.19
+      "pl_open": -3.66,
+      "pl_day": -3.19
     },
     {
       "kind": "OPT",
-      "line": "507 C 900 +1 12.6 netliq=1260.00 cost=2699.16 pl_open=-1439.16 pl_day=-161.58",
+      "line": "507 C 900 +1 12.525 netliq=1252.50 cost=2699.16 pl_open=-1446.66 pl_day=-169.08",
       "dte": 507,
       "side": "C",
       "strike": 900,
       "qty": 1,
-      "mark": 12.6,
-      "net_liq": 1260,
+      "mark": 12.525,
+      "net_liq": 1252.5,
       "cost": 2699.16,
-      "pl_open": -1439.16,
-      "pl_day": -161.58
+      "pl_open": -1446.66,
+      "pl_day": -169.08
     },
     {
       "kind": "OPT",
-      "line": "507 C 700 -1 22.75 netliq=-2275.00 cost=-4307.75 pl_open=2032.75 pl_day=270.73",
+      "line": "507 C 700 -1 22.725 netliq=-2272.50 cost=-4307.75 pl_open=2035.25 pl_day=273.23",
       "dte": 507,
       "side": "C",
       "strike": 700,
       "qty": -1,
-      "mark": 22.75,
-      "net_liq": -2275,
+      "mark": 22.725,
+      "net_liq": -2272.5,
       "cost": -4307.75,
-      "pl_open": 2032.75,
-      "pl_day": 270.73
+      "pl_open": 2035.25,
+      "pl_day": 273.23
     },
     {
       "kind": "OPT",
-      "line": "654 C 900 +1 20.625 netliq=2062.50 cost=3780.16 pl_open=-1717.66 pl_day=-236.06",
+      "line": "654 C 900 +1 20.55 netliq=2055.00 cost=3780.16 pl_open=-1725.16 pl_day=-243.56",
       "dte": 654,
       "side": "C",
       "strike": 900,
       "qty": 1,
-      "mark": 20.625,
-      "net_liq": 2062.5,
+      "mark": 20.55,
+      "net_liq": 2055,
       "cost": 3780.16,
-      "pl_open": -1717.66,
-      "pl_day": -236.06
+      "pl_open": -1725.16,
+      "pl_day": -243.56
     },
     {
       "kind": "OPT",
-      "line": "654 C 700 -1 33.9 netliq=-3390.00 cost=-5649.72 pl_open=2259.72 pl_day=328.85",
+      "line": "654 C 700 -1 33.85 netliq=-3385.00 cost=-5649.72 pl_open=2264.72 pl_day=333.85",
       "dte": 654,
       "side": "C",
       "strike": 700,
       "qty": -1,
-      "mark": 33.9,
-      "net_liq": -3390,
+      "mark": 33.85,
+      "net_liq": -3385,
       "cost": -5649.72,
-      "pl_open": 2259.72,
-      "pl_day": 328.85
+      "pl_open": 2264.72,
+      "pl_day": 333.85
     },
     {
       "kind": "OPT",
@@ -2058,29 +2058,29 @@
     },
     {
       "kind": "OPT",
-      "line": "836 P 50 +1 0.815 netliq=81.50 cost=171.16 pl_open=-89.66 pl_day=2.68",
+      "line": "836 P 50 +1 0.82 netliq=82.00 cost=171.16 pl_open=-89.16 pl_day=3.18",
       "dte": 836,
       "side": "P",
       "strike": 50,
       "qty": 1,
-      "mark": 0.815,
-      "net_liq": 81.5,
+      "mark": 0.82,
+      "net_liq": 82,
       "cost": 171.16,
-      "pl_open": -89.66,
-      "pl_day": 2.68
+      "pl_open": -89.16,
+      "pl_day": 3.18
     },
     {
       "kind": "OPT",
-      "line": "836 C 850 +1 33.975 netliq=3397.50 cost=5994.16 pl_open=-2596.66 pl_day=-315.10",
+      "line": "836 C 850 +1 34.025 netliq=3402.50 cost=5994.16 pl_open=-2591.66 pl_day=-310.10",
       "dte": 836,
       "side": "C",
       "strike": 850,
       "qty": 1,
-      "mark": 33.975,
-      "net_liq": 3397.5,
+      "mark": 34.025,
+      "net_liq": 3402.5,
       "cost": 5994.16,
-      "pl_open": -2596.66,
-      "pl_day": -315.1
+      "pl_open": -2591.66,
+      "pl_day": -310.1
     },
     {
       "kind": "OPT",
@@ -2097,13 +2097,13 @@
     },
     {
       "kind": "STK",
-      "line": "STK +1 358.46 netliq=358.46 cost=309.60 pl_open=48.86 pl_day=-9.49",
+      "line": "STK +1 358.35 netliq=358.35 cost=309.60 pl_open=48.74 pl_day=-9.61",
       "qty": 1,
-      "mark": 358.46,
-      "net_liq": 358.46,
+      "mark": 358.35,
+      "net_liq": 358.35,
       "cost": 309.6,
-      "pl_open": 48.86,
-      "pl_day": -9.49
+      "pl_open": 48.74,
+      "pl_day": -9.61
     }
   ],
   "orders": [
@@ -2122,36 +2122,36 @@
     {
       "letter": "W",
       "status_class": "working",
-      "time": "0959",
-      "side": "B",
-      "structure": "350P/360P",
-      "qty": 7,
-      "price": 3,
-      "line": "W 0959 B 350P/360P 7 3.0",
-      "is_fill": false,
-      "is_working": true
-    },
-    {
-      "letter": "W",
-      "status_class": "working",
-      "time": "1020",
-      "side": "B",
-      "structure": "385C/375C",
-      "qty": 150,
-      "price": 0.15,
-      "line": "W 1020 B 385C/375C 150 0.15",
-      "is_fill": false,
-      "is_working": true
-    },
-    {
-      "letter": "W",
-      "status_class": "working",
-      "time": "1021",
+      "time": "1052",
       "side": "B",
       "structure": "380C/370C",
       "qty": 20,
       "price": 1.1,
-      "line": "W 1021 B 380C/370C 20 1.1",
+      "line": "W 1052 B 380C/370C 20 1.1",
+      "is_fill": false,
+      "is_working": true
+    },
+    {
+      "letter": "W",
+      "status_class": "working",
+      "time": "1121",
+      "side": "B",
+      "structure": "350P/360P",
+      "qty": 15,
+      "price": 3.4,
+      "line": "W 1121 B 350P/360P 15 3.4",
+      "is_fill": false,
+      "is_working": true
+    },
+    {
+      "letter": "W",
+      "status_class": "working",
+      "time": "1122",
+      "side": "B",
+      "structure": "340P/360P",
+      "qty": 5,
+      "price": 5.5,
+      "line": "W 1122 B 340P/360P 5 5.5",
       "is_fill": false,
       "is_working": true
     },
@@ -2288,6 +2288,18 @@
       "is_working": false
     },
     {
+      "letter": "C",
+      "status_class": "cancelled",
+      "time": "0959",
+      "side": "B",
+      "structure": "350P/360P",
+      "qty": 7,
+      "price": 3,
+      "line": "C 0959 B 350P/360P 7 3.0",
+      "is_fill": false,
+      "is_working": false
+    },
+    {
       "letter": "R",
       "status_class": "replaced",
       "time": "1002",
@@ -2358,28 +2370,64 @@
       "line": "R 1017 B 385C/375C 150 0.18",
       "is_fill": false,
       "is_working": false
+    },
+    {
+      "letter": "F",
+      "status_class": "filled",
+      "time": "1020",
+      "side": "B",
+      "structure": "385C/375C",
+      "qty": 150,
+      "price": 0.15,
+      "line": "F 1020 B 385C/375C 150 0.15",
+      "is_fill": true,
+      "is_working": false
+    },
+    {
+      "letter": "R",
+      "status_class": "replaced",
+      "time": "1021",
+      "side": "B",
+      "structure": "380C/370C",
+      "qty": 20,
+      "price": 1.1,
+      "line": "R 1021 B 380C/370C 20 1.1",
+      "is_fill": false,
+      "is_working": false
+    },
+    {
+      "letter": "R",
+      "status_class": "replaced",
+      "time": "1036",
+      "side": "B",
+      "structure": "380C/370C",
+      "qty": 20,
+      "price": 1.3,
+      "line": "R 1036 B 380C/370C 20 1.3",
+      "is_fill": false,
+      "is_working": false
     }
   ],
   "display_lines": [
-    "=SNAP 2026-09-01 10:24 API",
-    "TSLA 358.4 -2.59% PREV 367.95",
-    "AV 833287 BP 63387 CASH 890257 PL -5613",
-    "SPOT 358.40 · PROFIT CENTER 357.59 · -0.81",
-    "EL BALANCE 358.89 · PUT-heavy $4,337",
+    "=SNAP 2026-09-01 11:22 API",
+    "TSLA 358.31 -2.62% PREV 367.95",
+    "AV 834972 BP 96087 CASH 887957 PL -3927",
+    "SPOT 358.31 · PROFIT CENTER 359.05 · +0.74",
+    "EL BALANCE 360.05 · PUT-heavy $13,079",
     "quality INTERIOR_MONOTONIC coaching true (directional ONLY if INTERIOR_MONOTONIC and reliable_for_directional_coaching true; modeled MTM, not guaranteed real-world profit)"
   ],
-  "block_sha256": "947221dd436a7c8699401f388188feeacaac18317fa1b5c62925889bfe318eba",
-  "account_value": 833287,
-  "buying_power": 63387,
-  "cash": 890257,
-  "pnl_day": -5613,
-  "payload_sha256": "065cd0dbd12a929e66c4999e70a88d4cc0a385cf9f91287e351b9e1c5db827d0",
+  "block_sha256": "ee88634bae7ff3a6b043c30f2129cfc4335bcd90fe2411fb249b4509dd1b6fc1",
+  "account_value": 834972,
+  "buying_power": 96087,
+  "cash": 887957,
+  "pnl_day": -3927,
+  "payload_sha256": "de353de86c5e4c300087c2d5203f0396f08e100af52221c4abd80f1b3f1eeaba",
   "decisions": [],
   "day_pnl_track": [
     {
-      "t": "10:20",
-      "pnl": -5613.0,
-      "tsla": 358.4,
+      "t": "11:20",
+      "pnl": -3927.0,
+      "tsla": 358.31,
       "tsla_source": "quote"
     }
   ],
@@ -2387,18 +2435,18 @@
     "derived: trailing_40d_pnl null — fewer than 40 prior trading-session P&L values (have 4; source=internal schwab account.pnl_day + activity day_pnl; weekends excluded because only session files exist; do not compute a partial window)"
   ],
   "expected_move": {
-    "spot": 358.405,
-    "vix": 15.46,
+    "spot": 358.315,
+    "vix": 15.38,
     "atm_straddle": null,
     "atm_straddle_near_term": null,
     "vix_implied": {
       "source": "vix",
-      "one_day": 3.4905,
-      "one_day_pct": 0.9739,
-      "five_day": 7.8049,
-      "five_day_pct": 2.1777,
-      "twenty_one_day": 15.9953,
-      "twenty_one_day_pct": 4.4629
+      "one_day": 3.4715,
+      "one_day_pct": 0.9688,
+      "five_day": 7.7626,
+      "five_day_pct": 2.1664,
+      "twenty_one_day": 15.9086,
+      "twenty_one_day_pct": 4.4398
     }
   },
   "req_status": {
@@ -2415,6 +2463,6 @@
   "shared_builder": "shared_snapshot.build_report",
   "shared_builder_version": "v1.1",
   "output_kind": "snap",
-  "output_path": "snap_055.json",
-  "hashed_block": "947221dd436a7c8699401f388188feeacaac18317fa1b5c62925889bfe318eba"
+  "output_path": "snap_056.json",
+  "hashed_block": "ee88634bae7ff3a6b043c30f2129cfc4335bcd90fe2411fb249b4509dd1b6fc1"
 }
