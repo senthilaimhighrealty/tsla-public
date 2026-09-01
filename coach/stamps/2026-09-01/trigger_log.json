@@ -918,5 +918,15 @@
       "latest.json",
       "dr/coach_174.json"
     ]
+  },
+  {
+    "slot": 175,
+    "generated_at": "2026-09-01T18:31:33-04:00",
+    "payload_sha256": "8ad5a2280f5c45f10bffaf33b392663d92b10e5c00f80a5a489ba07d93bcaff4",
+    "files_written": [
+      "coach_175.json",
+      "latest.json",
+      "dr/coach_175.json"
+    ]
   }
 ]
