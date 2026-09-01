@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-09-01T17:53:08.704-04:00",
+  "generated_at": "2026-09-01T18:16:58.583-04:00",
   "session_date": "2026-09-01",
-  "snapshot_time": "17:53",
+  "snapshot_time": "18:16",
   "slot": "coach",
   "source": "schwab api",
   "trigger": "coach_5min",
-  "block": "=SNAP 2026-09-01 17:53 API\nTSLA 355.36 -3.42% PREV 367.95\nAV 836426 BP 124326 CASH 871196 PL -2473\n=POS\n1 P 340 -145 0.165 netliq=-2392.50 cost=-4060.00 pl_open=1667.50 pl_day=1722.50\n1 P 320 +145 0.045 netliq=652.50 cost=1015.00 pl_open=-362.50 pl_day=-377.50\n1 C 385 +100 0.07 netliq=700.00 cost=1180.00 pl_open=-480.00 pl_day=-928.00\n1 C 375 -100 0.155 netliq=-1550.00 cost=-3100.00 pl_open=1550.00 pl_day=5521.00\n3 P 330 -100 0.37 netliq=-3700.00 cost=-3580.00 pl_open=-120.00 pl_day=-120.00\n3 P 310 +100 0.125 netliq=1250.00 cost=1380.00 pl_open=-130.00 pl_day=-130.00\n3 C 450 +30 0.035 netliq=105.00 cost=1324.90 pl_open=-1219.90 pl_day=-165.30\n3 C 420 -30 0.095 netliq=-285.00 cost=-3024.94 pl_open=2739.94 pl_day=465.00\n3 C 390 +35 0.33 netliq=1155.00 cost=1295.00 pl_open=-140.00 pl_day=-140.00\n3 C 375 -35 1.085 netliq=-3797.50 cost=-4200.00 pl_open=402.50 pl_day=402.50\n10 C 430 +20 0.295 netliq=590.00 cost=563.27 pl_open=26.73 pl_day=1688.40\n10 C 400 -20 0.81 netliq=-1620.00 cost=-1616.63 pl_open=-3.37 pl_day=-6040.00\n17 C 440 +2 0.52 netliq=104.00 cost=124.33 pl_open=-20.33 pl_day=-82.00\n17 C 400 -2 1.88 netliq=-376.00 cost=-405.65 pl_open=29.65 pl_day=419.00\n80 P 250 -2 1.855 netliq=-371.00 cost=-2029.67 pl_open=1658.67 pl_day=-50.00\n80 P 150 +2 0.31 netliq=62.00 cost=526.32 pl_open=-464.32 pl_day=0.78\n80 C 800 +2 0.37 netliq=74.00 cost=1790.32 pl_open=-1716.32 pl_day=-12.80\n80 C 700 -2 0.61 netliq=-122.00 cost=-2919.67 pl_open=2797.67 pl_day=25.42\n108 P 300 -2 10.125 netliq=-2025.00 cost=-3033.60 pl_open=1008.60 pl_day=-290.00\n108 P 260 +2 3.725 netliq=745.00 cost=1450.32 pl_open=-705.32 pl_day=100.00\n108 C 670 +2 1.275 netliq=255.00 cost=3610.32 pl_open=-3355.32 pl_day=-64.46\n108 C 600 -2 2.06 netliq=-412.00 cost=-5169.67 pl_open=4757.67 pl_day=111.96\n136 P 250 -2 4.025 netliq=-805.00 cost=-1219.63 pl_open=414.63 pl_day=-90.00\n136 P 100 +2 0.24 netliq=48.00 cost=322.32 pl_open=-274.32 pl_day=-2.06\n136 C 600 +2 3.1 netliq=620.00 cost=720.33 pl_open=-100.33 pl_day=-165.00\n136 C 500 -2 7.525 netliq=-1505.00 cost=-1723.62 pl_open=218.62 pl_day=450.00\n199 P 250 -1 7.4 netliq=-740.00 cost=-1709.84 pl_open=969.84 pl_day=-72.50\n199 P 100 +1 0.47 netliq=47.00 cost=218.16 pl_open=-171.16 pl_day=0.72\n199 C 850 +1 2.14 netliq=214.00 cost=1305.16 pl_open=-1091.16 pl_day=-31.95\n199 C 700 -1 3.925 netliq=-392.50 cost=-2267.84 pl_open=1875.34 pl_day=85.00\n289 P 300 -2 26.55 netliq=-5310.00 cost=-6467.54 pl_open=1157.54 pl_day=-386.02\n289 P 200 +2 4.85 netliq=970.00 cost=1858.32 pl_open=-888.32 pl_day=38.10\n289 C 800 +2 5.6 netliq=1120.00 cost=3240.32 pl_open=-2120.32 pl_day=-233.20\n289 C 700 -2 8.375 netliq=-1675.00 cost=-4499.58 pl_open=2824.58 pl_day=355.00\n381 P 300 -2 33.075 netliq=-6615.00 cost=-7685.51 pl_open=1070.51 pl_day=-390.00\n381 P 200 +2 7.375 netliq=1475.00 cost=2408.32 pl_open=-933.32 pl_day=54.34\n381 C 800 +2 9.6 netliq=1920.00 cost=4654.32 pl_open=-2734.32 pl_day=-345.00\n381 C 700 -2 13.825 netliq=-2765.00 cost=-6235.54 pl_open=3470.54 pl_day=492.90\n472 P 300 -1 38.75 netliq=-3875.00 cost=-4424.75 pl_open=549.75 pl_day=-187.09\n472 P 100 +1 1.38 netliq=138.00 cost=310.16 pl_open=-172.16 pl_day=0.24\n472 C 900 +1 10.85 netliq=1085.00 cost=2430.16 pl_open=-1345.16 pl_day=-175.13\n472 C 700 -1 19.875 netliq=-1987.50 cost=-3964.76 pl_open=1977.26 pl_day=321.38\n507 P 250 -1 22.625 netliq=-2262.50 cost=-2426.79 pl_open=164.29 pl_day=-92.50\n507 P 50 +1 0.36 netliq=36.00 cost=39.16 pl_open=-3.16 pl_day=-2.69\n507 C 900 +1 12.125 netliq=1212.50 cost=2699.16 pl_open=-1486.66 pl_day=-209.08\n507 C 700 -1 22.075 netliq=-2207.50 cost=-4307.75 pl_open=2100.25 pl_day=338.23\n654 C 900 +1 19.875 netliq=1987.50 cost=3780.16 pl_open=-1792.66 pl_day=-311.06\n654 C 700 -1 32.925 netliq=-3292.50 cost=-5649.72 pl_open=2357.22 pl_day=426.35\n836 P 150 -1 9.1 netliq=-910.00 cost=-1344.84 pl_open=434.84 pl_day=-13.20\n836 P 50 +1 0.82 netliq=82.00 cost=171.16 pl_open=-89.16 pl_day=3.18\n836 C 850 +1 33.05 netliq=3305.00 cost=5994.16 pl_open=-2689.16 pl_day=-407.60\n836 C 750 -1 40.85 netliq=-4085.00 cost=-7079.84 pl_open=2994.84 pl_day=478.87\nSTK +1 355.41 netliq=355.41 cost=309.60 pl_open=45.81 pl_day=-12.54\n=ORDERS\nR 0936 S 375C/385C 400 0.25\nR 0936 S 375C/385C 400 0.27\nR 0936 S 375C/385C 400 0.29\nF 0937 S 375C/385C 400 0.24\nF 0938 S 370C/380C 50 1.15\nF 0938 B 375C/365C 50 0.84\nF 0939 S 365C/375C 50 0.82\nR 0941 B 385C/375C 100 0.15\nF 0944 B 385C/375C 100 0.13\nX 0950 S 340P/325P 300 0.17\nF 0953 B 385C/365C 50 1.7\nF 0955 S 340P/320P 150 0.21\nC 0959 B 350P/360P 7 3.0\nR 1002 S 330P/310P 100 0.24\nC 1009 B 380C/370C 25 1.5\nF 1010 S 330P/310P 100 0.22\nR 1014 B 380C/370C 20 1.3\nR 1014 B 385C/375C 150 0.2\nR 1017 B 385C/375C 150 0.18\nF 1020 B 385C/375C 150 0.15\nR 1021 B 380C/370C 20 1.1\nR 1036 B 380C/370C 20 1.3\nC 1052 B 380C/370C 20 1.1\nF 1121 B 350P/360P 15 3.4\nC 1122 B 340P/360P 5 5.5\nF 1132 B 380C/370C 15 1.4\nC 1240 B 340P/360P 10 6.0\nF 1246 S 375C/390C 35 0.83\nR 1247 B 320P/340P 150 0.08\nF 1307 S 370C/380C 100 0.25\nR 1307 S 370C/380C 100 0.27\nC 1327 B 320P/340P 150 0.08\nR 1329 B 320P/340P 150 0.13\nC 1357 B 320P/340P 145 0.08\nF 1440 B 340P/360P 5 7.8\nF 1451 B 340P/360P 5 7.5\nR 1512 B 380C/370C 35 0.8\nR 1524 B 380C/370C 35 0.95\nR 1524 B 380C/370C 100 0.16\nR 1538 B 380C/370C 35 0.91\nR 1540 B 330P/340P 80 0.08\nR 1540 B 380C/370C 100 0.14\nE 1541 B 330P/340P 100 0.08\nR 1554 B 380C/370C 100 0.16\nR 1554 B 380C/370C 35 1.05\nR 1555 B 380C/370C 35 1.03\nF 1559 B 380C/370C 100 0.2\nF 1559 B 380C/370C 35 1.09\n=COUNTS\nplaced 48 filled 17 working 0 cancelled 7 replaced 22 rejected 1 expired 1\nfill_rate 35.4 replaces_per_fill 1.3\n=END",
+  "block": "=SNAP 2026-09-01 18:16 API\nTSLA 355.19 -3.47% PREV 367.95\nAV 836426 BP 124326 CASH 871196 PL -2473\n=POS\n1 P 340 -145 0.165 netliq=-2392.50 cost=-4060.00 pl_open=1667.50 pl_day=1722.50\n1 P 320 +145 0.045 netliq=652.50 cost=1015.00 pl_open=-362.50 pl_day=-377.50\n1 C 385 +100 0.07 netliq=700.00 cost=1180.00 pl_open=-480.00 pl_day=-928.00\n1 C 375 -100 0.155 netliq=-1550.00 cost=-3100.00 pl_open=1550.00 pl_day=5521.00\n3 P 330 -100 0.37 netliq=-3700.00 cost=-3580.00 pl_open=-120.00 pl_day=-120.00\n3 P 310 +100 0.125 netliq=1250.00 cost=1380.00 pl_open=-130.00 pl_day=-130.00\n3 C 450 +30 0.035 netliq=105.00 cost=1324.90 pl_open=-1219.90 pl_day=-165.30\n3 C 420 -30 0.095 netliq=-285.00 cost=-3024.94 pl_open=2739.94 pl_day=465.00\n3 C 390 +35 0.33 netliq=1155.00 cost=1295.00 pl_open=-140.00 pl_day=-140.00\n3 C 375 -35 1.085 netliq=-3797.50 cost=-4200.00 pl_open=402.50 pl_day=402.50\n10 C 430 +20 0.295 netliq=590.00 cost=563.27 pl_open=26.73 pl_day=1688.40\n10 C 400 -20 0.81 netliq=-1620.00 cost=-1616.63 pl_open=-3.37 pl_day=-6040.00\n17 C 440 +2 0.52 netliq=104.00 cost=124.33 pl_open=-20.33 pl_day=-82.00\n17 C 400 -2 1.88 netliq=-376.00 cost=-405.65 pl_open=29.65 pl_day=419.00\n80 P 250 -2 1.855 netliq=-371.00 cost=-2029.67 pl_open=1658.67 pl_day=-50.00\n80 P 150 +2 0.31 netliq=62.00 cost=526.32 pl_open=-464.32 pl_day=0.78\n80 C 800 +2 0.37 netliq=74.00 cost=1790.32 pl_open=-1716.32 pl_day=-12.80\n80 C 700 -2 0.61 netliq=-122.00 cost=-2919.67 pl_open=2797.67 pl_day=25.42\n108 P 300 -2 10.125 netliq=-2025.00 cost=-3033.60 pl_open=1008.60 pl_day=-290.00\n108 P 260 +2 3.725 netliq=745.00 cost=1450.32 pl_open=-705.32 pl_day=100.00\n108 C 670 +2 1.275 netliq=255.00 cost=3610.32 pl_open=-3355.32 pl_day=-64.46\n108 C 600 -2 2.06 netliq=-412.00 cost=-5169.67 pl_open=4757.67 pl_day=111.96\n136 P 250 -2 4.025 netliq=-805.00 cost=-1219.63 pl_open=414.63 pl_day=-90.00\n136 P 100 +2 0.24 netliq=48.00 cost=322.32 pl_open=-274.32 pl_day=-2.06\n136 C 600 +2 3.1 netliq=620.00 cost=720.33 pl_open=-100.33 pl_day=-165.00\n136 C 500 -2 7.525 netliq=-1505.00 cost=-1723.62 pl_open=218.62 pl_day=450.00\n199 P 250 -1 7.4 netliq=-740.00 cost=-1709.84 pl_open=969.84 pl_day=-72.50\n199 P 100 +1 0.47 netliq=47.00 cost=218.16 pl_open=-171.16 pl_day=0.72\n199 C 850 +1 2.14 netliq=214.00 cost=1305.16 pl_open=-1091.16 pl_day=-31.95\n199 C 700 -1 3.925 netliq=-392.50 cost=-2267.84 pl_open=1875.34 pl_day=85.00\n289 P 300 -2 26.55 netliq=-5310.00 cost=-6467.54 pl_open=1157.54 pl_day=-386.02\n289 P 200 +2 4.85 netliq=970.00 cost=1858.32 pl_open=-888.32 pl_day=38.10\n289 C 800 +2 5.6 netliq=1120.00 cost=3240.32 pl_open=-2120.32 pl_day=-233.20\n289 C 700 -2 8.375 netliq=-1675.00 cost=-4499.58 pl_open=2824.58 pl_day=355.00\n381 P 300 -2 33.075 netliq=-6615.00 cost=-7685.51 pl_open=1070.51 pl_day=-390.00\n381 P 200 +2 7.375 netliq=1475.00 cost=2408.32 pl_open=-933.32 pl_day=54.34\n381 C 800 +2 9.6 netliq=1920.00 cost=4654.32 pl_open=-2734.32 pl_day=-345.00\n381 C 700 -2 13.825 netliq=-2765.00 cost=-6235.54 pl_open=3470.54 pl_day=492.90\n472 P 300 -1 38.75 netliq=-3875.00 cost=-4424.75 pl_open=549.75 pl_day=-187.09\n472 P 100 +1 1.38 netliq=138.00 cost=310.16 pl_open=-172.16 pl_day=0.24\n472 C 900 +1 10.85 netliq=1085.00 cost=2430.16 pl_open=-1345.16 pl_day=-175.13\n472 C 700 -1 19.875 netliq=-1987.50 cost=-3964.76 pl_open=1977.26 pl_day=321.38\n507 P 250 -1 22.625 netliq=-2262.50 cost=-2426.79 pl_open=164.29 pl_day=-92.50\n507 P 50 +1 0.36 netliq=36.00 cost=39.16 pl_open=-3.16 pl_day=-2.69\n507 C 900 +1 12.125 netliq=1212.50 cost=2699.16 pl_open=-1486.66 pl_day=-209.08\n507 C 700 -1 22.075 netliq=-2207.50 cost=-4307.75 pl_open=2100.25 pl_day=338.23\n654 C 900 +1 19.875 netliq=1987.50 cost=3780.16 pl_open=-1792.66 pl_day=-311.06\n654 C 700 -1 32.925 netliq=-3292.50 cost=-5649.72 pl_open=2357.22 pl_day=426.35\n836 P 150 -1 9.1 netliq=-910.00 cost=-1344.84 pl_open=434.84 pl_day=-13.20\n836 P 50 +1 0.82 netliq=82.00 cost=171.16 pl_open=-89.16 pl_day=3.18\n836 C 850 +1 33.05 netliq=3305.00 cost=5994.16 pl_open=-2689.16 pl_day=-407.60\n836 C 750 -1 40.85 netliq=-4085.00 cost=-7079.84 pl_open=2994.84 pl_day=478.87\nSTK +1 355.27 netliq=355.27 cost=309.60 pl_open=45.67 pl_day=-12.68\n=ORDERS\nR 0936 S 375C/385C 400 0.25\nR 0936 S 375C/385C 400 0.27\nR 0936 S 375C/385C 400 0.29\nF 0937 S 375C/385C 400 0.24\nF 0938 S 370C/380C 50 1.15\nF 0938 B 375C/365C 50 0.84\nF 0939 S 365C/375C 50 0.82\nR 0941 B 385C/375C 100 0.15\nF 0944 B 385C/375C 100 0.13\nX 0950 S 340P/325P 300 0.17\nF 0953 B 385C/365C 50 1.7\nF 0955 S 340P/320P 150 0.21\nC 0959 B 350P/360P 7 3.0\nR 1002 S 330P/310P 100 0.24\nC 1009 B 380C/370C 25 1.5\nF 1010 S 330P/310P 100 0.22\nR 1014 B 380C/370C 20 1.3\nR 1014 B 385C/375C 150 0.2\nR 1017 B 385C/375C 150 0.18\nF 1020 B 385C/375C 150 0.15\nR 1021 B 380C/370C 20 1.1\nR 1036 B 380C/370C 20 1.3\nC 1052 B 380C/370C 20 1.1\nF 1121 B 350P/360P 15 3.4\nC 1122 B 340P/360P 5 5.5\nF 1132 B 380C/370C 15 1.4\nC 1240 B 340P/360P 10 6.0\nF 1246 S 375C/390C 35 0.83\nR 1247 B 320P/340P 150 0.08\nF 1307 S 370C/380C 100 0.25\nR 1307 S 370C/380C 100 0.27\nC 1327 B 320P/340P 150 0.08\nR 1329 B 320P/340P 150 0.13\nC 1357 B 320P/340P 145 0.08\nF 1440 B 340P/360P 5 7.8\nF 1451 B 340P/360P 5 7.5\nR 1512 B 380C/370C 35 0.8\nR 1524 B 380C/370C 35 0.95\nR 1524 B 380C/370C 100 0.16\nR 1538 B 380C/370C 35 0.91\nR 1540 B 330P/340P 80 0.08\nR 1540 B 380C/370C 100 0.14\nE 1541 B 330P/340P 100 0.08\nR 1554 B 380C/370C 100 0.16\nR 1554 B 380C/370C 35 1.05\nR 1555 B 380C/370C 35 1.03\nF 1559 B 380C/370C 100 0.2\nF 1559 B 380C/370C 35 1.09\n=COUNTS\nplaced 48 filled 17 working 0 cancelled 7 replaced 22 rejected 1 expired 1\nfill_rate 35.4 replaces_per_fill 1.3\n=END",
   "live": {
-    "as_of": "2026-09-01T17:53:08.704-04:00",
+    "as_of": "2026-09-01T18:16:58.583-04:00",
     "tsla": {
-      "last": 355.36,
-      "bid": 355.31,
-      "ask": 355.41,
+      "last": 355.1869,
+      "bid": 354.85,
+      "ask": 355.27,
       "previous_close": 367.95,
-      "move_pct": -3.42,
+      "move_pct": -3.47,
       "day_high": 362.7,
       "day_low": 352.96,
-      "volume": 36101254
+      "volume": 36121784
     },
     "vix": {
       "last": 16.34,
@@ -25,7 +25,7 @@
     "stale": true
   },
   "chain_marks": {
-    "as_of": "2026-09-01T17:53:16.684-04:00",
+    "as_of": "2026-09-01T18:17:03.678-04:00",
     "strikes": [
       {
         "expiry": "2026-09-02",
@@ -35,7 +35,7 @@
         "bid": 0.04,
         "ask": 0.05,
         "mark": 0.05,
-        "iv": 89.3,
+        "iv": 89.8,
         "volume": 1276,
         "oi": 1772
       },
@@ -47,7 +47,7 @@
         "bid": 0.16,
         "ask": 0.17,
         "mark": 0.17,
-        "iv": 53.5,
+        "iv": 53.9,
         "volume": 13585,
         "oi": 2736
       },
@@ -59,7 +59,7 @@
         "bid": 0.15,
         "ask": 0.16,
         "mark": 0.16,
-        "iv": 57.1,
+        "iv": 57.5,
         "volume": 15371,
         "oi": 4460
       },
@@ -71,8 +71,8 @@
         "bid": 0.06,
         "ask": 0.08,
         "mark": 0.07,
-        "iv": 71.0,
-        "volume": 4624,
+        "iv": 71.4,
+        "volume": 4622,
         "oi": 3188
       },
       {
@@ -83,7 +83,7 @@
         "bid": 0.12,
         "ask": 0.13,
         "mark": 0.13,
-        "iv": 72.5,
+        "iv": 72.6,
         "volume": 316,
         "oi": 1837
       },
@@ -95,7 +95,7 @@
         "bid": 0.36,
         "ask": 0.38,
         "mark": 0.37,
-        "iv": 53.0,
+        "iv": 53.1,
         "volume": 2510,
         "oi": 3597
       },
@@ -107,8 +107,8 @@
         "bid": 1.07,
         "ask": 1.1,
         "mark": 1.09,
-        "iv": 51.0,
-        "volume": 7284,
+        "iv": 51.1,
+        "volume": 7281,
         "oi": 7501
       },
       {
@@ -119,7 +119,7 @@
         "bid": 0.32,
         "ask": 0.34,
         "mark": 0.33,
-        "iv": 58.4,
+        "iv": 58.6,
         "volume": 7660,
         "oi": 11339
       },
@@ -131,7 +131,7 @@
         "bid": 0.09,
         "ask": 0.1,
         "mark": 0.1,
-        "iv": 79.3,
+        "iv": 79.5,
         "volume": 5133,
         "oi": 3547
       },
@@ -143,7 +143,7 @@
         "bid": 0.03,
         "ask": 0.04,
         "mark": 0.04,
-        "iv": 96.3,
+        "iv": 96.4,
         "volume": 701,
         "oi": 3480
       },
@@ -155,8 +155,8 @@
         "bid": 0.8,
         "ask": 0.82,
         "mark": 0.81,
-        "iv": 46.3,
-        "volume": 9022,
+        "iv": 46.4,
+        "volume": 9019,
         "oi": 11148
       },
       {
@@ -201,22 +201,22 @@
     {
       "expiry": "2026-09-02",
       "dte": 1,
-      "atm_iv": 44.7
+      "atm_iv": 45.0
     },
     {
       "expiry": "2026-09-04",
       "dte": 3,
-      "atm_iv": 47.0
+      "atm_iv": 47.1
     },
     {
       "expiry": "2026-09-09",
       "dte": 8,
-      "atm_iv": 36.9
+      "atm_iv": 37.0
     },
     {
       "expiry": "2026-09-11",
       "dte": 10,
-      "atm_iv": 39.1
+      "atm_iv": 39.2
     },
     {
       "expiry": "2026-09-14",
@@ -261,9 +261,9 @@
   "warnings": [
     "PL used Schwab current-initial; session_open missing",
     "next_earnings unknown (no date on file)",
-    "Schwab current-initial PL=-2473.35",
+    "Schwab current-initial PL=-2473.49",
     "trimmed chain_marks ladders for size (368 -> 14)",
-    "derived: BS vs mark 0.40 >= 0.25 for 1 P 340 bs=0.238 mark=0.17"
+    "derived: BS vs mark 0.51 >= 0.25 for 1 P 340 bs=0.257 mark=0.17"
   ],
   "checks": {
     "option_position_lines": 52,
@@ -281,23 +281,23 @@
     "chain_strikes": 14,
     "held_strikes_covered": true,
     "working_strikes_covered": true,
-    "elapsed_seconds": 6.326
+    "elapsed_seconds": 4.725
   },
   "pl_reconciliation": {
     "session_open_account_value": null,
     "av": 836426,
     "pl": -2473,
-    "schwab_current_minus_initial": -2473.35
+    "schwab_current_minus_initial": -2473.49
   },
   "qty_source": "longQuantity - shortQuantity (collector quantity is already signed; used when raw long/short absent)",
   "mark_formula": "marketValue / (signed qty * 100), 3 decimals, not averagePrice",
   "api_timings": {
-    "linked_accounts": 0.65,
-    "account": 0.699,
-    "orders": 0.655,
-    "quotes": 0.559,
-    "transactions": 0.663,
-    "option_chains": 3.75
+    "linked_accounts": 0.328,
+    "account": 0.252,
+    "orders": 0.473,
+    "quotes": 0.178,
+    "transactions": 0.605,
+    "option_chains": 3.217
   },
   "dropped_cx": false,
   "asset_types_seen": {
@@ -327,8 +327,8 @@
   "parsed_block_dte_659": [],
   "parsed_block_dte_15": [],
   "derived": {
-    "as_of": "2026-09-01T17:53:08.704-04:00",
-    "underlying_price": 355.36,
+    "as_of": "2026-09-01T18:16:58.583-04:00",
+    "underlying_price": 355.19,
     "iv_source": "per_expiry_atm_from_term_structure",
     "scope": "0 <= dte <= 45",
     "risk_curve": {
@@ -336,99 +336,99 @@
       "points": [
         {
           "move_pct": -8,
-          "spot": 326.93,
-          "pnl": -193038
+          "spot": 326.77,
+          "pnl": -194482
         },
         {
           "move_pct": -5,
-          "spot": 337.59,
-          "pnl": -73824
+          "spot": 337.43,
+          "pnl": -75244
         },
         {
           "move_pct": -3,
-          "spot": 344.7,
-          "pnl": -24877
+          "spot": 344.53,
+          "pnl": -25728
         },
         {
           "move_pct": -2,
-          "spot": 348.25,
-          "pnl": -11203
+          "spot": 348.09,
+          "pnl": -11723
         },
         {
           "move_pct": -1,
-          "spot": 351.81,
-          "pnl": -3357
+          "spot": 351.64,
+          "pnl": -3586
         },
         {
           "move_pct": 0,
-          "spot": 355.36,
+          "spot": 355.19,
           "pnl": 0
         },
         {
           "move_pct": 1,
-          "spot": 358.91,
-          "pnl": -93
+          "spot": 358.74,
+          "pnl": 79
         },
         {
           "move_pct": 2,
-          "spot": 362.47,
-          "pnl": -3085
+          "spot": 362.29,
+          "pnl": -2775
         },
         {
           "move_pct": 3,
-          "spot": 366.02,
-          "pnl": -8848
+          "spot": 365.85,
+          "pnl": -8405
         },
         {
           "move_pct": 5,
-          "spot": 373.13,
-          "pnl": -28889
+          "spot": 372.95,
+          "pnl": -28134
         },
         {
           "move_pct": 8,
-          "spot": 383.79,
-          "pnl": -75802
+          "spot": 383.61,
+          "pnl": -74623
         }
       ],
       "topline": {
-        "pct_2": -11000,
-        "pct_3": -25000,
-        "pct_5": -74000
+        "pct_2": -12000,
+        "pct_3": -26000,
+        "pct_5": -75000
       }
     },
     "peak": {
-      "spot": 356.99,
-      "pnl": 341,
-      "distance": 1.63,
-      "distance_pct": 0.46,
+      "spot": 357.03,
+      "pnl": 431,
+      "distance": 1.84,
+      "distance_pct": 0.52,
       "peak_at_boundary": false
     },
     "flat_zone": {
-      "lo": 353.14,
-      "hi": 361.14,
+      "lo": 353.18,
+      "hi": 361.13,
       "threshold": 2000,
       "clamped": false
     },
     "theta": {
-      "one_day_flat": 6371,
-      "to_next_expiry": 3262,
+      "one_day_flat": 6587,
+      "to_next_expiry": 3450,
       "next_expiry": "2026-09-02",
       "next_expiry_dte": 1
     },
     "balance_line": {
-      "spot": 355.36,
-      "balance_spot": 357.88,
-      "distance": 2.52,
-      "distance_pct": 0.71,
-      "put_expected_loss": 30110,
-      "call_expected_loss": 14701,
-      "imbalance": 15409,
+      "spot": 355.19,
+      "balance_spot": 357.91,
+      "distance": 2.72,
+      "distance_pct": 0.77,
+      "put_expected_loss": 31180,
+      "call_expected_loss": 14528,
+      "imbalance": 16652,
       "heavier_side": "PUT",
-      "dollars_per_point": 6114,
+      "dollars_per_point": 6116,
       "in_flat_zone": true
     },
     "balance_peak_divergence": {
-      "gap": 0.89,
+      "gap": 0.88,
       "gap_pct": 0.25,
       "flag": ""
     },
@@ -439,11 +439,11 @@
         "side": "P",
         "strike": 340,
         "qty": -145,
-        "distance_pct": -4.32,
-        "iv": 53.5,
-        "p_itm": 5.9,
+        "distance_pct": -4.28,
+        "iv": 53.9,
+        "p_itm": 6.2,
         "risk": 290000,
-        "expected_loss": 17110,
+        "expected_loss": 17980,
         "flag": "",
         "long": 320,
         "width": 20,
@@ -455,8 +455,8 @@
         "side": "C",
         "strike": 375,
         "qty": -100,
-        "distance_pct": 5.53,
-        "iv": 57.1,
+        "distance_pct": 5.58,
+        "iv": 57.5,
         "p_itm": 3.5,
         "risk": 100000,
         "expected_loss": 3500,
@@ -471,11 +471,11 @@
         "side": "C",
         "strike": 375,
         "qty": -35,
-        "distance_pct": 5.53,
-        "iv": 51.0,
-        "p_itm": 11.8,
+        "distance_pct": 5.58,
+        "iv": 51.1,
+        "p_itm": 11.6,
         "risk": 52500,
-        "expected_loss": 6195,
+        "expected_loss": 6090,
         "flag": "AMBER",
         "long": 390,
         "width": 15,
@@ -487,11 +487,11 @@
         "side": "P",
         "strike": 330,
         "qty": -100,
-        "distance_pct": -7.14,
-        "iv": 53.0,
-        "p_itm": 6.5,
+        "distance_pct": -7.09,
+        "iv": 53.1,
+        "p_itm": 6.6,
         "risk": 200000,
-        "expected_loss": 13000,
+        "expected_loss": 13200,
         "flag": "",
         "long": 310,
         "width": 20,
@@ -503,11 +503,11 @@
         "side": "C",
         "strike": 400,
         "qty": -20,
-        "distance_pct": 12.56,
-        "iv": 46.3,
-        "p_itm": 5.7,
+        "distance_pct": 12.62,
+        "iv": 46.4,
+        "p_itm": 5.6,
         "risk": 60000,
-        "expected_loss": 3420,
+        "expected_loss": 3360,
         "flag": "",
         "long": 430,
         "width": 30,
@@ -519,11 +519,11 @@
         "side": "C",
         "strike": 400,
         "qty": -2,
-        "distance_pct": 12.56,
+        "distance_pct": 12.62,
         "iv": 43.8,
-        "p_itm": 9.7,
+        "p_itm": 9.6,
         "risk": 8000,
-        "expected_loss": 776,
+        "expected_loss": 768,
         "flag": "",
         "long": 440,
         "width": 40,
@@ -535,8 +535,8 @@
         "side": "C",
         "strike": 420,
         "qty": -30,
-        "distance_pct": 18.19,
-        "iv": 79.3,
+        "distance_pct": 18.25,
+        "iv": 79.5,
         "p_itm": 0.9,
         "risk": 90000,
         "expected_loss": 810,
@@ -551,18 +551,18 @@
       "red": 0,
       "amber": 1,
       "total_risk": 800500,
-      "total_expected_loss": 44811,
-      "nearest_distance_pct": -4.32
+      "total_expected_loss": 45708,
+      "nearest_distance_pct": -4.28
     },
     "working_order_economics": [],
     "stale": true,
     "profit_center": {
-      "price": 357.01,
-      "pnl_at_center": 341,
-      "distance_from_spot": 1.65,
-      "distance_from_spot_pct": 0.46,
-      "search_lo": 302.06,
-      "search_hi": 408.66,
+      "price": 357.03,
+      "pnl_at_center": 431,
+      "distance_from_spot": 1.84,
+      "distance_from_spot_pct": 0.52,
+      "search_lo": 301.91,
+      "search_hi": 408.47,
       "search_expanded": false,
       "search_hit_boundary": false,
       "toward_center_monotonic": true,
@@ -667,8 +667,8 @@
           "warning": true,
           "limit": 4.0,
           "warn_at": 5.0,
-          "value": 4.322,
-          "min_distance_pct": 4.322,
+          "value": 4.276,
+          "min_distance_pct": 4.276,
           "n_shorts": 2,
           "inside_4pct": 0
         }
@@ -1018,7 +1018,7 @@
         "long": 320.0,
         "depth_pct": -4.3,
         "width_pct": 5.63,
-        "ratio": 1.3,
+        "ratio": 1.32,
         "risk": 290000,
         "inside_10pct": true,
         "flag": "AMBER"
@@ -1029,9 +1029,9 @@
         "side": "CALL",
         "short": 375.0,
         "long": 385.0,
-        "depth_pct": 5.5,
-        "width_pct": 2.81,
-        "ratio": 0.51,
+        "depth_pct": 5.6,
+        "width_pct": 2.82,
+        "ratio": 0.5,
         "risk": 100000,
         "inside_10pct": true,
         "flag": "GREEN"
@@ -1055,9 +1055,9 @@
         "side": "CALL",
         "short": 375.0,
         "long": 450.0,
-        "depth_pct": 5.5,
-        "width_pct": 21.11,
-        "ratio": 3.82,
+        "depth_pct": 5.6,
+        "width_pct": 21.12,
+        "ratio": 3.79,
         "risk": 225000,
         "inside_10pct": true,
         "flag": "RED"
@@ -1069,7 +1069,7 @@
         "short": 400.0,
         "long": 430.0,
         "depth_pct": 12.6,
-        "width_pct": 8.44,
+        "width_pct": 8.45,
         "ratio": 0.67,
         "risk": 60000,
         "inside_10pct": false,
@@ -1083,7 +1083,7 @@
         "long": 440.0,
         "depth_pct": 12.6,
         "width_pct": 11.26,
-        "ratio": 0.9,
+        "ratio": 0.89,
         "risk": 8000,
         "inside_10pct": false,
         "flag": "INERT"
@@ -1100,43 +1100,43 @@
         {
           "expiry": "2026-09-02",
           "dte": 1,
-          "p_put_itm": 5.9,
-          "put_expected_loss": 17110,
+          "p_put_itm": 6.2,
+          "put_expected_loss": 17980,
           "p_call_itm": 3.5,
           "call_expected_loss": 3500,
-          "net": 13610
+          "net": 14480
         },
         {
           "expiry": "2026-09-04",
           "dte": 3,
-          "p_put_itm": 6.5,
-          "put_expected_loss": 13000,
+          "p_put_itm": 6.6,
+          "put_expected_loss": 13200,
           "p_call_itm": 0.9,
-          "call_expected_loss": 7005,
-          "net": 5995
+          "call_expected_loss": 6900,
+          "net": 6300
         },
         {
           "expiry": "2026-09-11",
           "dte": 10,
           "p_put_itm": null,
           "put_expected_loss": 0,
-          "p_call_itm": 5.7,
-          "call_expected_loss": 3420,
-          "net": -3420
+          "p_call_itm": 5.6,
+          "call_expected_loss": 3360,
+          "net": -3360
         },
         {
           "expiry": "2026-09-18",
           "dte": 17,
           "p_put_itm": null,
           "put_expected_loss": 0,
-          "p_call_itm": 9.7,
-          "call_expected_loss": 776,
-          "net": -776
+          "p_call_itm": 9.6,
+          "call_expected_loss": 768,
+          "net": -768
         }
       ],
-      "total_put": 30110,
-      "total_call": 14701,
-      "total": 44811,
+      "total_put": 31180,
+      "total_call": 14528,
+      "total": 45708,
       "iv_source": "per_leg_chain_or_expiry_atm"
     }
   },
@@ -1824,13 +1824,13 @@
     },
     {
       "kind": "STK",
-      "line": "STK +1 355.41 netliq=355.41 cost=309.60 pl_open=45.81 pl_day=-12.54",
+      "line": "STK +1 355.27 netliq=355.27 cost=309.60 pl_open=45.67 pl_day=-12.68",
       "qty": 1,
-      "mark": 355.41,
-      "net_liq": 355.41,
+      "mark": 355.27,
+      "net_liq": 355.27,
       "cost": 309.6,
-      "pl_open": 45.81,
-      "pl_day": -12.54
+      "pl_open": 45.67,
+      "pl_day": -12.68
     }
   ],
   "orders": [
@@ -2412,14 +2412,14 @@
     }
   ],
   "display_lines": [
-    "=SNAP 2026-09-01 17:53 API",
-    "TSLA 355.36 -3.42% PREV 367.95",
+    "=SNAP 2026-09-01 18:16 API",
+    "TSLA 355.19 -3.47% PREV 367.95",
     "AV 836426 BP 124326 CASH 871196 PL -2473",
-    "SPOT 355.36 · PROFIT CENTER 357.01 · +1.65",
-    "EL BALANCE 357.88 · PUT-heavy $15,409",
+    "SPOT 355.19 · PROFIT CENTER 357.03 · +1.84",
+    "EL BALANCE 357.91 · PUT-heavy $16,652",
     "quality INTERIOR_MONOTONIC coaching true (directional ONLY if INTERIOR_MONOTONIC and reliable_for_directional_coaching true; modeled MTM, not guaranteed real-world profit)"
   ],
-  "block_sha256": "bc658772bef03466bb90ca6d0a2dbb68a8ecf30a2707f9ece7d2584eceed1ebb",
+  "block_sha256": "b512feb0ca8f13e2948aea5c64cda1c0db31c013d2f33031fdf19568eafa5751",
   "account_value": 836426,
   "buying_power": 124326,
   "cash": 871196,
@@ -2427,9 +2427,9 @@
   "decisions": [],
   "day_pnl_track": [
     {
-      "t": "17:50",
+      "t": "18:15",
       "pnl": -2473.0,
-      "tsla": 355.36,
+      "tsla": 355.19,
       "tsla_source": "quote"
     }
   ],
@@ -2437,17 +2437,17 @@
     "derived: trailing_40d_pnl null — fewer than 40 prior trading-session P&L values (have 4; source=internal schwab account.pnl_day + activity day_pnl; weekends excluded because only session files exist; do not compute a partial window)"
   ],
   "expected_move": {
-    "spot": 355.36,
+    "spot": 355.1869,
     "vix": 16.34,
     "atm_straddle": null,
     "atm_straddle_near_term": null,
     "vix_implied": {
       "source": "vix",
-      "one_day": 3.6578,
+      "one_day": 3.656,
       "one_day_pct": 1.0293,
-      "five_day": 8.1791,
+      "five_day": 8.1751,
       "five_day_pct": 2.3016,
-      "twenty_one_day": 16.7622,
+      "twenty_one_day": 16.754,
       "twenty_one_day_pct": 4.717
     }
   },
@@ -2465,6 +2465,6 @@
   "shared_builder": "shared_snapshot.build_report",
   "shared_builder_version": "v1.1",
   "output_kind": "coach",
-  "output_path": "coach/stamps/2026-09-01/coach_167.json",
-  "payload_sha256": "46edbdfbf90bf3cbab13bfddc0b67c5f1819e0390aa73184d5dc2c45c5fbaeef"
+  "output_path": "coach/stamps/2026-09-01/coach_172.json",
+  "payload_sha256": "c368e56096766b2250f73bd717187cc701dc05ca7d33bcbd8dc592879f4e0c8a"
 }
